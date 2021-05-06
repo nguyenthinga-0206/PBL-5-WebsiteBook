@@ -23,7 +23,7 @@ import {
   Checkbox,
   Heading,
 } from "@chakra-ui/react";
-import { Input } from "@chakra-ui/react"
+import { Input } from "@chakra-ui/react";
 import {
   Stat,
   StatLabel,
@@ -87,22 +87,41 @@ export default function TrangChu() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            <Image
-              borderRadius="full"
-              boxSize={8}
-              src="img/174565564_425141958935941_7685741740636742721_n.png"
-              alt="Segun Adebayo"
-            />
+            <Link
+              onClick={(event) => {
+                router.push("/trang-chu");
+              }}
+            >
+              <Image
+                borderRadius="full"
+                boxSize={8}
+                src="img/logo1.jpg"
+                alt="Segun Adebayo"
+              />
+            </Link>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
-         
-          <Input ml={24} w={'50%'} placeholder="Tìm kiếm" />
-         
-        </Flex>
 
+          <Input ml={324} w={"50%"} placeholder="Tìm kiếm" />
+
+          <Link
+            onClick={(event) => {
+              router.push("/gio-hang");
+            }}
+          >
+            {" "}
+            <Image
+              ml={24}
+              borderRadius="full"
+              boxSize={8}
+              src="img/giohang2.png"
+              alt="Segun Adebayo"
+            />
+          </Link>
+        </Flex>
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -145,7 +164,7 @@ export default function TrangChu() {
       <Grid h="35px" templateRows="repeat(1, 3fr)" gap={4}>
         <GridItem colSpan={1} rowSpan={1} bg="gray.200">
           {" "}
-          url
+          
         </GridItem>
       </Grid>
       <Container maxW={"container.xl"} py={8}>
@@ -250,73 +269,77 @@ export default function TrangChu() {
               </AccordionItem>
             </Accordion>
           </GridItem>
-     
-      <GridItem colSpan={2} rowSpan={1} bg="gray.50">
-          <Link    onClick={(event) => {
-              router.push("/sach");
-            }}>  <Center py={12}>
-              <Box
-                role={"group"}
-                p={6}
-                maxW={"330px"}
-                w={"full"}
-                bg={useColorModeValue("white", "gray.800")}
-                boxShadow={"2xl"}
-                rounded={"lg"}
-                pos={"relative"}
-                zIndex={1}
-              >
+
+          <GridItem colSpan={2} rowSpan={1} bg="gray.50">
+            <Link
+              onClick={(event) => {
+                router.push("/sach");
+              }}
+            >
+              {" "}
+              <Center py={12}>
                 <Box
+                  role={"group"}
+                  p={6}
+                  maxW={"330px"}
+                  w={"full"}
+                  bg={useColorModeValue("white", "gray.800")}
+                  boxShadow={"2xl"}
                   rounded={"lg"}
-                  mt={-12}
                   pos={"relative"}
-                  height={"250px"}
-                  _after={{
-                    transition: "all .3s ease",
-                    content: '""',
-                    w: "full",
-                    h: "full",
-                    pos: "absolute",
-                    top: 5,
-                    left: 0,
-                    backgroundImage: `url(img/sach1.jpg)`,
-                    filter: "blur(15px)",
-                    zIndex: -1,
-                  }}
-                  _groupHover={{
-                    _after: {
-                      filter: "blur(20px)",
-                    },
-                  }}
+                  zIndex={1}
                 >
-                  <Image
+                  <Box
                     rounded={"lg"}
-                    height={"220"}
-                    width={"280"}
-                    objectFit={"cover"}
-                    src="img/sach1.jpg"
-                  />
-                </Box>
-                <Stack pt={10} align={"center"}>
-                  <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
-                    Quản Lý Sếp OK Thôi!
-                  </Heading>
-                  <Stack direction={"row"} align={"center"}>
-                    <Text fontWeight={800} fontSize={"xl"}>
-                      $57
-                    </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                    mt={-12}
+                    pos={"relative"}
+                    height={"250px"}
+                    _after={{
+                      transition: "all .3s ease",
+                      content: '""',
+                      w: "full",
+                      h: "full",
+                      pos: "absolute",
+                      top: 5,
+                      left: 0,
+                      backgroundImage: `url(img/sach1.jpg)`,
+                      filter: "blur(15px)",
+                      zIndex: -1,
+                    }}
+                    _groupHover={{
+                      _after: {
+                        filter: "blur(20px)",
+                      },
+                    }}
+                  >
+                    <Image
+                      rounded={"lg"}
+                      height={"220"}
+                      width={"280"}
+                      objectFit={"cover"}
+                      src="img/sach1.jpg"
+                    />
+                  </Box>
+                  <Stack pt={10} align={"center"}>
+                    <Heading
+                      fontSize={"xl"}
+                      fontFamily={"body"}
+                      fontWeight={500}
+                    >
+                      Quản Lý Sếp OK Thôi!
+                    </Heading>
+                    <Stack direction={"row"} align={"center"}>
+                      <Text fontWeight={800} fontSize={"xl"}>
+                      ₫57
+                      </Text>
+                     
+                    </Stack>
                   </Stack>
-                </Stack>
-              </Box>
-            </Center>
+                </Box>
+              </Center>
             </Link>
           </GridItem>
 
-         
-       
           <GridItem colSpan={2} rowSpan={1} bg="gray.50">
             <Center py={12}>
               <Box
@@ -363,15 +386,13 @@ export default function TrangChu() {
                 </Box>
                 <Stack pt={10} align={"center"}>
                   <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
-                    Thiện Sơn Mộ Tuyết
+                    Chào Hàng Bán Hàng
                   </Heading>
                   <Stack direction={"row"} align={"center"}>
                     <Text fontWeight={800} fontSize={"xl"}>
-                      $57
+                    ₫57
                     </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                    
                   </Stack>
                 </Stack>
               </Box>
@@ -423,15 +444,13 @@ export default function TrangChu() {
                 </Box>
                 <Stack pt={10} align={"center"}>
                   <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
-                    Thiện Sơn Mộ Tuyết
+                    Võ Đọa Kinh Doanh 
                   </Heading>
                   <Stack direction={"row"} align={"center"}>
                     <Text fontWeight={800} fontSize={"xl"}>
-                      $57
+                    ₫57
                     </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                   
                   </Stack>
                 </Stack>
               </Box>
@@ -484,15 +503,13 @@ export default function TrangChu() {
                 </Box>
                 <Stack pt={10} align={"center"}>
                   <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
-                    Thiện Sơn Mộ Tuyết
+                    Câu Hỏi Tăng Trưởng
                   </Heading>
                   <Stack direction={"row"} align={"center"}>
                     <Text fontWeight={800} fontSize={"xl"}>
-                      $57
+                    ₫57
                     </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                   
                   </Stack>
                 </Stack>
               </Box>
@@ -548,11 +565,9 @@ export default function TrangChu() {
                   </Heading>
                   <Stack direction={"row"} align={"center"}>
                     <Text fontWeight={800} fontSize={"xl"}>
-                      $57
+                    ₫57
                     </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                  
                   </Stack>
                 </Stack>
               </Box>
@@ -609,11 +624,9 @@ export default function TrangChu() {
                   </Heading>
                   <Stack direction={"row"} align={"center"}>
                     <Text fontWeight={800} fontSize={"xl"}>
-                      $57
+                      đ57
                     </Text>
-                    <Text textDecoration={"line-through"} color={"gray.600"}>
-                      $199
-                    </Text>
+                   
                   </Stack>
                 </Stack>
               </Box>
@@ -628,23 +641,22 @@ export default function TrangChu() {
             <br />
             <p>GIÁ </p>
             <br />
-            <Checkbox colorScheme="green" defaultIsChecked ml={10}>
+            <Checkbox colorScheme="green"  ml={10}>
               Dưới 100.000đ
             </Checkbox>
             <br />
-            <Checkbox colorScheme="green" defaultIsChecked ml={10}>
+            <Checkbox colorScheme="green" ml={10}>
               100,000đ - 200,200đ
             </Checkbox>
             <br />
-            <Checkbox colorScheme="green" defaultIsChecked ml={10}>
+            <Checkbox colorScheme="green" ml={10}>
               200,000đ - 300,000đ
             </Checkbox>
             <br />
-            <Checkbox colorScheme="green" defaultIsChecked ml={10}>
+            <Checkbox colorScheme="green"  ml={10}>
               Trên 300,000đ
             </Checkbox>
           </GridItem>
-
         </Grid>
       </Container>
       <Box bg={"gray.500"} color={"white"}>
@@ -762,7 +774,7 @@ export default function TrangChu() {
           <Image
             borderRadius="full"
             boxSize={24}
-            src="img/174565564_425141958935941_7685741740636742721_n.png"
+            src="img/logo1.jpg"
             alt="Segun Adebayo"
           />
         </Flex>
@@ -770,7 +782,6 @@ export default function TrangChu() {
           © 2021 HAYAKUBOOKS - Thế Giới Sách !
         </Text>
       </Box>
-  
     </Box>
   );
 }
@@ -955,25 +966,25 @@ const NAV_ITEMS = [
       },
     ],
   },
-  {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
-    href: "#",
-  },
+  // {
+  //   label: "Find Work",
+  //   children: [
+  //     {
+  //       label: "Job Board",
+  //       subLabel: "Find your dream design job",
+  //       href: "#",
+  //     },
+  //     {
+  //       label: "Freelance Projects",
+  //       subLabel: "An exclusive list for contract work",
+  //       href: "#",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Learn Design",
+  //   href: "#",
+  // },
 ];
 const ListHeader = () => {
   return <Text fontWeight={"500"} fontSize={"lg"} mb={2}></Text>;

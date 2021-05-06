@@ -62,7 +62,7 @@ import {
   NumberDecrementStepper,
 } from "@chakra-ui/react";
 import { ButtonGroup } from "@chakra-ui/react";
-import { Textarea } from "@chakra-ui/react"
+import { Textarea } from "@chakra-ui/react";
 
 export default function TrangChu() {
   const { isOpen, onToggle } = useDisclosure();
@@ -116,12 +116,17 @@ export default function TrangChu() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            <Image
-              borderRadius="full"
-              boxSize={8}
-              src="img/174565564_425141958935941_7685741740636742721_n.png"
-              alt="Segun Adebayo"
-            />
+            <Link
+              onClick={(event) => {
+                router.push("/trang-chu");
+              }}
+            >
+              <Image
+                borderRadius="full"
+                boxSize={8}
+                src="img/logo1.jpg"                alt="Segun Adebayo"
+              />
+            </Link>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -129,6 +134,19 @@ export default function TrangChu() {
           </Flex>
 
           <Input ml={24} w={"50%"} placeholder="Tìm kiếm" />
+          <Link
+            onClick={(event) => {
+              router.push("/gio-hang");
+            }}
+          >
+            <Image
+              ml={24}
+              borderRadius="full"
+              boxSize={8}
+              src="img/giohang2.png"
+              alt="Segun Adebayo"
+            />
+          </Link>
         </Flex>
 
         <Stack
@@ -625,7 +643,7 @@ export default function TrangChu() {
           <Image
             borderRadius="full"
             boxSize={24}
-            src="img/174565564_425141958935941_7685741740636742721_n.png"
+            src="img/logo1.jpg"
             alt="Segun Adebayo"
           />
         </Flex>
