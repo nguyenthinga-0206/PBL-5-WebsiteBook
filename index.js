@@ -182,11 +182,6 @@ keystone.createList("Sach",{
       type:DateTime,
       label:'Ngày xuất bản'
     },
-    id:{
-      type:Text,
-
-    },
-
   },
 });
 keystone.createList("Baiviet",{
