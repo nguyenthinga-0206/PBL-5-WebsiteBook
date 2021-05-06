@@ -1,4 +1,5 @@
 //hoang thi xoan
+//test
 const { Keystone } = require('@keystonejs/keystone');
 const { PasswordAuthStrategy } = require('@keystonejs/auth-password');
 const { Text, Checkbox, Password, Integer, Color, Relationship, Float, Select, DateTime, CloudinaryImage } = require('@keystonejs/fields');
