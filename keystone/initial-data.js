@@ -19,7 +19,6 @@ module.exports = async keystone => {
   if (count === 0) {
     const password = randomString();
     const email = 'admin@example.com';
-
     const { errors } = await keystone.executeGraphQL({
       context: keystone.createContext().sudo(),
       query: `mutation initialUser($password: String, $email: String) {
