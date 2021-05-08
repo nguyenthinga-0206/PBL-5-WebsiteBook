@@ -21,26 +21,19 @@ const keystone = new Keystone({
 const fileAdapter = new LocalFileAdapter({
   src: './file',
   path: './file',
-  
+
 });
 keystone.createList('User', {
   fields: {
-    name:{ 
+    name: {
       type: Text
-     },
+    },
     email: {
       type: Text,
       isUnique: true,
     },
     isAdmin: {
       type: Checkbox,
-      // Field-level access controls
-      // Here, we set more restrictive field access so a non-admin cannot make themselves admin.
-      /*
-      access: {
-        update: access.userIsAdmin,
-      },
-      */
     },
     password: {
       type: Password,
@@ -62,11 +55,11 @@ keystone.createList('IMG', {
     anh: {
       type: File,
       adapter: fileAdapter,
-      label:' ảnh '
+      label: ' ảnh '
     },
-    sach:{
-      type:Relationship,ref:'Sach',many:false,
-      label:'Sách'
+    sach: {
+      type: Relationship, ref: 'Sach', many: false,
+      label: 'Sách'
 
     }
   },
@@ -86,8 +79,6 @@ keystone.createList("Phanloaisach", {
       type: Relationship, ref: 'Sach.phanLoaiSach', many: true,
       label: 'Sách'
     },
-    
-    
   },
 });
 keystone.createList("Nhacungcap", {
@@ -112,7 +103,6 @@ keystone.createList("Nhacungcap", {
       type: Relationship, ref: 'Phieunhapsach', many: true,
       label: 'Phiếu nhập sách'
     }
-
   },
 });
 
@@ -134,18 +124,15 @@ keystone.createList("Phieunhapsach", {
       type: Relationship, ref: 'Sach', many: true,
       label: 'Sach'
     },
-    nhaCungCap:{
-      type:Relationship,ref:'Nhacungcap',many:false,
-      label:'Nhà cung cấp'
+    nhaCungCap: {
+      type: Relationship, ref: 'Nhacungcap', many: false,
+      label: 'Nhà cung cấp'
     },
-    Chitietdonhang:{
-      type:Relationship,ref:'Chitietdonhang',many:false,
-      label:'Chi tiết đơn hàng'
-
+    Chitietdonhang: {
+      type: Relationship, ref: 'Chitietdonhang', many: false,
+      label: 'Chi tiết đơn hàng'
     }
-
   },
-
 });
 
 keystone.createList("Sach", {
@@ -186,12 +173,12 @@ keystone.createList("Sach", {
       type: Relationship, ref: 'Baiviet', many: false,
     },
 
-    phanLoaiSach:{
-      type:Relationship,ref:'Phanloaisach.sach',many:false,
-      label:'Phân loại sách'
+    phanLoaiSach: {
+      type: Relationship, ref: 'Phanloaisach.sach', many: false,
+      label: 'Phân loại sách'
     },
-    chiTietDonHang:{
-      type:Relationship,ref:'Chitietdonhang',many:false
+    chiTietDonHang: {
+      type: Relationship, ref: 'Chitietdonhang', many: false
     }
   },
   labelField: 'tenSach'
@@ -203,9 +190,9 @@ keystone.createList("Baiviet", {
       type: Text,
       label: 'Bài viết'
     },
-    sach:{
-      type:Relationship,ref:'Sach',many:false,
-      label:'Sách'
+    sach: {
+      type: Relationship, ref: 'Sach', many: false,
+      label: 'Sách'
     },
   },
 
@@ -220,9 +207,9 @@ keystone.createList("Chitietdonhang", {
       type: Float,
       label: 'Giá tiền'
     },
-    sach:{
-      type:Relationship,ref:'Sach',many:false,
-      label:'Sách'
+    sach: {
+      type: Relationship, ref: 'Sach', many: false,
+      label: 'Sách'
     }
   },
 });
