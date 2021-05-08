@@ -57,7 +57,6 @@ keystone.createList('User', {
   // },
 });
 
-
 keystone.createList('IMG', {
   fields: {
     anh: {
@@ -65,6 +64,11 @@ keystone.createList('IMG', {
       adapter: fileAdapter,
       label:' ảnh '
     },
+    sach:{
+      type:Relationship,ref:'Sach',many:false,
+      label:'Sách'
+
+    }
   },
 });
 
@@ -79,13 +83,11 @@ keystone.createList("Phanloaisach", {
       label: 'Số lượng'
     },
     sach: {
-      type: Relationship, ref: 'Sach', many: true,
+      type: Relationship, ref: 'Sach.phanLoaiSach', many: true,
       label: 'Sách'
     },
-    baiViet: {
-      type: Relationship, ref: 'Baiviet', many: true,
-      label: 'Bài viết'
-    }
+    
+    
   },
 });
 keystone.createList("Nhacungcap", {
@@ -132,6 +134,15 @@ keystone.createList("Phieunhapsach", {
       type: Relationship, ref: 'Sach', many: true,
       label: 'Sach'
     },
+    nhaCungCap:{
+      type:Relationship,ref:'Nhacungcap',many:false,
+      label:'Nhà cung cấp'
+    },
+    Chitietdonhang:{
+      type:Relationship,ref:'Chitietdonhang',many:false,
+      label:'Chi tiết đơn hàng'
+
+    }
 
   },
 
@@ -173,6 +184,14 @@ keystone.createList("Sach", {
     },
     baiViet: {
       type: Relationship, ref: 'Baiviet', many: false,
+    },
+
+    phanLoaiSach:{
+      type:Relationship,ref:'Phanloaisach.sach',many:false,
+      label:'Phân loại sách'
+    },
+    chiTietDonHang:{
+      type:Relationship,ref:'Chitietdonhang',many:false
     }
   },
   labelField: 'tenSach'
@@ -183,6 +202,10 @@ keystone.createList("Baiviet", {
     baiViet: {
       type: Text,
       label: 'Bài viết'
+    },
+    sach:{
+      type:Relationship,ref:'Sach',many:false,
+      label:'Sách'
     },
   },
 
@@ -197,6 +220,10 @@ keystone.createList("Chitietdonhang", {
       type: Float,
       label: 'Giá tiền'
     },
+    sach:{
+      type:Relationship,ref:'Sach',many:false,
+      label:'Sách'
+    }
   },
 });
 keystone.createList("Giohang", {
