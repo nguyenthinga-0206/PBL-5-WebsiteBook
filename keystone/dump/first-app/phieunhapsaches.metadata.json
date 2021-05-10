@@ -1,1 +1,0 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"nhaCungCap":{"$numberInt":"1"}},"name":"nhaCungCap_1","background":true}],"uuid":"5e0ebe88f0a64a3eb820d3f092f8d670","collectionName":"phieunhapsaches"}

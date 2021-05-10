@@ -1,1 +1,0 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"page":{"$numberInt":"1"}},"name":"page_1","background":true},{"v":{"$numberInt":"2"},"key":{"person":{"$numberInt":"1"}},"name":"person_1","background":true}],"uuid":"6ea25190c0b947d590f8371a47488f9b","collectionName":"messengermessagings"}

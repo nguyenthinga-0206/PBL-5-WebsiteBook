@@ -1,1 +1,0 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"unique":true,"key":{"psid":{"$numberInt":"1"}},"name":"psid_1","background":true}],"uuid":"5b2bc811bf5248ac99aafc101f089e03","collectionName":"messengerusers"}
