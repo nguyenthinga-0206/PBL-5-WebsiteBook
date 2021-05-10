@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"unique":true,"key":{"address":{"$numberInt":"1"}},"name":"address_1","background":true}],"uuid":"f21ebf3c0d01489d870836a7690449f5","collectionName":"uploadfiles"}

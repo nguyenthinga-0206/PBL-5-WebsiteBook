@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"updatedBy":{"$numberInt":"1"}},"name":"updatedBy_1","background":true},{"v":{"$numberInt":"2"},"key":{"createdBy":{"$numberInt":"1"}},"name":"createdBy_1","background":true}],"uuid":"147dba7b8a124a28959e6669b199c403","collectionName":"phutinhs"}
