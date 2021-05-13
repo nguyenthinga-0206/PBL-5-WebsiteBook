@@ -1,18 +1,6 @@
 const { Keystone } = require("@keystonejs/keystone");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
-const {
-  Text,
-  Checkbox,
-  Password,
-  Integer,
-  Color,
-  Relationship,
-  Float,
-  Select,
-  DateTime,
-  CloudinaryImage,
-  File,
-} = require("@keystonejs/fields");
+const { NextApp } = require('@keystonejs/app-next');
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
@@ -74,8 +62,10 @@ module.exports = {
     new GraphQLApp(),
     new AdminUIApp({
       name: PROJECT_NAME,
-      enableDefaultRoute: true,
+      enableDefaultRoute: false,
       authStrategy,
     }),
+    new NextApp({ dir: 'giaodien' }),
+
   ],
 };
