@@ -49,7 +49,7 @@ import {
   SearchIcon,
 } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-
+import ThanhTieuDe from "../../chiagiaodien/ThanhTieuDe";
 export default function TrangChu() {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -788,6 +788,7 @@ export default function TrangChu() {
 const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4}>
+      <ThanhTieuDe/>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
