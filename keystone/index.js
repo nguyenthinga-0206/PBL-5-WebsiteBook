@@ -65,7 +65,7 @@ module.exports = {
       enableDefaultRoute: false,
       authStrategy,
     }),
-    new NextApp({ dir: 'app' }),
+    new NextApp({ dir: 'giaodien' }),
 
   ],
 };
