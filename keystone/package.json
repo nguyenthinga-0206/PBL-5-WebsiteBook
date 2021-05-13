@@ -14,7 +14,8 @@
     "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true keystone dev",
     "build": "cross-env NODE_ENV=production keystone build",
     "start": "cross-env NODE_ENV=production keystone start",
-    "create-tables": "cross-env CREATE_TABLES=true keystone create-tables"
+    "create-tables": "cross-env CREATE_TABLES=true keystone create-tables",
+    "next": "next dev"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
@@ -24,11 +25,8 @@
     "@keystonejs/adapter-mongoose": "^11.2.1",
     "@keystonejs/app-admin-ui": "^7.5.1",
     "@keystonejs/app-graphql": "^6.3.1",
-    "@keystonejs/app-next": "^5.1.0",
     "@keystonejs/auth-password": "^6.1.1",
     "@keystonejs/fields": "^22.1.2",
-    "@keystonejs/fields-cloudinary-image": "^2.2.1",
-    "@keystonejs/fields-location-google": "^3.4.1",
     "@keystonejs/file-adapters": "^7.1.1",
     "@keystonejs/keystone": "^19.3.2",
     "cross-env": "^7.0.3",
