@@ -45,5 +45,4 @@ module.exports = {
       label: 'Chi tiết đơn hàng'
     }
   },
-  // List-level access controls
 }
