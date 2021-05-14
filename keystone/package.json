@@ -27,6 +27,7 @@
     "@keystonejs/app-admin-ui": "^7.5.1",
     "@keystonejs/app-graphql": "^6.3.1",
     "@keystonejs/app-next": "^6.1.1",
+    "@keystonejs/app-static": "^5.2.1",
     "@keystonejs/auth-password": "^6.1.1",
     "@keystonejs/fields": "^22.1.2",
     "@keystonejs/file-adapters": "^7.1.1",

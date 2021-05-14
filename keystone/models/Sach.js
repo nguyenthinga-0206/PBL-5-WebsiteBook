@@ -1,4 +1,4 @@
-const { Text, Integer, Relationship, Float, DateTime } = require('@keystonejs/fields');
+const { Text, Integer, Relationship, Float, DateTime, DateTimeUtc,Date} = require('@keystonejs/fields');
 
 module.exports = {
   fields: {
@@ -16,11 +16,11 @@ module.exports = {
     },
     tenNhaXuatBan: {
       type: Text,
-      label: 'Tên NXB'
+      label: 'Nhà xuất bản'
     },
     tenTacGia: {
       type: Text,
-      label: 'Tên tác giả'
+      label: 'Tác giả'
     },
     soTrang: {
       type: Integer,
@@ -28,8 +28,11 @@ module.exports = {
     },
     ngayXuatBan: {
       type: DateTime,
+      format: 'dd/MM/yyyy',
+      yearPickerType: 'auto',
       label: 'Ngày xuất bản'
     },
+    
     phanLoaiSach: {
       type: Relationship, ref: 'Phanloaisach.sach', many: false,
       label: 'Phân loại sách'
