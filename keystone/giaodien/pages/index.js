@@ -1,34 +1,34 @@
-import { useRouter } from "next/router";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
+import {useRouter} from "next/router";
 
-import BaiVietList from "../components/BaiViet/List";
-import ChiTietDonHangList from "../components/ChiTietDonHang/List";
-import DonHangList from "../components/DonHang/List";
-import ImgList from "../components/Img/List";
-import NhapsachList from "../components/Phieunhapsach/List";
-import NhaCungCapList from "../components/Nhacungcap/List";
-import UserList from "../components/User/List";
-import { Fragment, useState } from "react";
+import NhapsachList from '../components/Phieunhapsach/List';
+import NhaCungCapList from '../components/Nhacungcap/List';
+import UserList from '../components/User/List';
+import SachList from '../components/Sach/List';
+import PhanloaiList from '../components/Phanloaisach/List';
 
 export default function Home() {
-  const [tuKhoa, setTuKhoa] = useState();
-  return (
-    <Fragment>
-      <input
-        type="text"
-        style={{ border: "1px solid #333", margin: 34 }}
-        onChange={(e) => setTuKhoa(e.target.value)}
-      />
-      <h2>Bạn đang tìm kiếm: {tuKhoa}</h2>
-      <hr />
-      <BaiVietList where={{ tieude_contains_i: tuKhoa }} />
-      <ImgList />
-      {/* <ChiTietDonHangList />
-      <DonHangList />
-      <NhapsachList />
-      <UserList />
-      <PhanloaiList />
-      <SachList />
-      <NhaCungCapList /> */}
-    </Fragment>
-  );
+    const router = useRouter()
+
+    return <div><h3>Trang chủ </h3>
+        <button onClick={event => {
+            router.push('/gioi-thieu')
+        }}>sang gioi thieu
+        </button>
+        <button onClick={event => {
+            router.push('/sach/[id]',`/sach/${'nguyen nhat anh'}`)
+        }}>sang trang sach</button>
+        {/* <div>----PHIEU NHAP SACH------</div>   
+        <NhapsachList/>  
+        <div>---USER-----</div>     
+        <UserList/> */}
+        {/* <div>---PHAN LOAI SACH ---</div>
+        <PhanloaiList/> */}
+        {/* <div>---SACH-----</div>
+        <SachList/> */}
+        <div>----NHA CUNG CAP-----</div>
+        <NhaCungCapList/>
+    </div>
+
 }
