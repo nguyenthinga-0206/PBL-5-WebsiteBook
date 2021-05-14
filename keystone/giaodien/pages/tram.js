@@ -21,9 +21,9 @@ export default function Home() {
       <h2>Bạn đang tìm kiếm: {tuKhoa}</h2>
       <hr />
       <BaiVietList where={{ tieude_contains_i: tuKhoa }} />
-      <ImgList />
       {/* <ChiTietDonHangList />
       <DonHangList />
+      <ImgList />
       <NhapsachList />
       <UserList />
       <PhanloaiList />

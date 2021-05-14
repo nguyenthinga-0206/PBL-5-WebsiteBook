@@ -1,11 +1,13 @@
 const { Keystone } = require("@keystonejs/keystone");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
-const { NextApp } = require('@keystonejs/app-next');
+const { NextApp } = require("@keystonejs/app-next");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
 const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
+const express = require("express");
+const path = require("path");
 const PROJECT_NAME = "first-app";
 const adapterConfig = {
   mongoUri: "mongodb://cnw:concobebe123@db.itoa.vn:27017/cnw",
@@ -21,10 +23,6 @@ const PhanloaisachSchema = require("./models/Phanloaisach");
 const PhieunhapsachSchema = require("./models/Phieunhapsach");
 const SachSchema = require("./models/Sach");
 
-const fileAdapter = new LocalFileAdapter({
-  src: "./file",
-  path: "./file",
-});
 
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
@@ -65,7 +63,9 @@ module.exports = {
       enableDefaultRoute: false,
       authStrategy,
     }),
-    new NextApp({ dir: 'giaodien' }),
-
+    new NextApp({ dir: "giaodien" }),
   ],
+  configureExpress: (app) => {
+    app.use(express.static(path.join(path.resolve(), "file")));
+  },
 };

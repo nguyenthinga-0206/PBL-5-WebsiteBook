@@ -1,10 +1,9 @@
-const { Relationship, File } = require('@keystonejs/fields');
-const { LocalFileAdapter } = require('@keystonejs/file-adapters');
+const { Relationship, File } = require("@keystonejs/fields");
+const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 
 const fileAdapter = new LocalFileAdapter({
-  src: './file',
-  path: './file',
-
+  src: "./file/img",
+  path: "img",
 });
 
 module.exports = {
@@ -12,11 +11,13 @@ module.exports = {
     anh: {
       type: File,
       adapter: fileAdapter,
-      label: ' ảnh '
+      label: " ảnh ",
     },
     sach: {
-      type: Relationship, ref: 'Sach.IMG', many: false,
-      label: 'Sách'
-    }
+      type: Relationship,
+      ref: "Sach.IMG",
+      many: false,
+      label: "Sách",
+    },
   },
-}
+};

@@ -1,7 +1,7 @@
-
-export default function UI({image}){
-    return<div>
-       <img src={image.publicUrl} alt="Image"/>
-        </div>
-
+export default function UI({ IMG }) {
+  return (
+    <div>
+      <img src={IMG.anh.publicUrl} alt="Image" />
+    </div>
+  );
 }

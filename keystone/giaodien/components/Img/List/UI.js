@@ -1,11 +1,8 @@
-import ImgItem from '../Item'
+import ImgItem from "../Item";
 
-export default function UI({data}){
-    const {allIMGS}=data;
-    return (
-        allIMGS.map(image => {
-            return <ImgItem image = {image}/>                          
-        })
-    
-    )
+export default function UI({ data }) {
+  const { allIMGS } = data;
+  return allIMGS.map((IMG) => {
+    return <ImgItem IMG={IMG} />;
+  });
 }
