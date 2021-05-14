@@ -6,6 +6,7 @@ const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
 const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
+const { StaticApp } = require('@keystonejs/app-static');
 const PROJECT_NAME = "first-app";
 const adapterConfig = {
   mongoUri: "mongodb://cnw:concobebe123@db.itoa.vn:27017/cnw",
@@ -22,8 +23,8 @@ const PhieunhapsachSchema = require("./models/Phieunhapsach");
 const SachSchema = require("./models/Sach");
 
 const fileAdapter = new LocalFileAdapter({
-  src: "./file",
-  path: "./file",
+   src: './file',
+   path: './file',
 });
 
 const keystone = new Keystone({
@@ -65,7 +66,12 @@ module.exports = {
       enableDefaultRoute: false,
       authStrategy,
     }),
+    new StaticApp({
+      src: './file',
+      path: './file',
+    }),
     new NextApp({ dir: 'giaodien' }),
+
 
   ],
 };
