@@ -7,7 +7,9 @@ module.exports = {
     },
     baiViet: {
       type: Text,
+      isMultiline:true,
       label: 'Bài viết'
+
     },
     sach: {
       type: Relationship, ref: 'Sach.baiViet', many: false,
