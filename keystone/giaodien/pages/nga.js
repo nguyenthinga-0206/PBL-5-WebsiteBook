@@ -23,7 +23,7 @@ export default function Home() {
       {/* <BaiVietList where={{ tieude_contains_i: tuKhoa }} /> */}
       {/* <ChiTietDonHangList where={{soLuong_lte: parseInt(tuKhoa)}}/> */}
       {/* <DonHangList where={{ sdt_contains: tuKhoa }} /> */}
-      {/* <ImgList first={parseInt(tuKhoa)} /> */}
+      <ImgList first={parseInt(tuKhoa)} />
       {/* <NhapsachList /> */}
       {/* <UserList /> */}
       {/* <PhanloaiList /> */}

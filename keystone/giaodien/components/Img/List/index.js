@@ -14,6 +14,7 @@ export default function ImgList({first, skip = 0, sortBy, where }) {
         sortBy: $sortBy
         where: $where
       ) {
+        id
         anh {
           publicUrl
         }
