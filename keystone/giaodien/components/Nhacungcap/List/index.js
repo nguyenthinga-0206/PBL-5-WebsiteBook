@@ -1,11 +1,23 @@
 import UI from './UI'
 import {useQuery, gql} from '@apollo/client'
-export default function NhaCungCapList(){
+export default function NhaCungCapList({ first = 3, skip = 0, sortBy, where }){
     const {
         loading, error, data
-    } = useQuery (gql `query{
+    } = useQuery (gql 
+    `query(
+        $first: Int
+        $skip: Int
+        $sortBy: [SortNhacungcapsBy!]
+        $where: NhacungcapWhereInput
+    ){
        
-        allNhacungcaps{            
+        allNhacungcaps(
+            first: $first
+            skip: $skip
+            sortBy: $sortBy
+            where: $where
+        ) {       
+            id     
             ten
             diaChi
             sdt
@@ -13,7 +25,9 @@ export default function NhaCungCapList(){
            
         }
 
-    }`)
+    }
+    `,{variables: {first, skip, sortBy, where}}
+    );
     if(loading || error){
         return "Loading...";
     }

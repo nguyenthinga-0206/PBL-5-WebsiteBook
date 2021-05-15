@@ -4,7 +4,7 @@ export default function UI({data}){
     const {allSaches}=data;
     return (
         allSaches.map(sach => {
-            return <SachItem sach = {sach}/>                          
+            return <SachItem key={sach.id} sach = {sach}/>                          
         })
     
     )

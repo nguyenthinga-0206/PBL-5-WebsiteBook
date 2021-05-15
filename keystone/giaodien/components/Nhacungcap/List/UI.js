@@ -4,7 +4,7 @@ export default function UI({data}){
     const {allNhacungcaps}=data;
     return (
         allNhacungcaps.map(nhaCungCap => {
-            return <NhaCungCapItem nhaCungCap = {nhaCungCap}/>                          
+            return <NhaCungCapItem key={nhaCungCap.id} nhaCungCap = {nhaCungCap}/>                          
         })
     
     )

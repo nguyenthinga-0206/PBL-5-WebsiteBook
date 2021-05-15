@@ -1,6 +1,8 @@
 
 export default function UI({sach}){
     return<div>
+        <br></br>
+        <b>TEN SACH: </b>
         <p>{sach.tenSach}</p>
         <p>{sach.soLuong}</p>
         <p>{sach.gia}</p>
