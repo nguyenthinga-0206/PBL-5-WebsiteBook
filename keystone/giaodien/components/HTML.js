@@ -1,14 +1,15 @@
 import { createElement, useState } from "react";
 
 export default class HTML {
-  static generation(object) {
+  static generation(object, level = 0) {
+    if (level === 5) return null;
     switch (typeof object) {
       case "object":
         if (Array.isArray(object)) {
           return (
             <ul style={{ paddingBottom: 13 }}>
               {object.map((item, index) => {
-                return <li key={index}>{HTML.generation(item)}</li>;
+                return <li key={index}>{HTML.generation(item, level + 1)}</li>;
               })}
             </ul>
           );
@@ -17,7 +18,12 @@ export default class HTML {
           for (var child in object) {
             if (!child.startsWith("__"))
               childs.push(
-                <HTML.Item key={child} child={child} object={object} />
+                <HTML.Item
+                  key={child}
+                  child={child}
+                  object={object}
+                  level={level}
+                />
               );
           }
 
@@ -65,7 +71,7 @@ export default class HTML {
         return <span>{String.toString(object)}</span>;
     }
   }
-  static Item({ child, object }) {
+  static Item({ child, object, level }) {
     const [open, setOpen] = useState(true);
     return (
       <div style={{ marginLeft: 21 }}>
@@ -81,7 +87,7 @@ export default class HTML {
         >
           {child}:
         </span>{" "}
-        {open ? HTML.generation(object[child]) : null}
+        {open ? HTML.generation(object[child], level) : null}
       </div>
     );
   }

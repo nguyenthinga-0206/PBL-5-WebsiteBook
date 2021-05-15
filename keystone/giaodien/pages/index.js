@@ -10,24 +10,25 @@ import UserList from "../components/User/List";
 import { Fragment, useState } from "react";
 import PhanloaiList from "../components/Phanloaisach/List";
 import SachList from "../components/Sach/List";
+import UserCreate from "../components/User/Create";
 
 export default function Home() {
   const pStyle = {
-    fontSize: '20px',
-    margin:34
-   
-  };  
+    fontSize: "20px",
+    margin: 34,
+  };
   const [tuKhoa, setTuKhoa] = useState();
   return (
     <Fragment>
       <input
         type="text"
-        style={{ border: "1px solid #333", margin: 34, background: "skyblue"}}
+        style={{ border: "1px solid #333", margin: 34, background: "skyblue" }}
         onChange={(e) => setTuKhoa(e.target.value)}
       />
       <p style={pStyle}>Bạn đang tìm kiếm: {tuKhoa}</p>
       <hr />
-      <UserList where={{ name_contains_i: tuKhoa }} />
+      <UserList first={10} where={{ name_contains_i: tuKhoa }} />
+      <UserCreate />
       {/* <SachList where={{ tenSach_contains_i: tuKhoa }} /> */}
       {/* <NhaCungCapList where={{ ten_contains_i: tuKhoa }} /> */}
       {/* <NhapsachList where={{ ten_contains_i: tuKhoa }} /> */}

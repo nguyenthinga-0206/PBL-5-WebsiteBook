@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 // import "../styles/globals.css";
 import { useApollo } from "../apollo";
 import { CartProvider } from "../CartProvider";
+import "./_app.css";
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
 
