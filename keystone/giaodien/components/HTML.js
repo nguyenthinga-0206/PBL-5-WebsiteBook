@@ -55,8 +55,8 @@ export default class HTML {
         if (object.length === 24)
           return (
             <a style={{ color: "red" }} href={`tel:${object}`}>
-              {object}
-            </a>
+              {object} 
+           </a> 
           );
         if (HTML.validURL(object)) return <a href={object}>{object}</a>;
         return <span>{object}</span>;
