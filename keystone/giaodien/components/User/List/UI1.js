@@ -1,6 +1,6 @@
 import UserItem from '../Item'
 
-export default function UI({data}){
+export default function UI1({data}){
     const {allUsers}=data;
     return (
         allUsers.map(user => {
