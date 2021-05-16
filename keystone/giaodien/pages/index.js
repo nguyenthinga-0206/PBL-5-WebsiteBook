@@ -11,7 +11,7 @@ import { Fragment, useState } from "react";
 import PhanloaiList from "../components/Phanloaisach/List";
 import SachList from "../components/Sach/List";
 import UserCreate from "../components/User/Create";
-
+import UserDelete from "../components/User/Delete";
 export default function Home() {
   const pStyle = {
     fontSize: "20px",
@@ -28,7 +28,8 @@ export default function Home() {
       <p style={pStyle}>Bạn đang tìm kiếm: {tuKhoa}</p>
       <hr />
       <UserList first={10} where={{ name_contains_i: tuKhoa }} />
-      <UserCreate />
+      {/* <UserCreate /> */}
+      <UserDelete/>
       {/* <SachList where={{ tenSach_contains_i: tuKhoa }} /> */}
       {/* <NhaCungCapList where={{ ten_contains_i: tuKhoa }} /> */}
       {/* <NhapsachList where={{ ten_contains_i: tuKhoa }} /> */}

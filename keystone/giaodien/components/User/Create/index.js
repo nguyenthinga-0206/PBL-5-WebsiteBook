@@ -21,7 +21,7 @@ export default function UserCreate() {
    * @param {String} name
    */
   const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
+    setValues({ ...values, [name]: event.target.values });
   };
   const onCreate = (e) => {
     onCreateUser({
