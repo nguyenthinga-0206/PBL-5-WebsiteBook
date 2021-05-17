@@ -7,6 +7,9 @@ import ImgList from "../components/Img/List";
 import NhapsachList from "../components/Phieunhapsach/List";
 import NhaCungCapList from "../components/Nhacungcap/List";
 import UserList from "../components/User/List";
+
+import UserDelete from "../components/User/Delete";
+
 import { Fragment, useState } from "react";
 
 export default function Home() {
@@ -29,6 +32,7 @@ export default function Home() {
       <PhanloaiList />
       <SachList />
       <NhaCungCapList /> */}
+      <UserDelete/>
     </Fragment>
   );
 }

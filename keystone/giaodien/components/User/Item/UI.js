@@ -6,8 +6,8 @@ import UserUpdate from "../Update";
 export default function UI({ user }) {
   return (
     <Fragment>
-      {HTML.generation(user)}
-      <UserDelete />
+      {HTML.generation(user)} 
+      <UserDelete userID = {user.id}/>
       <UserUpdate userID={user.id} />
     </Fragment>
   );
