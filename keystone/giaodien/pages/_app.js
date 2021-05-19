@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <CartProvider>
         <ChakraProvider>
+        
           <Component {...pageProps} />
         </ChakraProvider>
       </CartProvider>
