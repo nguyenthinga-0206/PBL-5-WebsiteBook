@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         <ChakraProvider>
         
           <Component {...pageProps} />
+          <h2>Chan Trang</h2>
         </ChakraProvider>
       </CartProvider>
     </ApolloProvider>

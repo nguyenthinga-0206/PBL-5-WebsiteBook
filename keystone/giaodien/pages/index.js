@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {useRouter} from "next/router";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 import BaiVietList from "../components/BaiViet/List";
 import ChiTietDonHangList from "../components/ChiTietDonHang/List";
 import DonHangList from "../components/DonHang/List";
@@ -8,41 +8,57 @@ import ImgList from "../components/Img/List";
 import NhapsachList from "../components/Phieunhapsach/List";
 import NhaCungCapList from "../components/Nhacungcap/List";
 import UserList from "../components/User/List";
+import NextLink from "next/link";
 import { Fragment, useState } from "react";
 import PhanloaiList from "../components/Phanloaisach/List";
+import PhanloaiListUI from "../components/Phanloaisach/List/UI";
 import SachList from "../components/Sach/List";
-import UserCreate from "../components/User/Create";
-import UserDelete from "../components/User/Delete";
+import SachListUI from "../components/Sach/List/UI";
+import { SimpleGrid } from "@chakra-ui/layout";
+import { Grid } from "@chakra-ui/layout";
+import { GridItem } from "@chakra-ui/layout";
 export default function Home() {
-  const pStyle = {
-    fontSize: "20px",
-    margin: 34,
+  const [where, setWhere] = useState({});
+  const [keyword, setKeyword] = useState();
+  const change = (e) => {
+    const { value } = e.target;
+    if (value.length > 2) setKeyword(value);
   };
-  const [tuKhoa, setTuKhoa] = useState();
+  const clickPhanLoai = (phanloai) => {
+    setWhere({ phanLoaiSach: { id: phanloai.id } });
+  };
   return (
     <Fragment>
-      <input
-        type="text"
-        style={{ border: "1px solid #333", margin: 34, background: "skyblue" }}
-        onChange={(e) => setTuKhoa(e.target.value)}
+      <img
+        width={100}
+        src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=500&height=500"
       />
-      <p style={pStyle}>Bạn đang tìm kiếm: {tuKhoa}</p>
-      <hr />
-      <UserList first={10} where={{ name_contains_i: tuKhoa }} />
-      {/* <UserCreate /> */}
-      <UserDelete/>
-      {/* <SachList where={{ tenSach_contains_i: tuKhoa }} /> */}
-      {/* <NhaCungCapList where={{ ten_contains_i: tuKhoa }} /> */}
-      {/* <NhapsachList where={{ ten_contains_i: tuKhoa }} /> */}
-      {/* <PhanloaiList where={{ loai_contains_i: tuKhoa }} />  */}
-      {/* <ImgList />
-      {/* <ChiTietDonHangList />
-      <DonHangList />
-      <NhapsachList />
-      <UserList />
-      <PhanloaiList />
-      <SachList />
-      <NhaCungCapList /> */}
+      <input placeholder="search" onChange={change} />
+      <NextLink href="/gio-hang">
+        <a>gio hang</a>
+      </NextLink>
+      <NextLink href="/dang-nhap">
+        <a>dang nhap</a>
+      </NextLink>
+      <NextLink href="/dang-ky">
+        <a>dang ky</a>
+      </NextLink>
+      <SimpleGrid columns={2}>
+        <GridItem>
+          <PhanloaiList
+            first={7}
+            UI={PhanloaiListUI}
+            clickPhanLoai={clickPhanLoai}
+          />
+        </GridItem>
+        <GridItem>
+          <SachList
+            first={10}
+            UI={SachListUI}
+            where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+          />
+        </GridItem>
+      </SimpleGrid>
     </Fragment>
   );
 }

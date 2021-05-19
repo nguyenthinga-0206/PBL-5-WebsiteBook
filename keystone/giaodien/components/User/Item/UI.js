@@ -8,7 +8,7 @@ export default function UI({ user }) {
     <Fragment>
       {HTML.generation(user)} 
       <UserDelete userID = {user.id}/>
-      <UserUpdate userID={user.id} />
+      <UserUpdate user={user} />
     </Fragment>
   );
 }
