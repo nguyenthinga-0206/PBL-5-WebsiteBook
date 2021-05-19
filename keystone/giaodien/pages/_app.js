@@ -1,20 +1,40 @@
 import { ApolloProvider, useApolloClient } from "@apollo/client";
 import { ChakraProvider } from "@chakra-ui/react";
-// import "../styles/globals.css";
+import "../styles/globals.css";
 import { useApollo } from "../apollo";
 import { CartProvider } from "../CartProvider";
 import { useRouter } from "next/router";
 import "./_app.css";
 import{
   Box,
-  Stack,
-  SimpleGrid,
-  Container,
-  Link,
+  Flex,
   Text,
+  IconButton,
+  Button,
+  Stack,
+  Collapse,
+  Icon,
+  Image,
+  Input,
+  Link,
+  Popover,
+  PopoverTrigger,
+  Container,
+  SimpleGrid,
+  PopoverContent,
+  useColorModeValue,
+  useBreakpointValue,
+  useDisclosure,
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
 } from "@chakra-ui/react";
+// import ThanhTieuDe from "../../chiagiaodien/ThanhTieuDe";
+
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
+  
   const ListHeader = () => {
     return <Text fontWeight={"500"} fontSize={"lg"} mb={2}></Text>;
   };
@@ -24,8 +44,12 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <CartProvider>
         <ChakraProvider>
-        
+            {/* Đầu trang */}
+            
+
           <Component {...pageProps} />
+
+          {/* Chân trang */}
           <Box bg={"gray.500"} color={"white"}>
               <Container as={Stack} maxW={"6xl"} py={10}>
               <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
@@ -126,6 +150,5 @@ function MyApp({ Component, pageProps }) {
       </CartProvider>
     </ApolloProvider>
   );
-}
-
+};
 export default MyApp;
