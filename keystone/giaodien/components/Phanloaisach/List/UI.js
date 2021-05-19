@@ -1,11 +1,12 @@
-import PhanloaiItem from '../Item'
+import PhanloaiItem from "../Item";
 
-export default function UI({data}){
-    const {allPhanloaisaches}=data;
+export default function UI({ data, clickPhanLoai }) {
+  const { allPhanloaisaches } = data;
+  return allPhanloaisaches.map((phanloai) => {
     return (
-        allPhanloaisaches.map(phanloai => {
-            return <PhanloaiItem key={phanloai.id} phanloai = {phanloai}/>                          
-        })
-    
+      <a onClick={(e) => clickPhanLoai(phanloai)}>
+        <PhanloaiItem key={phanloai.id} phanloai={phanloai} />
+      </a>
     );
+  });
 }

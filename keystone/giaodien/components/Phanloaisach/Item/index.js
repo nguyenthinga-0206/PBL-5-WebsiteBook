@@ -1,6 +1,4 @@
-import UI from './UI'
-export default function PhanloaiItem({phanloai}){
-    return (
-        <UI phanloai = {phanloai}/>
-    )
+import UI from "./UI";
+export default function PhanloaiItem({ phanloai }) {
+  return <UI phanloai={phanloai} />;
 }
