@@ -1,31 +1,44 @@
-const { Text, Checkbox, Integer, Relationship, Float, DateTime } = require('@keystonejs/fields');
+const { Text, Checkbox, Integer, Relationship, Float, DateTime ,Select} = require('@keystonejs/fields');
+
 module.exports = {
   fields: {
     sdt: {
       type: Text,
-      label: 'SDT'
+      label: 'Sdt'
     },
     tongtien: {
       type: Float,
       label: 'Tổng tiền'
     },
     tinhTrangThanhToan: {
-      type: Checkbox, options: 'đã thanh toán,chưa thanh toán',
-      label: 'Tình trạng thánh toán'
+      type: Select, options:[
+        {value:'tienmat', label :"Thanh toán khi nhận hàng"},
+        {value: 'the' ,label :"Thanh toán bằng ví điện tử"},
+      ]
+      ,
+      label: 'Cách thức thanh toán'
     },
     tinhTrangGiao: {
-      type: Checkbox, options: 'Chờ xác nhận,Chờ lấy hàng, Đang giao, Đã giao',
-
+      type :Select, options:[
+          {value :'choxacnhan', label :"CHờ xác nhận"},
+         {value :'cholayhang',label :"Chờ lấy hàng"},
+       {value :'danggiao',label: "Đang giao"},
+       {value:'dagiao',label:"Đã giao"},
+      ],
       label: 'Tình trạng giao'
-
+      
     },
     duyetBoiTaiKhoan: {
       type: Text,
       label: 'Duyệt bởi tài khoản'
     },
     cachThucGiaoHang: {
-      type: Text,
-      label: 'Cách thức giao hàng'
+       type:Select, options:[
+         {value:'giohanhchinh',label:"Chỉ giao hàng trong giờ hành chính"},
+         {value:'all',label:"Tất cả các ngày trong tuần"},
+       ],
+      label :'Cách thức giao hàng'
+    
     },
     ngayDat:
     {

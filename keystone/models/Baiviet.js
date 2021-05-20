@@ -13,6 +13,9 @@ module.exports = {
     },
     sach: {
       type: Relationship, ref: 'Sach.baiViet', many: false,
+      adminConfig: {
+        isReadOnly: true,
+        },
       label: 'Sách'
     },
   },

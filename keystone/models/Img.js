@@ -11,12 +11,15 @@ module.exports = {
     anh: {
       type: File,
       adapter: fileAdapter,
-      label: " ảnh ",
+      label: "Ảnh",
     },
     sach: {
       type: Relationship,
       ref: "Sach.IMG",
       many: false,
+      adminConfig: {
+        isReadOnly: true,
+        },
       label: "Sách",
     },
   },
