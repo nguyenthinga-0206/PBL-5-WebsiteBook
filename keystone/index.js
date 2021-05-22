@@ -48,6 +48,7 @@ keystone.createList("Phanloaisach", PhanloaisachSchema);
 keystone.createList("Sach", SachSchema);
 keystone.createList("Phieunhapsach", PhieunhapsachSchema);
 
+
 const authStrategy = keystone.createAuthStrategy({
   type: PasswordAuthStrategy,
   list: "User",

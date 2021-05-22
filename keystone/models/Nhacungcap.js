@@ -10,13 +10,9 @@ module.exports = {
       type: Text,
       label: 'Địa chỉ'
     },
-    sdt: {
+    sdt:{
       type: Text,
-      label: 'SDT'
-    },
-    soLuong: {
-      type: Integer,
-      label: 'Số lượng'
+      label: 'Sdt'
     },
     phieuNhapSach: {
       type: Relationship, ref: 'Phieunhapsach.nhaCungCap', many: true,
