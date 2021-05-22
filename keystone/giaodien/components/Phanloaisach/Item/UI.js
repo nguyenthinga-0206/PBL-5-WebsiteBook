@@ -1,10 +1,9 @@
-
+import { ListIcon, ListItem } from "@chakra-ui/layout";
+import { Fragment } from "react";
+import {MdCheckCircle} from "react-icons/md";
 export default function UI({phanloai}){
-    return<div>
-        <br></br>
-        <b>LOAI SACH: </b>
-        <p>{phanloai.loai}</p>
-        <p>{phanloai.soLuong}</p>
-        </div>
-
+    return <Fragment>
+    <ListIcon as={MdCheckCircle} color="green.500" />
+    {phanloai.loai}
+    </Fragment> 
 }

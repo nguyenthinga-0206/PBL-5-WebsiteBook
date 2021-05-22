@@ -10,6 +10,11 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
         $where: SachWhereInput
       ) {
         allSaches(first: $first, skip: $skip, sortBy: $sortBy, where: $where) {
+          IMG {
+            anh {
+              publicUrl
+            }
+          }
           id
           tenSach
           soLuong
@@ -22,7 +27,7 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
             loai
           }
         }
-      }
+      } # Write your query or mutation here
     `,
     { variables: { first, skip, sortBy, where } }
   );
