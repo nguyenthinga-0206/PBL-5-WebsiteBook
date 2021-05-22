@@ -12,7 +12,7 @@ module.exports = {
     },
     gia: {
       type: Float,
-      label: 'Gia'
+      label: 'Giá'
     },
     tenNhaXuatBan: {
       type: Text,
@@ -35,7 +35,7 @@ module.exports = {
     
     phanLoaiSach: {
       type: Relationship, ref: 'Phanloaisach.sach', many: false,
-      label: 'Phân loại sách'
+      label: 'Loại sách'
     },
     IMG: {
       type: Relationship, ref: 'IMG.sach', many: true,
@@ -50,7 +50,8 @@ module.exports = {
       label: 'Bài viết'
     },
     chiTietDonHang: {
-      type: Relationship, ref: 'Chitietdonhang.sach', many: false
+      type: Relationship, ref: 'Chitietdonhang.sach', many: false,
+      label:'Chi tiết đơn hàng'
     },
 
   },
