@@ -1,20 +1,3 @@
-// export default function UI({ sach }) {
-//   return (
-//     <div>
-//       <br></br>
-//       <b>TEN SACH: </b>
-//       <p>{sach.tenSach}</p>
-//       <p>{sach.soLuong}</p>
-//       <p>{sach.gia}</p>
-//       <p>{sach.tenNhaXuatBan}</p>
-//       <p>{sach.tenTacGia}</p>
-//       <p>{sach.soTrang}</p>
-//       <p>{sach.ngayXuatBan}</p>
-//       <p>{sach.phanLoaiSach?.loai}</p>
-//     </div>
-//   );
-// }
-
 import {
   Flex,
   Circle,
@@ -25,9 +8,11 @@ import {
   Icon,
   chakra,
   Tooltip,
+  Link,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+import { useRouter } from "next/router";
 
 const data = {
   isNew: true,
@@ -64,14 +49,10 @@ function Rating({ rating, numReviews }) {
   );
 }
 
-// bg={"green.300"}
-// href={"#"}
-// _hover={{
-//   bg: "green.200",
-// }}
-
 function UI({ sach }) {
-  console.log(sach?.IMG[0]?.anh);
+
+  const router = useRouter();
+
   return (
     <Flex p={50} w="full" alignItems="center" justifyContent="center">
       <Box
@@ -79,7 +60,7 @@ function UI({ sach }) {
         maxW="250px"
         borderColor ="white"
         borderWidth="1px"
-         rounded="lg"
+        rounded="lg"
         shadow="lg"
         position="relative"
         href={"#"}
@@ -111,22 +92,69 @@ function UI({ sach }) {
             </Badge>
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
+            <Link 
+              onClick={(e) => {
+                router.push({
+                  pathname: '/chi-tiet-sach/[id]',
+                  query: { 
+                    id: sach.id, 
+                    tenSach: sach.tenSach, 
+                    tenTacGia: sach.tenTacGia,
+                    tenNhaXuatBan: sach.tenNhaXuatBan,
+                    gia: sach.gia,
+                    soTrang: sach.soTrang,
+                    ngayXuatBan: sach.ngayXuatBan,
+                    soLuong: sach.soLuong,
+                    IMG1: sach?.IMG[0]?.anh?.publicUrl,
+                    IMG2: sach?.IMG[1]?.anh?.publicUrl,
+                    IMG3: sach?.IMG[2]?.anh?.publicUrl,
+                    IMG4: sach?.IMG[3]?.anh?.publicUrl,
+                    IMG5: sach?.IMG[4]?.anh?.publicUrl,
+                    tieude: sach?.baiViet[0]?.tieude,
+                    baiViet: sach?.baiViet[0]?.baiViet,
+                    loai: sach?.phanLoaiSach?.loai,
+                  },
+                })
+              }}
             >
-              {sach.tenSach}
-            </Box>
-            <Tooltip
-              label="Thêm vào giỏ"
-              bg="white"
-              placement={"top"}
-              color={"gray.800"}
-              fontSize={"1.2em"}
+              <Box
+                fontSize="2xl"
+                fontWeight="semibold"
+                as="h4"
+                lineHeight="tight"
+                isTruncated
+              >
+                {sach.tenSach}
+              </Box>
+            </Link>
+            <Link
+              onClick={(e) => {
+                router.push({
+                  pathname: '/gio-hang/[id]',
+                  query: { 
+                    id: sach.id, 
+                    tenSach: sach.tenSach, 
+                    tenTacGia: sach.tenTacGia,
+                    tenNhaXuatBan: sach.tenNhaXuatBan,
+                    gia: sach.gia,
+                    soTrang: sach.soTrang,
+                    ngayXuatBan: sach.ngayXuatBan,
+                    soLuong: sach.soLuong,
+                    IMG1: sach?.IMG[0]?.anh?.publicUrl,
+                    tieude: sach?.baiViet[0]?.tieude,
+                    baiViet: sach?.baiViet[0]?.baiViet,
+                    loai: sach?.phanLoaiSach?.loai,
+                  },
+                })
+              }}
             >
+              <Tooltip
+                label="Thêm vào giỏ"
+                bg="white"
+                placement={"top"}
+                color={"gray.800"}
+                fontSize={"1.2em"}
+              >
               <chakra.a href={"#"} display={"flex"}>
                 <Icon
                   as={FiShoppingCart}
@@ -137,6 +165,7 @@ function UI({ sach }) {
                 />
               </chakra.a>
             </Tooltip>
+            </Link>
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">

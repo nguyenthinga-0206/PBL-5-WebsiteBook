@@ -4,7 +4,6 @@ import {
   Text,
   IconButton,
   Button,
-  Image,
   Stack,
   Collapse,
   Icon,
@@ -22,13 +21,20 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  SearchIcon,
-  Search2Icon,
 } from "@chakra-ui/icons";
+import { useState } from "react";
+import Search from "../../pages";
 
 export default function UI() {
   const { isOpen, onToggle } = useDisclosure();
 
+   // Tim kiem
+   const [keyword, setKeyword] = useState();
+   const change = (e) => {
+   const { value } = e.target;
+   if (value.length > 2) setKeyword(value);
+   };
+  
   return (
     <Box>
       <Flex
@@ -73,14 +79,13 @@ export default function UI() {
           ml={10}
           mg = {200}
           md=  {200}
-         mr ="20px"
-         w={"50%"} 
-         bg ="white"
-        placeholder="Tìm kiếm">
-         
-        </Input>
+          mr ="20px"
+          w={"50%"} 
+          bg ="white"
+          onChange = {change}
+          placeholder="Tìm kiếm"
+        />
        
-
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -117,7 +122,7 @@ export default function UI() {
           </Button>
         </Stack>
       </Flex>
-
+      
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
