@@ -15,6 +15,7 @@ import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
+import Search from "../components/ThanhTieuDe";
 
 export default function Home() {
 
@@ -27,7 +28,7 @@ export default function Home() {
   console.log(keyword);
 
   const [where, setWhere] = useState({});
-  
+ 
   const clickPhanLoai = (phanloai) => {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
