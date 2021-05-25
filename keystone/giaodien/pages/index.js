@@ -15,16 +15,24 @@ import PhanloaiListUI from "../components/Phanloaisach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
+import Search from "../components/ThanhTieuDe";
 
-export default function Home({ search }) {
+export default function Home() {
+
+  // Tim kiem
+  const [keyword, setKeyword] = useState();
+  const handleChange = (e) => {
+  const { value } = e.target.value;
+  if (value.length > 0) setKeyword(value);
+  };
+  console.log(keyword);
 
   const [where, setWhere] = useState({});
-  
+ 
   const clickPhanLoai = (phanloai) => {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
 
-  console.log(search);
   return (
     <Fragment>
       <Grid templateColumns="repeat(6, 1fr)">
@@ -39,7 +47,7 @@ export default function Home({ search }) {
             <SachList
               first={25}
               UI={SachListUI}
-              where={{ AND: [{ tenSach_contains_i: search }, where] }}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
             />
           </SimpleGrid>
         </GridItem>

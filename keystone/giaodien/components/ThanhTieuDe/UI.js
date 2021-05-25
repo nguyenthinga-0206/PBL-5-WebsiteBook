@@ -23,18 +23,11 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useState } from "react";
-import Search from "../../pages";
 
-export default function UI() {
+export default function UI({ handleChange }) {
+
   const { isOpen, onToggle } = useDisclosure();
 
-   // Tim kiem
-   const [keyword, setKeyword] = useState();
-   const change = (e) => {
-   const { value } = e.target;
-   if (value.length > 2) setKeyword(value);
-   };
-  
   return (
     <Box>
       <Flex
@@ -82,7 +75,7 @@ export default function UI() {
           mr ="20px"
           w={"50%"} 
           bg ="white"
-          onChange = {change}
+          onChange = {handleChange}
           placeholder="Tìm kiếm"
         />
        
