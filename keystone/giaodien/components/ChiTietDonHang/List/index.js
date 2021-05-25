@@ -1,8 +1,9 @@
 import UI from './UI'
-import {useQuery, gql} from '@apollo/client'
+import {useQuery, gql, makeVar} from '@apollo/client'
+export const refetchDetailsList = makeVar();
 export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
     const {
-        loading, error, data
+        loading, error, data, refetch
     } = useQuery (gql `
         query(
             $first: Int
@@ -27,7 +28,7 @@ export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
     if(loading || error){
         return "Loading...";
     }
-
+    if (refetch) refetchDetailsList(refetch);
     return (
         <UI data = {data}/>
     )
