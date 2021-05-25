@@ -5,13 +5,13 @@ import BaiVietList from "../components/BaiViet/List";
 import ChiTietDonHangList from "../components/ChiTietDonHang/List";
 import DonHangList from "../components/DonHang/List";
 import ImgList from "../components/Img/List";
-import NhapsachList from "../components/Phieunhapsach/List";
-import NhaCungCapList from "../components/Nhacungcap/List";
+import NhapSachList from "../components/PhieuNhapSach/List";
+import NhaCungCapList from "../components/NhaCungCap/List";
 import UserList from "../components/User/List";
 import NextLink from "next/link";
 import { Fragment, useState } from "react";
-import PhanloaiList from "../components/Phanloaisach/List";
-import PhanloaiListUI from "../components/Phanloaisach/List/UI";
+import PhanLoaiList from "../components/PhanLoaiSach/List";
+import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 <<<<<<< HEAD
@@ -27,8 +27,8 @@ export default function Home() {
 
   // Tim kiem
   const [keyword, setKeyword] = useState();
-  const handleChange = (e) => {
-  const { value } = e.target.value;
+  const change = (e) => {
+  const { value } = e.target;
   if (value.length > 0) setKeyword(value);
   };
   console.log(keyword);
@@ -63,9 +63,14 @@ export default function Home() {
 =======
       <Grid templateColumns="repeat(6, 1fr)">
         <GridItem colSpan={1}>
+<<<<<<< HEAD
 >>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
           <PhanloaiList
             UI={PhanloaiListUI}
+=======
+          <PhanLoaiList
+            UI={PhanLoaiListUI}
+>>>>>>> 16f000dbc0154f10fa1220a483d4710f4dc7c669
             clickPhanLoai={clickPhanLoai}
             value ={keyword} 
           />

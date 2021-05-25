@@ -24,9 +24,11 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
-export default function UI({ handleChange }) {
+export default function UI() {
 
+<<<<<<< HEAD
  HEAD
 export default function UI() {
   const router = useRouter();
@@ -37,7 +39,12 @@ f689615f621bfdcce1f698283e353be7b60561e
     const { value } = e.target;
     if (value.length > 2) setKeyword(value);
   };
+=======
+  const router = useRouter();
+>>>>>>> 16f000dbc0154f10fa1220a483d4710f4dc7c669
 
+  const { isOpen, onToggle } = useDisclosure();
+  
   return (
     <Box>
       <Flex
@@ -66,11 +73,12 @@ f689615f621bfdcce1f698283e353be7b60561e
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.50", "white")}
+          <Link
+            onClick = { (e) => {
+              router.push("/");
+            }}
           >
+<<<<<<< HEAD
             <Image
               //  borderRadius="full"
               // boxSize="50px"
@@ -92,6 +100,18 @@ f689615f621bfdcce1f698283e353be7b60561e
           
           >
             <DesktopNav />
+=======
+            <Text
+              textAlign={useBreakpointValue({ base: "center", md: "left" })}
+              fontFamily={"heading"}
+              color={useColorModeValue("gray.50", "white")}
+            >
+              Logo
+            </Text>
+          </Link>
+        <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <DesktopNav />
+>>>>>>> 16f000dbc0154f10fa1220a483d4710f4dc7c669
           </Flex>
         </Flex>
 
@@ -125,7 +145,7 @@ f689615f621bfdcce1f698283e353be7b60561e
           mr ="20px"
           w={"50%"} 
           bg ="white"
-          onChange = {handleChange}
+          // onChange = {change}
           placeholder="Tìm kiếm"
         />
        
@@ -137,6 +157,9 @@ f689615f621bfdcce1f698283e353be7b60561e
           spacing={6}
         >
           <Button
+          onClick={(e) => {
+            router.push("/dang-nhap");
+          }}
             as={"a"}
             fontSize={"sm"}
             fontWeight={400}
@@ -145,11 +168,15 @@ f689615f621bfdcce1f698283e353be7b60561e
             color={"white"}
             href={"#"}
           >
+<<<<<<< HEAD
             Đăng Nhập
+=======
+           Đăng Nhậps
+>>>>>>> 16f000dbc0154f10fa1220a483d4710f4dc7c669
           </Button>
 
           <Button
-            onClick={(event) => {
+            onClick={(e) => {
               router.push("/dang-ky");
             }}
             display={{ base: "none", md: "inline-flex" }}
