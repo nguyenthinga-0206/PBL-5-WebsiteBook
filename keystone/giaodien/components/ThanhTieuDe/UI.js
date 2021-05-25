@@ -27,11 +27,10 @@ import { useState } from "react";
 
 export default function UI({ handleChange }) {
 
-<<<<<<< HEAD
+ HEAD
 export default function UI() {
   const router = useRouter();
-=======
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
+f689615f621bfdcce1f698283e353be7b60561e
   const { isOpen, onToggle } = useDisclosure();
   // const [keyword, setKeyword] = useState();
   const change = (e) => {
@@ -98,7 +97,6 @@ export default function UI() {
 
         <Input
           ml={10}
-<<<<<<< HEAD
           mg={200}
           md={200}
           mr="20px"
@@ -121,7 +119,7 @@ export default function UI() {
           src="/img/gio1.png"
           alt="Segun Adebayo"
         /></Link>
-=======
+{/* =======
           mg = {200}
           md=  {200}
           mr ="20px"
@@ -131,7 +129,7 @@ export default function UI() {
           placeholder="Tìm kiếm"
         />
        
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e */}
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -324,6 +322,49 @@ const MobileNavItem = ({ label, children, href }) => {
     </Stack>
   );
 };
+
+const NAV_ITEMS = [
+  {
+    label: "Danh Mục Sách",
+    children: [
+      {
+        label: "Sách Kĩ Năng",
+        href: "#",
+      },
+      {
+        label: "Sách Kinh Doanh",
+        href: "#",
+      },
+      {
+        label: "Sách Kinh Doanh2",
+        href: "#",
+      },
+      {
+        label: "Sách Kinh Doan3",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Find Work",
+    children: [
+      {
+        label: "Job Board",
+        subLabel: "Find your dream design job",
+        href: "#",
+      },
+      {
+        label: "Freelance Projects",
+        subLabel: "An exclusive list for contract work",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Learn Design",
+    href: "#",
+  },
+];
 
 const NAV_ITEMS = [
   {
