@@ -1,13 +1,10 @@
 
-export default function UI({nhaCungCap}){
+export default function UI({gioHang}){
     return<div>
         <br></br>
         <b>TEN NHACUNGCAP: </b>
-        <p>{nhaCungCap.ten}</p>
-        <p>{nhaCungCap.diaChi}</p>
-        <p>{nhaCungCap.sdt}</p>
-        <p>{nhaCungCap.soLuong}</p>
-        <p>{nhaCungCap.diaChi}</p>
+        <p>{gioHang.chiTietDonHang?.soLuong}</p>
+        <p>{gioHang.chiTietDonHang?.tien}</p>
         </div>
 
 }

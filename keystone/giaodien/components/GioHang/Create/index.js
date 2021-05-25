@@ -23,13 +23,14 @@ export default function CartCreate() {
   /**
    * @param {int} name
    */
-  const handleClick = (name) =>  (event) => {
+  const handleClick = (name) =>  (n) => {
     setCartItems({ ...cartItems, [name]: cartItems.soLuong + 1 });
   };
+  
   const onCreate = (e) => {
     onCreateCart({
       variables: {
-        data: cartItems,
+        data: cartItems
       },
     })
       .then((data) => {

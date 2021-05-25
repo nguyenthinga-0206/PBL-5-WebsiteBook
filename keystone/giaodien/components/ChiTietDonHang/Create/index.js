@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import UI from "./UI";
-import { refetchUserList } from "../List";
+import { refetchDetailsList } from "../List";
 export default function UserCreate() {
   const [onCreateUser, resultCreateUser] = useMutation(gql`
     mutation($data: UserCreateInput) {
@@ -30,7 +30,7 @@ export default function UserCreate() {
       },
     })
       .then((data) => {
-        refetchUserList()();
+        refetchDetailsList()();
       })
       .catch((e) => {
         console.log(e);

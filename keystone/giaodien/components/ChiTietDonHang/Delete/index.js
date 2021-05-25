@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import UI from "./UI";
-import { refetchUserList } from "../List";
+import { refetchDetailsList } from "../List";
 export default function UserDelete({userID}) {
   const [onDeleteUser, resultDeleteUser] = useMutation(gql`
   mutation ($id: ID!) {
@@ -23,7 +23,7 @@ console.log(userID);
       },
     })
       .then((data) => {
-        refetchUserList()();
+        refetchDetailsList()();
       })
       .catch((e) => {
         console.log(e);
