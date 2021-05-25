@@ -5,13 +5,13 @@ import BaiVietList from "../components/BaiViet/List";
 import ChiTietDonHangList from "../components/ChiTietDonHang/List";
 import DonHangList from "../components/DonHang/List";
 import ImgList from "../components/Img/List";
-import NhapsachList from "../components/Phieunhapsach/List";
-import NhaCungCapList from "../components/Nhacungcap/List";
+import NhapSachList from "../components/PhieuNhapSach/List";
+import NhaCungCapList from "../components/NhaCungCap/List";
 import UserList from "../components/User/List";
 import NextLink from "next/link";
 import { Fragment, useState } from "react";
-import PhanloaiList from "../components/Phanloaisach/List";
-import PhanloaiListUI from "../components/Phanloaisach/List/UI";
+import PhanLoaiList from "../components/PhanLoaiLach/List";
+import PhanLoaiListUI from "../components/PhanLoaiLach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
@@ -29,8 +29,8 @@ export default function Home({ search }) {
     <Fragment>
       <Grid templateColumns="repeat(6, 1fr)">
         <GridItem colSpan={1}>
-          <PhanloaiList
-            UI={PhanloaiListUI}
+          <PhanLoaiList
+            UI={PhanLoaiListUI}
             clickPhanLoai={clickPhanLoai}
           />
         </GridItem>
