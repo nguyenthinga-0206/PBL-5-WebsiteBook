@@ -8,10 +8,12 @@ export default function UserCreate() {
       createUser(data: $data) {
         id
         name
+        email
         password_is_set
       }
     }
-  `);
+  `
+  );
   const [values, setValues] = useState({
     name: null,
     email: null,
@@ -20,9 +22,12 @@ export default function UserCreate() {
   /**
    * @param {String} name
    */
+
   const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.values });
+    setValues({ ...values, [name]: event.target.value });
   };
+  
+  // console.log(values);
   const onCreate = (e) => {
     onCreateUser({
       variables: {

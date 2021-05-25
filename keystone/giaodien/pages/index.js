@@ -10,13 +10,21 @@ import NhaCungCapList from "../components/NhaCungCap/List";
 import UserList from "../components/User/List";
 import NextLink from "next/link";
 import { Fragment, useState } from "react";
-import PhanLoaiList from "../components/PhanLoaiLach/List";
-import PhanLoaiListUI from "../components/PhanLoaiLach/List/UI";
+import PhanLoaiList from "../components/PhanLoaiSach/List";
+import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
 
-export default function Home({ search }) {
+export default function Home() {
+
+  // Tim kiem
+  const [keyword, setKeyword] = useState();
+  const change = (e) => {
+  const { value } = e.target;
+  if (value.length > 0) setKeyword(value);
+  };
+  console.log(keyword);
 
   const [where, setWhere] = useState({});
   
@@ -24,7 +32,6 @@ export default function Home({ search }) {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
 
-  console.log(search);
   return (
     <Fragment>
       <Grid templateColumns="repeat(6, 1fr)">
@@ -39,7 +46,7 @@ export default function Home({ search }) {
             <SachList
               first={25}
               UI={SachListUI}
-              where={{ AND: [{ tenSach_contains_i: search }, where] }}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
             />
           </SimpleGrid>
         </GridItem>
