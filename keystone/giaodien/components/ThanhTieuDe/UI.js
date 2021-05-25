@@ -4,7 +4,6 @@ import {
   Text,
   IconButton,
   Button,
-  Image,
   Stack,
   Collapse,
   Icon,
@@ -23,12 +22,16 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  SearchIcon,
-  Search2Icon,
 } from "@chakra-ui/icons";
+import { useState } from "react";
 
+export default function UI({ handleChange }) {
+
+<<<<<<< HEAD
 export default function UI() {
   const router = useRouter();
+=======
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
   const { isOpen, onToggle } = useDisclosure();
   // const [keyword, setKeyword] = useState();
   const change = (e) => {
@@ -95,6 +98,7 @@ export default function UI() {
 
         <Input
           ml={10}
+<<<<<<< HEAD
           mg={200}
           md={200}
           mr="20px"
@@ -117,6 +121,17 @@ export default function UI() {
           src="/img/gio1.png"
           alt="Segun Adebayo"
         /></Link>
+=======
+          mg = {200}
+          md=  {200}
+          mr ="20px"
+          w={"50%"} 
+          bg ="white"
+          onChange = {handleChange}
+          placeholder="Tìm kiếm"
+        />
+       
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -153,7 +168,7 @@ export default function UI() {
           </Button>
         </Stack>
       </Flex>
-
+      
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>

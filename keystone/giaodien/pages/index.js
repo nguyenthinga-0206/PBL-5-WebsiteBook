@@ -14,21 +14,34 @@ import PhanloaiList from "../components/Phanloaisach/List";
 import PhanloaiListUI from "../components/Phanloaisach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
+<<<<<<< HEAD
 import { SimpleGrid } from "@chakra-ui/layout";
 import { Grid } from "@chakra-ui/layout";
 import { GridItem,Text } from "@chakra-ui/layout";
+=======
+import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
+import Search from "../components/ThanhTieuDe";
+
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
 export default function Home() {
-  const [where, setWhere] = useState({});
+
+  // Tim kiem
   const [keyword, setKeyword] = useState();
-  const change = (e) => {
-    const { value } = e.target;
-    if (value.length > 2) setKeyword(value);
+  const handleChange = (e) => {
+  const { value } = e.target.value;
+  if (value.length > 0) setKeyword(value);
   };
+  console.log(keyword);
+
+  const [where, setWhere] = useState({});
+ 
   const clickPhanLoai = (phanloai) => {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
+
   return (
     <Fragment>
+<<<<<<< HEAD
       <img
         width={100}
         src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=500&height=500"
@@ -47,13 +60,17 @@ export default function Home() {
       <SimpleGrid columns={2}>
         <GridItem>
           
+=======
+      <Grid templateColumns="repeat(6, 1fr)">
+        <GridItem colSpan={1}>
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
           <PhanloaiList
-            first={7}
             UI={PhanloaiListUI}
             clickPhanLoai={clickPhanLoai}
             value ={keyword} 
           />
         </GridItem>
+<<<<<<< HEAD
         <GridItem>
           <Text>Kết quả cho: {keyword}</Text>
           <SachList
@@ -61,8 +78,18 @@ export default function Home() {
             UI={SachListUI}
             where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
           />
+=======
+        <GridItem colSpan={5}>
+          <SimpleGrid columns = {5} spacingX = "2px">
+            <SachList
+              first={25}
+              UI={SachListUI}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+            />
+          </SimpleGrid>
+>>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
         </GridItem>
-      </SimpleGrid>
+      </Grid>
     </Fragment>
   );
 }

@@ -46,7 +46,7 @@ module.exports = {
       label: 'Phiếu nhập sách'
     },
     baiViet: {
-      type: Relationship, ref: 'Baiviet.sach', many: false,
+      type: Relationship, ref: 'Baiviet.sach', many: true,
       label: 'Bài viết'
     },
     chiTietDonHang: {
