@@ -25,10 +25,11 @@ import {
   Icon,
   chakra,
   Tooltip,
+  Link,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
-
 const data = {
   isNew: true,
   imageURL:
@@ -40,6 +41,7 @@ const data = {
 };
 
 function Rating({ rating, numReviews }) {
+
   return (
     <Box d="flex" alignItems="center">
       {Array(5)
@@ -64,27 +66,26 @@ function Rating({ rating, numReviews }) {
   );
 }
 
-// bg={"green.300"}
-// href={"#"}
-// _hover={{
-//   bg: "green.200",
-// }}
-
 function UI({ sach }) {
+  const router = useRouter();
   console.log(sach?.IMG[0]?.anh);
   return (
     <Flex p={50} w="full" alignItems="center" justifyContent="center">
-      <Box
+      <Link
+          onClick={(event) => {
+            router.push("/chi-tiet-sach");
+          }}
+        > <Box
         bg={useColorModeValue("white", "#F687B3")}
         maxW="250px"
-        borderColor ="white"
+        borderColor="white"
         borderWidth="1px"
-         rounded="lg"
+        rounded="lg"
         shadow="lg"
         position="relative"
         href={"#"}
         _hover={{
-          borderColor : "#F687B3",
+          borderColor: "#F687B3",
           borderWidth: "1px",
         }}
       >
@@ -97,12 +98,13 @@ function UI({ sach }) {
             bg="red.200"
           />
         )}
-
-        <Image
-          src={sach?.IMG[0]?.anh?.publicUrl}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
+       
+          <Image
+            src={sach?.IMG[0]?.anh?.publicUrl}
+            alt={`Picture of ${data.name}`}
+            roundedTop="lg"
+          />
+      
 
         <Box p="6">
           <Box d="flex" alignItems="baseline">
@@ -152,7 +154,8 @@ function UI({ sach }) {
           </Flex>
         </Box>
       </Box>
-    </Flex>
+   
+      </Link> </Flex>
   );
 }
 

@@ -1,7 +1,8 @@
-import { List, ListItem } from "@chakra-ui/layout";
+
+import {Text, List, ListItem } from "@chakra-ui/layout";
 import PhanloaiItem from "../Item";
 
-export default function UI({ data, clickPhanLoai }) {
+export default function UI({ data, clickPhanLoai, value}) {
   const { allPhanloaisaches } = data;
 
   return (
@@ -10,6 +11,7 @@ export default function UI({ data, clickPhanLoai }) {
         return (
           <ListItem onClick={(e) => clickPhanLoai(phanloai)}>
             <PhanloaiItem key={phanloai.id} phanloai={phanloai} />
+            <Text > {value}</Text>
           </ListItem>
         );
       })}

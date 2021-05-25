@@ -6,6 +6,7 @@ import {
     Stack,
     Text,
     Flex,
+    Image,
     Tag,
     useColorModeValue,
   } from '@chakra-ui/react';
@@ -41,50 +42,40 @@ import {
   export default function UI() {
     return (
       <Box
-        bg={useColorModeValue('#F687B3', 'gray.900')}
+        bg={useColorModeValue('#b8ddd1', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'6xl'} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
             <Stack align={'flex-start'}>
-              <ListHeader>Product</ListHeader>
-              <Link href={'#'}>Overview</Link>
-              <Stack direction={'row'} align={'center'} spacing={2}>
-                <Link href={'#'}>Features</Link>
-                <Tag
-                  size={'sm'}
-                  bg={useColorModeValue('green.300', 'green.800')}
-                  ml={2}
-                  color={'white'}>
-                  New
-                </Tag>
-              </Stack>
-              <Link href={'#'}>Tutorials</Link>
-              <Link href={'#'}>Pricing</Link>
-              <Link href={'#'}>Releases</Link>
+              <ListHeader>HAYAKU</ListHeader>
+              <Link href={'#'}>--------------------</Link>
+              <Link href={'#'}> <b>Địa chỉ</b> : 54 Nguyễn Lương Bằng, Hòa Khánh Bắc, Liên Chiểu, TP.Đà Nẵng</Link>
+              <Link href={'#'}><b>Email : </b> hayakubooks@gmail.com</Link>
+              <Link href={'#'}><b>Số điện thoại : </b> 0815502607</Link>
+             
             </Stack>
             <Stack align={'flex-start'}>
-              <ListHeader>Company</ListHeader>
-              <Link href={'#'}>About Us</Link>
-              <Link href={'#'}>Press</Link>
-              <Link href={'#'}>Careers</Link>
-              <Link href={'#'}>Contact Us</Link>
-              <Link href={'#'}>Partners</Link>
+              <ListHeader>Hỗ Trợ Khách Hàng</ListHeader>
+              <Link href={'#'}>--------------------</Link>              <Link href={'#'}>Press</Link>
+              <Link href={'#'}>Điều khoản sử dùng</Link>
+              <Link href={'#'}>Hướng dẫn mua hàng</Link>
+              <Link href={'#'}>Phương thức thanh toán</Link>
+              <Link href={'#'}>Phương thức giao Hàng</Link>
+              <Link href={'#'}>Chính sách đổi trả</Link>
             </Stack>
             <Stack align={'flex-start'}>
-              <ListHeader>Legal</ListHeader>
-              <Link href={'#'}>Cookies Policy</Link>
-              <Link href={'#'}>Privacy Policy</Link>
-              <Link href={'#'}>Terms of Service</Link>
-              <Link href={'#'}>Law Enforcement</Link>
-              <Link href={'#'}>Status</Link>
+              <ListHeader>Thông Tin</ListHeader>
+              <Link href={'#'}>--------------------</Link>              <Link href={'#'}>Press</Link>
+              <Link href={'#'}>Đăng nhập</Link>
+              <Link href={'#'}>Đăng ký</Link>
+              <Link href={'#'}>Giới thiệu HAYAKU</Link>
             </Stack>
             <Stack align={'flex-start'}>
-              <ListHeader>Follow Us</ListHeader>
+              <ListHeader>Mạng Xã Hỗi</ListHeader>
+              <Link href={'#'}>--------------------</Link>              <Link href={'#'}>Press</Link>
               <Link href={'#'}>Facebook</Link>
-              <Link href={'#'}>Twitter</Link>
-              <Link href={'#'}>Dribbble</Link>
-              <Link href={'#'}>Instagram</Link>
-              <Link href={'#'}>LinkedIn</Link>
+              <Link href={'#'}>Zaloư</Link>
+              <Link href={'#'}>website :</Link>
             </Stack>
           </SimpleGrid>
         </Container>
@@ -105,10 +96,17 @@ import {
               flexGrow: 1,
               ml: 8,
             }}>
-            <Logo />
+            <Image
+              //  borderRadius="full"
+              // boxSize="50px"
+              width="160px"
+              height="70px"
+              src="/img/logo2.png"
+              alt="Segun Adebayo"
+            />
           </Flex>
           <Text pt={6} fontSize={'sm'} textAlign={'center'}>
-            © 2020 Chakra Templates. All rights reserved
+            © 2021 Cảm ơn quý khách _ Đã tin tưởng và ủng hộ HAYAKUBOOKS chúng tôi!
           </Text>
         </Box>
       </Box>

@@ -17,6 +17,7 @@ import {
   useDisclosure,
   Input,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -27,12 +28,18 @@ import {
 } from "@chakra-ui/icons";
 
 export default function UI() {
+  const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
+  // const [keyword, setKeyword] = useState();
+  const change = (e) => {
+    const { value } = e.target;
+    if (value.length > 2) setKeyword(value);
+  };
 
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("#F687B3", "white")}
+        bg={useColorModeValue("#b8ddd1", "white")}
         color={useColorModeValue("gray.800", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -62,25 +69,54 @@ export default function UI() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.50", "white")}
           >
-            Logo
+            <Image
+              //  borderRadius="full"
+              // boxSize="50px"
+              width="160px"
+              height="70px"
+              src="/img/logo2.png"
+              alt="Segun Adebayo"
+            />
           </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            md="50px"
+            //mr="20px"
+            width="200px"
+            height="70px"
+            bg="#b8ddd1"
+            // onChange={change}
+          
+          >
             <DesktopNav />
           </Flex>
         </Flex>
+
         <Input
           ml={10}
-          mg = {200}
-          md=  {200}
-         mr ="20px"
-         w={"50%"} 
-         bg ="white"
-        placeholder="Tìm kiếm">
-         
-        </Input>
-       
-
+          mg={200}
+          md={200}
+          mr="20px"
+          w={"50%"}
+          bg="white"
+          onChange={change}
+          placeholder="Tìm kiếm"
+        ></Input>
+         <Link
+            onClick={(event) => {
+              router.push("/sach");
+            }}
+          >
+        <Image
+          //  borderRadius="full"
+          // boxSize="50px"
+          mr="20px"
+          width="70px"
+          height="70px"
+          src="/img/gio1.png"
+          alt="Segun Adebayo"
+        /></Link>
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
@@ -96,7 +132,7 @@ export default function UI() {
             color={"white"}
             href={"#"}
           >
-           Đăng Nhập
+            Đăng Nhập
           </Button>
 
           <Button

@@ -16,7 +16,7 @@ import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid } from "@chakra-ui/layout";
 import { Grid } from "@chakra-ui/layout";
-import { GridItem } from "@chakra-ui/layout";
+import { GridItem,Text } from "@chakra-ui/layout";
 export default function Home() {
   const [where, setWhere] = useState({});
   const [keyword, setKeyword] = useState();
@@ -33,6 +33,7 @@ export default function Home() {
         width={100}
         src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=500&height=500"
       />
+      
       <input placeholder="search" onChange={change} />
       <NextLink href="/gio-hang">
         <a>gio hang</a>
@@ -45,13 +46,16 @@ export default function Home() {
       </NextLink>
       <SimpleGrid columns={2}>
         <GridItem>
+          
           <PhanloaiList
             first={7}
             UI={PhanloaiListUI}
             clickPhanLoai={clickPhanLoai}
+            value ={keyword} 
           />
         </GridItem>
         <GridItem>
+          <Text>Kết quả cho: {keyword}</Text>
           <SachList
             first={10}
             UI={SachListUI}
