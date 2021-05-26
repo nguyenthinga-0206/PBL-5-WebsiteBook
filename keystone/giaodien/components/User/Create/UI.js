@@ -1,20 +1,29 @@
 import {
   Box,
   Stack,
+  HStack,
   InputGroup,
   Input,
   InputRightElement,
+  InputLeftElement,
+  CheckIcon,
+  PinInputField,
+  PinInput,
   Button,
   Heading,
   Text,
   Link,
+  Center,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import {useRouter} from "next/router";
 import HTML from "../../HTML";
 
 export default function UI({ handleChange, onCreate, resultCreateUser }) {
 
   const router = useRouter();
+
+  const [value, setValue] = useState();
 
   return (
     <Stack
@@ -25,20 +34,56 @@ export default function UI({ handleChange, onCreate, resultCreateUser }) {
       maxW={{ lg: 'lg' }}>
       <Stack spacing={4}>
         <Heading
-          color={'gray.800'}
-          lineHeight={1.1}
-          fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}>
+          color = {'gray.800'}
+          lineHeight = {1.1}
+          fontSize = {{ base: '2xl', sm: '3xl', md: '4xl' }}>
           Đăng Ký Thành Viên
           <Text
-            as={'span'}
-            bgGradient="linear(to-r, red.400,pink.400)"
-            bgClip="text">
+            as = {'span'}
+            bgGradient = "linear(to-r, red.400,pink.400)"
+            bgClip = "text">
             !
           </Text>
         </Heading>          
       </Stack>
       <Box as={'form'} mt={10}>
         <Stack spacing={4}>
+        <b>Email:</b>
+        <InputGroup>
+          <Input
+            placeholder = "Email"
+            name = {'email'} 
+            onChange={handleChange("email")}
+            bg = {'gray.100'}
+            border = {0}
+            color = {'gray.500'}
+            _placeholder = {{
+              color: 'gray.500',
+            }}
+          />
+          <InputRightElement 
+            children = {
+              <Link  
+                color="blue.500"
+                children = "Gửi OTP" 
+                onClick = { (e) => {
+                  // router.push("/gui-email-xac-nhan")
+                }}
+              />
+            }
+          />
+        </InputGroup>
+          <b>Mã xác nhận:</b>
+          <Center>
+            <HStack otp >
+              <PinInput size="md">
+                <PinInputField />
+                <PinInputField />
+                <PinInputField />
+                <PinInputField />
+              </PinInput>
+            </HStack>
+          </Center>
           <b>Tên Đăng Nhập:</b>
           <Input
             placeholder="Tên Đăng Nhập"
@@ -51,19 +96,7 @@ export default function UI({ handleChange, onCreate, resultCreateUser }) {
               color: 'gray.500',
             }}
           />
-          <b>Email:</b>
-          <Input
-            placeholder="Email"
-            name = {'email'} 
-            onChange={handleChange("email")}
-            bg={'gray.100'}
-            border={0}
-            color={'gray.500'}
-            _placeholder={{
-              color: 'gray.500',
-            }}
-          />
-          <b>Mật Khẩu:</b>
+          <b>Nhập mật Khẩu:</b>
           <Input
             placeholder="Mật Khẩu"
             name = {'password'}

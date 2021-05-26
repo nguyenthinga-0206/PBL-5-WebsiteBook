@@ -9,6 +9,7 @@ import {
     Link,
     Stack,
     Image,
+    Container,
   } from '@chakra-ui/react';
   import UserList from "../../components/User/List";
   import { useRouter } from "next/router";
@@ -30,7 +31,7 @@ import {
     };
     console.log(values);
 
-    
+    <UserList where = {email_contains}/>
     
 
     return (
