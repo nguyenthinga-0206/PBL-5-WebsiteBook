@@ -35,6 +35,7 @@
     "cross-env": "^7.0.3",
     "deepmerge": "^4.2.2",
     "framer-motion": "^4.1.13",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "react-icons": "^4.2.0"
   }
 }

@@ -1,5 +1,4 @@
 import UI from "./UI";
-import UI1 from "./UI1";
 import { useQuery, gql, useMutation, makeVar } from "@apollo/client";
 export const refetchUserList = makeVar();
 export default function UserList({ first = 3, skip = 0, sortBy, where }) {
@@ -26,5 +25,5 @@ export default function UserList({ first = 3, skip = 0, sortBy, where }) {
     return "Loading...";
   }
   if (refetch) refetchUserList(refetch);
-  return <UI1 data={data} />;
+  return <UI data={data} />;
 }
