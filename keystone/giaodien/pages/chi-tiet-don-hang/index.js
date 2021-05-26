@@ -73,7 +73,9 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-export default function TrangChu() {
+export default function TrangChu({
+  count, tien
+}) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
 
@@ -222,7 +224,7 @@ export default function TrangChu() {
                   <br />
                   <p> -sp2</p>
                   <p>-Vận Chuyển : 30,000d</p>
-                  <p>Tổng số tiền : 0202220.3đ </p>
+                  <p>Tổng số tiền : parseInt({tien}) *  parseInt({count}) + 300000 </p>
                 </Text>
               </Stack>
             </GridItem>

@@ -49,11 +49,11 @@ import {
   SearchIcon,
 } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-
+import {useState} from 'react';
 export default function TrangChu() {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
-
+ const [quantity, setCount] = useState(0);
   return (
     <Box bg={"gray.50"}>
       <Flex
@@ -119,6 +119,7 @@ export default function TrangChu() {
               boxSize={8}
               src="img/giohang2.png"
               alt="Segun Adebayo"
+              onClick={() => setCount({ quantity: quantity + 1 })}
             />
           </Link>
         </Flex>
