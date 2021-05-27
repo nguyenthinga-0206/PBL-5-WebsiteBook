@@ -17,9 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import {useRouter} from "next/router";
-import HTML from "../../HTML";
 
-export default function UI({ handleChange, onCreate, resultCreateUser }) {
+export default function UI({ handleChange, onSignUp }) {
 
   const router = useRouter();
 
@@ -109,14 +108,9 @@ export default function UI({ handleChange, onCreate, resultCreateUser }) {
             }}
           />
         </Stack>
-        <Link
-          onClick = {(e) => {
-            router.push("dang-nhap");
-          }}
-        >
           <Button
             fontFamily={'heading'}
-            onClick={onCreate}
+            onClick={onSignUp}
             mt={8}
             w={'full'}
             bgGradient="linear(to-r, blue.500,blue.200)"
@@ -127,8 +121,6 @@ export default function UI({ handleChange, onCreate, resultCreateUser }) {
             }}>
             Đăng Ký
           </Button>
-        </Link>
-        {resultCreateUser?.error && HTML.generation(resultCreateUser.error, 4)}
       </Box>
       form
     </Stack>
