@@ -1,5 +1,6 @@
 import UI from './UI'
-import {useQuery, gql} from '@apollo/client'
+import {useQuery, gql, makeVar} from '@apollo/client'
+export const refetchDonHangList = makeVar();
 export default function DonHangList({ first, skip = 0, sortBy, where }){
     const {
         loading, error, data
@@ -26,6 +27,9 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             ngayDat
             ngayGiao
             soLuong
+            chiTietDonHang{
+              id
+            }
           }
         }    
       `,
@@ -34,7 +38,7 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
     if(loading || error){
         return "Loading...";
     }
-
+    if (refetch) refetchDonHangList(refetch);
     return (
         <UI data = {data}/>
     )

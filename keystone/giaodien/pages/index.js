@@ -17,7 +17,10 @@ import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
 import CartCreate from "../components/GioHang/Create";
 import UserCreate from "../components/User/Create";
-export default function Home({ search }) {
+import GioHang from "./gio-hang";
+import GioHangList from "../components/GioHang/List";
+import DonHangCreate from "../components/DonHang/Create";
+ export default function Home({ search }) {
 
   const [where, setWhere] = useState({});
   
@@ -28,7 +31,7 @@ export default function Home({ search }) {
   console.log(search);
   return (
     <Fragment>
-      {/* <Grid templateColumns="repeat(6, 1fr)">
+      <Grid templateColumns="repeat(6, 1fr)">
         <GridItem colSpan={1}>
           <PhanloaiList
             UI={PhanloaiListUI}
@@ -44,11 +47,7 @@ export default function Home({ search }) {
             />
           </SimpleGrid>
         </GridItem>
-      </Grid> */}
-      <div>Hey!!</div>
-      <CartCreate/>
-
-      <UserCreate/>
+      </Grid>   
     </Fragment>
   );
 }

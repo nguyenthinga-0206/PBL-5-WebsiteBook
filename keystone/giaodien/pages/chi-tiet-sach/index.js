@@ -45,7 +45,7 @@ export default function ChiTietSach({
     step: 1,
     defaultValue: 1,
     min: 1,
-    max: 100,
+    max: soLuong,
     precision: 2,
   });
   const inc = getIncrementButtonProps();
@@ -53,24 +53,11 @@ export default function ChiTietSach({
   const input = getInputProps({ isReadOnly: true });
 
   // Trang thai còn hàng hay hết hàng
-  const [status, setStatus] = useState(parseInt(soLuong));
-  const click = () => {
-    if(status > 0 ) return setStatus(status - parseInt(input.value));
-    else return setStatus("Đã hết hàng");
-  };
-//===
-const [count, setCount] = useState(0);
- 
-  const handleIncrease = () => {
-    setCount(count => count + 1);
-  };
- 
-  const handleDecrease = () => {
-    setCount(count => count - 1);
-  };
- 
-
-//---
+  // const [status, setStatus] = useState(parseInt(soLuong));
+  // const click = () => {
+  //   if(status > 0 ) return setStatus(status - parseInt(input.value));
+  //   else return setStatus("Đã hết hàng");
+  // };
 
   return (
     <Box bg={"gray.50"}>
@@ -124,12 +111,12 @@ const [count, setCount] = useState(0);
                             <b>Giá:</b>{" "}
                             <Text fontSize="xl" ml={30} color={"green.600"}>
                               {" "}
-                              {gia}
+                              {new Intl.NumberFormat().format(gia)}đ
                             </Text>{" "}
                           </p>
                           <br />
                           <p>
-                            <b>Số lượng có trong kho: </b> {status}
+                            <b>Số lượng có trong kho: </b> {soLuong}
                           </p>
                         </p>
                         <br />
@@ -137,10 +124,9 @@ const [count, setCount] = useState(0);
                         <br />
                         <br />
                         <HStack maxW="180px">
-                          <Button {...inc} onClick={handleIncrease}>+</Button>
+                          <Button {...inc}>+</Button>
                           <Input {...input}/>
-                          <Button {...dec} onClick={handleDecrease}>-</Button>
-                          <div>{count + 1}</div>
+                          <Button {...dec}>-</Button>
                         </HStack>
                       </Box>
                     </GridItem>
@@ -174,7 +160,7 @@ const [count, setCount] = useState(0);
                       variant="solid"
                       ml={300}
                       bg={"orange.500"}
-                      onClick = {click, (e) => {
+                      onClick = { (e) => {
                         router.push("/gio-hang")
                       }}
                     >

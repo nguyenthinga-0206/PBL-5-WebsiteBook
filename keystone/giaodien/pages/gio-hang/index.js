@@ -43,7 +43,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-export default function GioHang({cart, id, tenSach, gia, count}) {
+export default function GioHang({cart, id, tenSach, gia}) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
 
@@ -62,12 +62,7 @@ export default function GioHang({cart, id, tenSach, gia, count}) {
   const inc = getIncrementButtonProps();
   const dec = getDecrementButtonProps();
   const input = getInputProps({ isReadOnly: true });
-  //======
   
-//======
-
-
-//======
   return (
     
     <Box bg={"gray.500"}>
@@ -139,10 +134,10 @@ export default function GioHang({cart, id, tenSach, gia, count}) {
                   <Center> {gia}</Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                  <Center>Count: {count}</Center>
+                  <Center></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                  <Center>{new Intl.NumberFormat().format(gia)} * {new Intl.NumberFormat().format(count)}</Center>
+                  <Center></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
                   <Center>

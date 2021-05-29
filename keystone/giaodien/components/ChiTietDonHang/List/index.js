@@ -5,23 +5,32 @@ export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
     const {
         loading, error, data, refetch
     } = useQuery (gql `
-        query(
-            $first: Int
-            $skip: Int
-            $sortBy: [SortChitietdonhangsBy!]
-            $where: ChitietdonhangWhereInput
-        ) {
-        allChitietdonhangs(
-            first: $first
-            skip: $skip
-            sortBy: $sortBy
-            where: $where
-        ) {
-            id
-            soLuong
-            tien
-          }
-        }
+                query(
+                    $first: Int
+                    $skip: Int
+                    $sortBy: [SortChitietdonhangsBy!]
+                    $where: ChitietdonhangWhereInput
+                ) {
+                allChitietdonhangs(
+                    first: $first
+                    skip: $skip
+                    sortBy: $sortBy
+                    where: $where
+                ) {
+                    id
+                    soLuong
+                    tien
+                    sach{
+                        gia
+                        tenSach
+                    }
+                    gioHang{
+                        id
+                        
+                    }
+            }
+     
+    }
      `,
     { variables: { first, skip, sortBy, where } }
     )

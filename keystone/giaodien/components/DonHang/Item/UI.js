@@ -10,6 +10,7 @@ export default function UI({donHang}){
         <p>{donHang.ngayDat}</p>
         <p>{donHang.ngayGiao}</p>
         <p>{donHang.soLuong}</p>
+        <p>Chitietdonhang: {donHang?.chiTietDonHang?.id}</p>
         </div>
 
 }

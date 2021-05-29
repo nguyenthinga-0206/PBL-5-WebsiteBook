@@ -3,14 +3,14 @@ import { useState } from "react";
 import UI from "./UI";
 import { refetchCartList } from "../List";
 import HTML from "../../HTML";
+import { TagCloseButton } from "@chakra-ui/react";
 export default function CartCreate() {
   const [onCreateCart, resultCreateCart] = useMutation(gql`
       mutation($data: GiohangCreateInput) {
         createGiohang(data: $data) {
           chiTietDonHang{
             soLuong
-          }
-          
+          }          
         }
     }
   `);
@@ -25,7 +25,6 @@ export default function CartCreate() {
   };
   const handleDecrease = (name) => (event) => {
     setSoLuong({ ...soLuong, [name]: soLuong - 1 });
-    
   };
   
   const onCreate = (e) => {
@@ -41,6 +40,10 @@ export default function CartCreate() {
         console.log(e);
       });
   };
+
+  // don hang tạo
+  // chitiet them sua xoa 
+  // gio hang cap nhat
   
   
   
