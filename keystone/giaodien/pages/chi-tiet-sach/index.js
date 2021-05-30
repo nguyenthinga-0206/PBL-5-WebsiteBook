@@ -20,19 +20,26 @@ import {
   Textarea,
   Button,
   Center,
+  useToast,
 } from "@chakra-ui/react";
 import {
   CheckCircleIcon,
 } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function ChiTietSach({
   id, tenSach, tenTacGia, tenNhaXuatBan, ngayXuatBan, 
   soLuong, gia, soTrang, 
   IMG1, IMG2, IMG3, IMG4, IMG5,
-  tieude, baiViet, loai
+  tieude, baiViet, loai,
+  
 }) {
+  const toast = useToast()
+  const toastIdRef = React.useRef()
+  function addToast() {
+    toastIdRef.current = toast({ description: "Thêm vào giỏ hàng thành công" })
+  }
 
   const router = useRouter();
 
@@ -58,6 +65,7 @@ export default function ChiTietSach({
   //   if(status > 0 ) return setStatus(status - parseInt(input.value));
   //   else return setStatus("Đã hết hàng");
   // };
+ 
 
   return (
     <Box bg={"gray.50"}>
@@ -160,9 +168,10 @@ export default function ChiTietSach({
                       variant="solid"
                       ml={300}
                       bg={"orange.500"}
-                      onClick = { (e) => {
-                        router.push("/gio-hang")
-                      }}
+                      onClick={addToast}
+                      // onClick = { (e) => {
+                      //   router.push("/gio-hang")
+                      // }}
                     >
                       THÊM VÀO GIỎ HÀNG
                     </Button>
@@ -287,5 +296,6 @@ export default function ChiTietSach({
       </Container>
     </Box>
   );
+
 }
 

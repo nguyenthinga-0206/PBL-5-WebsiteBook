@@ -14,87 +14,76 @@ import PhanLoaiList from "../components/PhanLoaiSach/List";
 import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
-<<<<<<< HEAD
-import { SimpleGrid } from "@chakra-ui/layout";
-import { Grid } from "@chakra-ui/layout";
-import { GridItem,Text } from "@chakra-ui/layout";
-=======
-import { SimpleGrid, Grid, GridItem } from "@chakra-ui/layout";
+import { SimpleGrid, Grid, GridItem, Flex, Box, Center } from "@chakra-ui/layout";
 import Search from "../components/ThanhTieuDe";
-
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
+import { Button, Container } from "@chakra-ui/react";
 export default function Home() {
-
   // Tim kiem
   const [keyword, setKeyword] = useState();
   const change = (e) => {
-  const { value } = e.target;
-  if (value.length > 0) setKeyword(value);
+    const { value } = e.target;
+    if (value.length > 0) setKeyword(value);
   };
   console.log(keyword);
 
   const [where, setWhere] = useState({});
- 
+
   const clickPhanLoai = (phanloai) => {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
 
   return (
-    <Fragment>
-<<<<<<< HEAD
-      <img
-        width={100}
-        src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=500&height=500"
-      />
+  
+      <Container maxW="container.xl" > 
+      <Grid
+        //  templateRows="repeat(3, 1fr)"
+        templateColumns="repeat(8, 1fr)"
+         gap={4}
+         margin={10}
+         
+      >
+        <GridItem  colSpan={2}   bg="white" 
+        >
+          <Button 
+          bg="#67BF7F"
+          w ={280}
+
       
-      <input placeholder="search" onChange={change} />
-      <NextLink href="/gio-hang">
-        <a>gio hang</a>
-      </NextLink>
-      <NextLink href="/dang-nhap">
-        <a>dang nhap</a>
-      </NextLink>
-      <NextLink href="/dang-ky">
-        <a>dang ky</a>
-      </NextLink>
-      <SimpleGrid columns={2}>
-        <GridItem>
-          
-=======
-      <Grid templateColumns="repeat(6, 1fr)">
-        <GridItem colSpan={1}>
-<<<<<<< HEAD
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
-          <PhanloaiList
-            UI={PhanloaiListUI}
-=======
-          <PhanLoaiList
-            UI={PhanLoaiListUI}
->>>>>>> 16f000dbc0154f10fa1220a483d4710f4dc7c669
-            clickPhanLoai={clickPhanLoai}
-            value ={keyword} 
-          />
+        >
+          <Center>
+          Danh Mục Sách
+          </Center>
+          </Button>
+        <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai}  margin={20} />
         </GridItem>
-<<<<<<< HEAD
-        <GridItem>
-          <Text>Kết quả cho: {keyword}</Text>
-          <SachList
-            first={10}
-            UI={SachListUI}
-            where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
-          />
-=======
-        <GridItem colSpan={5}>
-          <SimpleGrid columns = {5} spacingX = "2px">
+        <GridItem colSpan={6}   bg="white"  >
+        <SimpleGrid columns={3} spacingX="2px"
+        >
             <SachList
               first={25}
               UI={SachListUI}
               where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
             />
           </SimpleGrid>
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
+        </GridItem>
+
+      </Grid>
+      {/* <Grid templateColumns="repeat(8, 1fr)">
+        <GridItem colSpan={1}>
+          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai} />
+        </GridItem>
+        <GridItem colSpan={5}>
+          <SimpleGrid columns={3} spacingX="2px">
+            <SachList
+              first={25}
+              UI={SachListUI}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+            />
+          </SimpleGrid>
         </GridItem>
       </Grid>
-    </Fragment>
+      */}
+      </Container>
+     
   );
 }

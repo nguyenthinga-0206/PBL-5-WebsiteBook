@@ -1,5 +1,5 @@
 
-import {Text, List, ListItem } from "@chakra-ui/layout";
+import {Text, List, ListItem, Box } from "@chakra-ui/layout";
 import PhanloaiItem from "../Item";
 
 export default function UI({ data, clickPhanLoai, value}) {

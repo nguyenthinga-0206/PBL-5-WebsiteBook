@@ -10,14 +10,11 @@ import {
   Tooltip,
   Link,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
-<<<<<<< HEAD
-=======
 import { useRouter } from "next/router";
+import { Grid, GridItem } from "@chakra-ui/react";
 
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
 const data = {
   isNew: true,
   imageURL:
@@ -29,7 +26,6 @@ const data = {
 };
 
 function Rating({ rating, numReviews }) {
-
   return (
     <Box d="flex" alignItems="center">
       {Array(5)
@@ -55,31 +51,22 @@ function Rating({ rating, numReviews }) {
 }
 
 function UI({ sach }) {
-<<<<<<< HEAD
-  const router = useRouter();
-  console.log(sach?.IMG[0]?.anh);
-=======
 
   const router = useRouter();
 
->>>>>>> 2f689615f621bfdcce1f698283e353be7b60561e
   return (
     <Flex p={50} w="full" alignItems="center" justifyContent="center">
-      <Link
-          onClick={(event) => {
-            router.push("/chi-tiet-sach");
-          }}
-        > <Box
+      <Box
         bg={useColorModeValue("white", "#F687B3")}
         maxW="250px"
-        borderColor="white"
+        borderColor ="white"
         borderWidth="1px"
         rounded="lg"
         shadow="lg"
         position="relative"
         href={"#"}
         _hover={{
-          borderColor: "#F687B3",
+          borderColor : "#22543D",
           borderWidth: "1px",
         }}
       >
@@ -89,20 +76,52 @@ function UI({ sach }) {
             position="absolute"
             top={2}
             right={2}
-            bg="red.200"
+            bg="#22543D"
           />
         )}
-       
-          <Image
-            src={sach?.IMG[0]?.anh?.publicUrl}
-            alt={`Picture of ${data.name}`}
-            roundedTop="lg"
-          />
-      
+        <Link 
+              onClick={(e) => {
+                router.push({
+                  pathname: '/chi-tiet-sach/[id]',
+                  query: { 
+                    id: sach.id, 
+                    tenSach: sach.tenSach, 
+                    tenTacGia: sach.tenTacGia,
+                    tenNhaXuatBan: sach.tenNhaXuatBan,
+                    gia: sach.gia,
+                    soTrang: sach.soTrang,
+                    ngayXuatBan: sach.ngayXuatBan,
+                    soLuong: sach.soLuong,
+                    IMG1: sach?.IMG[0]?.anh?.publicUrl,
+                    IMG2: sach?.IMG[1]?.anh?.publicUrl,
+                    IMG3: sach?.IMG[2]?.anh?.publicUrl,
+                    IMG4: sach?.IMG[3]?.anh?.publicUrl,
+                    IMG5: sach?.IMG[4]?.anh?.publicUrl,
+                    tieude: sach?.baiViet[0]?.tieude,
+                    baiViet: sach?.baiViet[0]?.baiViet,
+                    loai: sach?.phanLoaiSach?.loai,
+                  },
+                })
+              }}
+            >
+
+        <Image
+          w={'100%'}
+          h={'100%'}
+          src={sach?.IMG[0]?.anh?.publicUrl}
+          alt={`Picture of ${data.name}`}
+          roundedTop="lg"
+        />
+      </Link>
 
         <Box p="6">
           <Box d="flex" alignItems="baseline">
-            <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="green">
+            <Badge 
+            rounded="full" 
+            px="2" 
+            text-overflow="ellipsis"
+            fontSize="xx-small" 
+            colorScheme="green">
               {sach.tenTacGia}
             </Badge>
           </Box>
@@ -133,17 +152,23 @@ function UI({ sach }) {
               }}
             >
               <Box
-                fontSize="2xl"
+              
+
+                fontSize="small"
                 fontWeight="semibold"
+                text-overflow="ellipsis"
+                w="150px"
                 as="h4"
                 lineHeight="tight"
                 isTruncated
+                
               >
                 {sach.tenSach}
               </Box>
             </Link>
             <Link
-              onClick={(e) => {
+             
+             onClick={(e) => {
                 router.push({
                   pathname: '/gio-hang/[id]',
                   query: { 
@@ -161,6 +186,9 @@ function UI({ sach }) {
                     loai: sach?.phanLoaiSach?.loai,
                   },
                 })
+             
+            
+            
               }}
             >
               <Tooltip
@@ -175,7 +203,7 @@ function UI({ sach }) {
                   as={FiShoppingCart}
                   h={7}
                   w={7}
-                  color={"#D53F8C"}
+                  color={"#22543D"}
                   alignSelf={"center"}
                 />
               </chakra.a>
@@ -187,8 +215,8 @@ function UI({ sach }) {
             <Box as="span" ml="2" color="#ECC94B">
               <Rating rating={data.rating} />
             </Box>
-            <Box fontSize="2xl" color={useColorModeValue("#ED64A6", "white")}>
-              <Box as="span" color={"#ED64A6"} fontSize="lg">
+            <Box fontSize="2xl" color={useColorModeValue("#22543D", "white")}>
+              <Box as="span" color={"#22543D"} fontSize="lg">
                 ₫
               </Box>
               {new Intl.NumberFormat().format(sach.gia)}
@@ -196,8 +224,7 @@ function UI({ sach }) {
           </Flex>
         </Box>
       </Box>
-   
-      </Link> </Flex>
+    </Flex>
   );
 }
 
