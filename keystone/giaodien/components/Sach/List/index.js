@@ -39,5 +39,5 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
     return "Loading...";
   }
 
-  return <UI data={data} />;
+  return <UI data={data}  text = {1}/>;
 }

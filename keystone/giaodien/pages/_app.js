@@ -1,5 +1,5 @@
 import { ApolloProvider, useApolloClient } from "@apollo/client";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import { useApollo } from "../apollo";
 import { CartProvider } from "../CartProvider";
@@ -12,19 +12,23 @@ function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
   
   return (
-    <ApolloProvider client={apolloClient}>
-      <CartProvider>
-        <ChakraProvider>
-            {/* Đầu trang */}
-            <ThanhTieuDe/>
+    <Box bg="#F0F0F0"> 
+       <ApolloProvider client={apolloClient}>
+    <CartProvider>
+      <ChakraProvider>
+          {/* Đầu trang */}
+          <ThanhTieuDe/>
 
-          <Component {...pageProps} />
+        <Component {...pageProps} />
 
-          {/* Chân trang */}
-          <ChanTrang/>
-        </ChakraProvider>
-      </CartProvider>
-    </ApolloProvider>
+        {/* Chân trang */}
+        <ChanTrang/>
+      </ChakraProvider>
+    </CartProvider>
+  </ApolloProvider>
+
+    </Box>
+  
   );
 };
 export default MyApp;

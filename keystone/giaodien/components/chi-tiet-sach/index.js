@@ -124,8 +124,7 @@ export default function TrangChu() {
               <Image
                 borderRadius="full"
                 boxSize={8}
-                src="img/logo1.jpg"     
-                           alt="Segun Adebayo"
+                src="img/logo1.jpg"                alt="Segun Adebayo"
               />
             </Link>
           </Text>
