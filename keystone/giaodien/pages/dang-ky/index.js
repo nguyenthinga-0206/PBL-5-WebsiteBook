@@ -132,7 +132,8 @@ export default function DangKy() {
         style={{ filter: 'blur(70px)' }}
       />
     </Box>
-  );
+ 
+ );
 }
 
 export const Blur = (props ) => {
