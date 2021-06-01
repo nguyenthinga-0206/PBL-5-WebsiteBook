@@ -42,6 +42,8 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
+import GioHangItem from "../../components/GioHang/Item/UIGioHang"
+
 export default function GioHang({id, tenSach,}) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -104,8 +106,9 @@ export default function GioHang({id, tenSach,}) {
               </Grid>
               <hr></hr>
             </GridItem>
-{""}
+            <GioHangItem/>
           </Grid>
+          
         </Container>
       </Box>
      </Box>
