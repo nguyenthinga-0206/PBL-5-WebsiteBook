@@ -1,51 +1,53 @@
 import {
-    Button,
-    Checkbox,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Input,
-    Link,
-    Stack,
-    Image,
-    Container,
-  } from '@chakra-ui/react';
-  import UserSigIn from "../../components/User/SignIn";
-  import { useRouter } from "next/router";
-  import { useState } from "react";
-  
-  export default function DangNhap() {
-    // console.log(user);
-    // const router = useRouter();
+  Button,
+  Checkbox,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Link,
+  Stack,
+  Image,
+  Container,
+} from "@chakra-ui/react";
+import UserSigIn from "../../components/User/SignIn";
+import UserSigInUI from "../../components/User/SignIn/UI";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-    // const [values, setValues] = useState({
-    //   email: null,
-    //   password: null,
-    // });
-    // /**
-    //  * @param {String} name
-    //  */
-    // const handleChange = (name) => (e) => {
-    //   setValues({ ...values, [name]: e.target.value });
-    // };
-    // console.log(values);
+export default function DangNhap() {
+  // console.log(user);
+  // const router = useRouter();
 
-    // <UserList where = {email_contains}/>
-    
+  // const [values, setValues] = useState({
+  //   email: null,
+  //   password: null,
+  // });
+  // /**
+  //  * @param {String} name
+  //  */
+  // const handleChange = (name) => (e) => {
+  //   setValues({ ...values, [name]: e.target.value });
+  // };
+  // console.log(values);
 
-    return (
-      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} bg={"white"}>
-      <UserSigIn />
+  // <UserList where = {email_contains}/>
+
+  return (
+    <Stack
+      minH={"100vh"}
+      direction={{ base: "column", md: "row" }}
+      bg={"white"}
+    >
+      <UserSigIn UI={UserSigInUI} />
       <Flex flex={2}>
         <Image
-          alt={'Login Image'}
-          objectFit={'cover'}
-          src={
-            'img/biasach.jpg'
-          }
+          alt={"Login Image"}
+          objectFit={"cover"}
+          src={"img/biasach.jpg"}
         />
       </Flex>
     </Stack>
-    );
-  }
+  );
+}

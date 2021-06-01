@@ -1,9 +1,13 @@
-import { useApolloClient, useMutation, gql, useSubscription } from "@apollo/client";
-import UI from "./UI";
+import {
+  useApolloClient,
+  useMutation,
+  gql,
+  useSubscription,
+} from "@apollo/client";
 // import gql from "graphql-tag";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
-export default function UserSignIn() {
+export default function UserSignIn({ UI }) {
   const [onSignInUser, resultSignInUser] = useMutation(gql`
     mutation($email: String!, $password: String!) {
       authenticateUserWithPassword(email: $email, password: $password) {
@@ -15,8 +19,7 @@ export default function UserSignIn() {
         }
       }
     }
-  `
-  );
+  `);
 
   const router = useRouter();
   const client = useApolloClient();
@@ -73,10 +76,7 @@ export default function UserSignIn() {
   };
   return (
     <Fragment>
-      <UI
-        onSignIn={onSignIn}
-        handleChange={handleChange}
-      />
+      <UI onSignIn={onSignIn} handleChange={handleChange} />
       <p
         style={{
           padding: 5,
@@ -87,5 +87,5 @@ export default function UserSignIn() {
         {notification.content}
       </p>
     </Fragment>
-  )
+  );
 }

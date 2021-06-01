@@ -164,7 +164,7 @@ function UI({ sach }) {
             </Link>
             <Link           
              onClick={(e) => {
-                // <ChiTietDonHangCreate sach = {sach}/>
+                // <ChiTietDonHangCreate sach = {sach} UI={...}/>
               }}
             >
               <Tooltip
