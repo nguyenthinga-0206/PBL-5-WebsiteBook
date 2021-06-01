@@ -18,7 +18,10 @@ export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
         ) {
             id
             soLuong
-            tien
+            sach {
+                tenSach
+                gia
+            }
           }
         }
      `,

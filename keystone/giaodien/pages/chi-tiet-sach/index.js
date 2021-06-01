@@ -26,9 +26,9 @@ import {
   CheckCircleIcon,
 } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
-export default function ChiTietSach({
+export default function ChiTietSach({onCreate,resultCreateChiTietDH,
   id, tenSach, tenTacGia, tenNhaXuatBan, ngayXuatBan, 
   soLuong, gia, soTrang, 
   IMG1, IMG2, IMG3, IMG4, IMG5,
@@ -42,6 +42,8 @@ export default function ChiTietSach({
   }
 
   const router = useRouter();
+
+  const [value, setValue] = useState("1");
 
   // Thay đôi so luong mua hang
   const {
@@ -59,16 +61,9 @@ export default function ChiTietSach({
   const dec = getDecrementButtonProps();
   const input = getInputProps({ isReadOnly: true });
 
-  // Trang thai còn hàng hay hết hàng
-  // const [status, setStatus] = useState(parseInt(soLuong));
-  // const click = () => {
-  //   if(status > 0 ) return setStatus(status - parseInt(input.value));
-  //   else return setStatus("Đã hết hàng");
-  // };
- 
-
   return (
-    <Box bg={"gray.50"}>
+    <Fragment>
+      <Box bg={"gray.50"}>
       <Container maxW={"container.xl"} py={8}>
         <Grid
           h="800px"
@@ -82,7 +77,7 @@ export default function ChiTietSach({
           <GridItem rowSpan={10} colSpan={5} bg="white">
             <GridItem rowSpan={5} colSpan={5} bg="white">
               <Box ml={14}>
-                <Heading as="h2" size="xl" md={14} ml={14}>
+                <Heading as="h2" size="xl" md={14} ml={14} name = 'tenSach'>
                   {tenSach}
                 </Heading>
                 <br />
@@ -116,7 +111,7 @@ export default function ChiTietSach({
                       <Box ml={14}>
                         <p>
                           <p>
-                            <b>Giá:</b>{" "}
+                            <b name = 'gia'>Giá:</b>{" "}
                             <Text fontSize="xl" ml={30} color={"green.600"}>
                               {" "}
                               {new Intl.NumberFormat().format(gia)}đ
@@ -132,9 +127,9 @@ export default function ChiTietSach({
                         <br />
                         <br />
                         <HStack maxW="180px">
-                          <Button {...inc}>+</Button>
-                          <Input {...input}/>
-                          <Button {...dec}>-</Button>
+                          <Button {...inc} onClick={(e)=>{setValue(input)}}>+</Button>
+                          <Input {...input} name = 'soLuong' />
+                          <Button {...dec} onClick={(e)=>{setValue(input)}}>-</Button>
                         </HStack>
                       </Box>
                     </GridItem>
@@ -168,10 +163,7 @@ export default function ChiTietSach({
                       variant="solid"
                       ml={300}
                       bg={"orange.500"}
-                      onClick={addToast}
-                      // onClick = { (e) => {
-                      //   router.push("/gio-hang")
-                      // }}
+                      onClick={ onCreate }
                     >
                       THÊM VÀO GIỎ HÀNG
                     </Button>
@@ -295,6 +287,7 @@ export default function ChiTietSach({
         </GridItem>
       </Container>
     </Box>
+    </Fragment>
   );
 
 }

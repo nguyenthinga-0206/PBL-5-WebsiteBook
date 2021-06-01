@@ -93,13 +93,13 @@ export default function GioHang({id, tenSach,}) {
                   <Center mb={20}></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                  <Center mb={20}>Sản phẩm</Center>
+                  <Center mb={20}><b>Sản phẩm</b></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                  <Center>giá</Center>
+                  <Center><b>Giá</b></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                  <Center>Số lượng </Center>
+                  <Center><b>Số lượng </b></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
                   <Center>Tổng</Center>

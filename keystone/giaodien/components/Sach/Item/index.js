@@ -1,5 +1,3 @@
-import UI from './UI'
-
-export default function SachItem({sach}){
-    return <UI sach = {sach}/> 
+export default function SachItem({ UI, sach }) {
+    return <UI sach={sach} />
 }
