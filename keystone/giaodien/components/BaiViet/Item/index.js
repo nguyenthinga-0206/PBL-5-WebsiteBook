@@ -1,5 +1,5 @@
 import UI from './UI'
-export default function BaiVietItem({baiViet}){
+export default function BaiVietItem({UI, baiViet}){
     return (
         <UI baiViet = {baiViet}/>
     )

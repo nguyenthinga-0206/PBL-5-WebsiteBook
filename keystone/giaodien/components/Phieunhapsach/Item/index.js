@@ -1,5 +1,5 @@
 import UI from './UI'
-export default function NhapSachItem({phieuNhapSach}){
+export default function NhapSachItem({UI, phieuNhapSach}){
     return (
         <UI phieuNhapSach = {phieuNhapSach}/>
     )

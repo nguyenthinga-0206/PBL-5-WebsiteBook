@@ -42,7 +42,10 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-export default function GioHang({id, tenSach,}) {
+export default function GioHang({
+   id, tenSach, tenTacGia, tenNhaXuatBan, 
+  gia, soTrang, ngayXuatBan, soLuong, 
+  IMG1, tieude, baiViet, loai}) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
 
