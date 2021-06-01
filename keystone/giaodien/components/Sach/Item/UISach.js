@@ -49,7 +49,7 @@ import {
     );
   }
   
-export default function UISach({ sach }) {
+function UISach({ sach }) {
   
     const router = useRouter();
   
