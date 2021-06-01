@@ -39,7 +39,6 @@ const Sach = () => {
     return (
         <Fragment>
             <ChiTietSach sach={sach} />
-            <SachItemThemGioHangUI sach={sach} />
         </Fragment>
     );
 };

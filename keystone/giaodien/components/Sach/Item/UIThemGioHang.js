@@ -22,7 +22,6 @@ import { useQuery, gql, useMutation } from "@apollo/client";
 
 export default function UIThemGioHang({ sach }) {
     const [value, setValue] = useState("1");
-    console.log(sach);
     const router = useRouter();
 
     const toast = useToast()
@@ -39,7 +38,7 @@ export default function UIThemGioHang({ sach }) {
         step: 1,
         defaultValue: 1,
         min: 1,
-        max: 10,
+        max: sach.soLuong,
         precision: 2,
     });
     const inc = getIncrementButtonProps();
@@ -62,12 +61,12 @@ export default function UIThemGioHang({ sach }) {
                                         <b name='gia'>Giá:</b>{" "}
                                         <Text fontSize="xl" ml={30} color={"green.600"}>
                                             {" "}
-                                            {new Intl.NumberFormat().format("")}đ
+                                            {new Intl.NumberFormat().format(sach.gia)}đ
                         </Text>{" "}
                                     </p>
                                     <br />
                                     <p>
-                                        <b>Số lượng có trong kho: </b> 
+                                        <b>Số lượng có trong kho: </b> {sach.soLuong}
                                     </p>
                                 </p>
                                 <br />

@@ -30,8 +30,6 @@ import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 
 export default function ChiTietSach({ sach }) {
   const router = useRouter();
-  console.log(sach);
-  console.log(sach?.baiViet[0]?.tieude);
 
   return (
     <Fragment>
@@ -70,7 +68,7 @@ export default function ChiTietSach({ sach }) {
                 <br></br>            
               </Box>
             </GridItem>
-            <SachItem UI={SachItemThemGioHangUI} />
+            <SachItem UI={SachItemThemGioHangUI} sach={sach} />
             </GridItem>
           <GridItem rowSpan={2} colSpan={5} bg="white">
             <Grid
@@ -155,7 +153,7 @@ export default function ChiTietSach({ sach }) {
                   </Center>    
                   <br />
                   <br />  
-                  <b>Thể loại: </b> {""}
+                  <b>Thể loại: </b> {sach?.phanLoaiSach.loai}
                   <br/>
                   <b>Giới thiệu: </b>
                   <br/>

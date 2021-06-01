@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import TimKiemUI from "./UITimKiem";
 
 export default function UI() {
 
@@ -38,7 +39,6 @@ export default function UI() {
         bg={useColorModeValue("#b8ddd1", "white")}
         color={useColorModeValue("gray.800", "white")}
         minH={"60px"}
-        // py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
@@ -66,16 +66,7 @@ export default function UI() {
             </Text>
           </Link>
         </Flex>
-        <Input
-          ml={10}
-          mg = {200}
-          md=  {200}
-          mr ="20px"
-          w={"50%"} 
-          bg ="white"
-          // onChange = {change}
-          placeholder="Tìm kiếm"
-        />
+        <TimKiemUI/>
        
         <Stack
           flex={{ base: 1, md: 0 }}

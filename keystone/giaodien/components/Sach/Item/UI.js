@@ -11,9 +11,10 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { FiShoppingCart } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { Grid, GridItem } from "@chakra-ui/react";
+import SachItem from "../../Sach/Item";
+import SachItemThemGioHangNhanhUI from "../../Sach/Item/UIThemGioHangNhanh";
 
 const data = {
   isNew: true,
@@ -85,21 +86,6 @@ function UI({ sach }) {
                   pathname: '/chi-tiet-sach/[id]',
                   query: { 
                     id: sach.id, 
-                    // tenSach: sach.tenSach, 
-                    // tenTacGia: sach.tenTacGia,
-                    // tenNhaXuatBan: sach.tenNhaXuatBan,
-                    // gia: sach.gia,
-                    // soTrang: sach.soTrang,
-                    // ngayXuatBan: sach.ngayXuatBan,
-                    // soLuong: sach.soLuong,
-                    // IMG1: sach?.IMG[0]?.anh?.publicUrl,
-                    // IMG2: sach?.IMG[1]?.anh?.publicUrl,
-                    // IMG3: sach?.IMG[2]?.anh?.publicUrl,
-                    // IMG4: sach?.IMG[3]?.anh?.publicUrl,
-                    // IMG5: sach?.IMG[4]?.anh?.publicUrl,
-                    // tieude: sach?.baiViet[0]?.tieude,
-                    // baiViet: sach?.baiViet[0]?.baiViet,
-                    // loai: sach?.phanLoaiSach?.loai,
                   },
                 })
               }}
@@ -131,21 +117,6 @@ function UI({ sach }) {
                   pathname: '/chi-tiet-sach/[id]',
                   query: { 
                     id: sach.id, 
-                    // tenSach: sach.tenSach, 
-                    // tenTacGia: sach.tenTacGia,
-                    // tenNhaXuatBan: sach.tenNhaXuatBan,
-                    // gia: sach.gia,
-                    // soTrang: sach.soTrang,
-                    // ngayXuatBan: sach.ngayXuatBan,
-                    // soLuong: sach.soLuong,
-                    // IMG1: sach?.IMG[0]?.anh?.publicUrl,
-                    // IMG2: sach?.IMG[1]?.anh?.publicUrl,
-                    // IMG3: sach?.IMG[2]?.anh?.publicUrl,
-                    // IMG4: sach?.IMG[3]?.anh?.publicUrl,
-                    // IMG5: sach?.IMG[4]?.anh?.publicUrl,
-                    // tieude: sach?.baiViet[0]?.tieude,
-                    // baiViet: sach?.baiViet[0]?.baiViet,
-                    // loai: sach?.phanLoaiSach?.loai,
                   },
                 })
               }}
@@ -162,29 +133,7 @@ function UI({ sach }) {
                 {sach.tenSach}
               </Box>
             </Link>
-            <Link           
-             onClick={(e) => {
-                // <ChiTietDonHangCreate sach = {sach} UI={...}/>
-              }}
-            >
-              <Tooltip
-                label="Thêm vào giỏ"
-                bg="white"
-                placement={"top"}
-                color={"gray.800"}
-                fontSize={"1.2em"}
-              >
-              <chakra.a href={"#"} display={"flex"}>
-                <Icon
-                  as={FiShoppingCart}
-                  h={7}
-                  w={7}
-                  color={"#22543D"}
-                  alignSelf={"center"}
-                />
-              </chakra.a>
-            </Tooltip>
-            </Link>
+            <SachItem UI={SachItemThemGioHangNhanhUI} />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">
