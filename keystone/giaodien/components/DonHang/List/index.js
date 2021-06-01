@@ -29,6 +29,8 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             soLuong
             chiTietDonHang{
               id
+              soLuong
+              tien
             }
           }
         }    

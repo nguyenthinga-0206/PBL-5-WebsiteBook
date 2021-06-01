@@ -11,9 +11,9 @@ import {
   Avatar,
   AvatarGroup,
   useBreakpointValue,
-  IconProps,
   Icon,
 } from '@chakra-ui/react';
+import SignUpUser from "../../components/User/SignUp"
 
 const avatars = [
   {
@@ -38,7 +38,7 @@ const avatars = [
   },
 ];
 
-export default function JoinOurTeam() {
+export default function DangKy() {
   return (
     <Box position={'relative'}>
       <Container
@@ -49,22 +49,23 @@ export default function JoinOurTeam() {
         py={{ base: 10, sm: 20, lg: 32 }}>
         <Stack spacing={{ base: 10, md: 20 }}>
         <Box borderWidth={0} borderColor="purple.500" p={10} className="my-box">
-<Heading size={'2xl'}>
- Chào mừng các bạn đến với...
-  <Box
-    as="span"
-    color="red.500"
-    sx={{
-      ".my-box:hover &": {
-        color: "green.500",
-      },
-    }}
-  >
-      <br/>
-   HAYAKU BOOKS _ THẾ GIỚI SÁCH !
-  </Box>
-</Heading>
-</Box>
+          
+      <Heading size={'2xl'}>
+      Chào mừng các bạn đến với...
+        <Box
+          as="span"
+          color="red.500"
+          sx={{
+            ".my-box:hover &": {
+              color: "green.500",
+            },
+          }}
+        >
+            <br/>
+        HAYAKU BOOKS _ THẾ GIỚI SÁCH !
+        </Box>
+      </Heading>
+    </Box>
           <Stack direction={'row'} spacing={4} align={'center'}>
             <AvatarGroup>
               {avatars.map((avatar) => (
@@ -120,90 +121,9 @@ export default function JoinOurTeam() {
             </Flex>
           </Stack>
         </Stack>
-        <Stack
-          bg={'gray.50'}
-          rounded={'xl'}
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{ lg: 'lg' }}>
-          <Stack spacing={4}>
-            <Heading
-              color={'gray.800'}
-              lineHeight={1.1}
-              fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}>
-              Đăng Ký Thành Viên
-              <Text
-                as={'span'}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                bgClip="text">
-                !
-              </Text>
-            </Heading>
-           
-          </Stack>
-          <Box as={'form'} mt={10}>
-            <Stack spacing={4}>
-              <Input
-                placeholder="Tên Đăng Nhập"
-                bg={'gray.100'}
-                border={0}
-                color={'gray.500'}
-                _placeholder={{
-                  color: 'gray.500',
-                }}
-              />
-              <Input
-                placeholder="Email"
-                bg={'gray.100'}
-                border={0}
-                color={'gray.500'}
-                _placeholder={{
-                  color: 'gray.500',
-                }}
-              />
-              <Input
-                placeholder="Mật Khẩu"
-                bg={'gray.100'}
-                border={0}
-                color={'gray.500'}
-                _placeholder={{
-                  color: 'gray.500',
-                }}
-                />
-                <Input
-                placeholder="Số Điện Thoại"
-                bg={'gray.100'}
-                border={0}
-                color={'gray.500'}
-                _placeholder={{
-                  color: 'gray.500',
-                }}
-                />
-                <Input
-                placeholder="Họ Và Tên"
-                bg={'gray.100'}
-                border={0}
-                color={'gray.500'}
-                _placeholder={{
-                  color: 'gray.500',
-                }}
-              />
-            </Stack>
-            <Button
-              fontFamily={'heading'}
-              mt={8}
-              w={'full'}
-              bgGradient="linear(to-r, blue.500,blue.200)"
-              color={'white'}
-              _hover={{
-                bgGradient: 'linear(to-r, green.500,green.200)',
-                boxShadow: 'xl',
-              }}>
-              Đăng Ký
-            </Button>
-          </Box>
-          form
-        </Stack>
+       
+        <SignUpUser />
+          
       </Container>
       <Blur
         position={'absolute'}

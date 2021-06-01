@@ -73,6 +73,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
+import ChiTietDonHangItem from "../../components/ChiTietDonHang/Item";
 export default function TrangChu({
   count, tien
 }) {
@@ -225,6 +226,8 @@ export default function TrangChu({
                   <p> -sp2</p>
                   <p>-Vận Chuyển : 30,000d</p>
                   <p>Tổng số tiền : parseInt({tien}) *  parseInt({count}) + 300000 </p>
+                  ***ALO 
+                  <ChiTietDonHangItem/>
                 </Text>
               </Stack>
             </GridItem>
@@ -408,6 +411,7 @@ const IMAGE =
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
+    
     <Link
       href={href}
       role={"group"}
@@ -426,6 +430,8 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
+          
+          Chi tiết đơn hàng:  <ChiTietDonHangItem/>
         </Box>
         <Flex
           transition={"all .3s ease"}
@@ -437,6 +443,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           flex={1}
         >
           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+
         </Flex>
       </Stack>
     </Link>

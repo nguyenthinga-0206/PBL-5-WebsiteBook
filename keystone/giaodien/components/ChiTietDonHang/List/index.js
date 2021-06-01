@@ -23,6 +23,11 @@ export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
                     sach{
                         gia
                         tenSach
+                        IMG{
+                            anh{
+                                publicUrl
+                            }
+                        }
                     }
                     gioHang{
                         id

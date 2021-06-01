@@ -23,17 +23,13 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useState } from "react";
-import Search from "../../pages";
+import { useRouter } from "next/router";
 
 export default function UI() {
-  const { isOpen, onToggle } = useDisclosure();
 
-   // Tim kiem
-   const [keyword, setKeyword] = useState();
-   const change = (e) => {
-   const { value } = e.target;
-   if (value.length > 2) setKeyword(value);
-   };
+  const router = useRouter();
+
+  const { isOpen, onToggle } = useDisclosure();
   
   return (
     <Box>
@@ -63,16 +59,21 @@ export default function UI() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.50", "white")}
+          <Link
+            onClick = { (e) => {
+              router.push("/");
+            }}
           >
-            Logo
-          </Text>
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
+            <Text
+              textAlign={useBreakpointValue({ base: "center", md: "left" })}
+              fontFamily={"heading"}
+              color={useColorModeValue("gray.50", "white")}
+            >
+              Logo
+            </Text>
+          </Link>
+        <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <DesktopNav />
           </Flex>
         </Flex>
         <Input
@@ -82,7 +83,7 @@ export default function UI() {
           mr ="20px"
           w={"50%"} 
           bg ="white"
-          onChange = {change}
+          // onChange = {change}
           placeholder="Tìm kiếm"
         />
        
@@ -93,6 +94,9 @@ export default function UI() {
           spacing={6}
         >
           <Button
+          onClick={(e) => {
+            router.push("/dang-nhap");
+          }}
             as={"a"}
             fontSize={"sm"}
             fontWeight={400}
@@ -101,11 +105,11 @@ export default function UI() {
             color={"white"}
             href={"#"}
           >
-           Đăng Nhập
+           Đăng Nhậps
           </Button>
 
           <Button
-            onClick={(event) => {
+            onClick={(e) => {
               router.push("/dang-ky");
             }}
             display={{ base: "none", md: "inline-flex" }}

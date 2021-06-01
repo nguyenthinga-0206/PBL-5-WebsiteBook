@@ -1,7 +1,7 @@
 import UI from './UI'
 import {useQuery, gql,makeVar} from '@apollo/client'
 export const refetchCartList = makeVar();
-export default function GioHangList({ first , skip = 0, sortBy, where }){
+export default function GioHangList({ first = 10 , skip = 0, sortBy, where }){
     const {
         loading, error, data, refetch
     } = useQuery (gql 
@@ -13,14 +13,22 @@ export default function GioHangList({ first , skip = 0, sortBy, where }){
     ){
        
         allGiohangs(
-            first: $first
-            skip: $skip
-            sortBy: $sortBy
-            where: $where
-        ) {       
+            first: $first, skip: $skip, sortBy: $sortBy, where: $where
+        ) {      
+           id 
            chiTietDonHang{
+               id
                 soLuong
                 tien
+                sach{
+                    tenSach
+                    gia
+                  	IMG{
+                      anh{
+                        publicUrl
+                      }
+                    }
+                }
           }
            
         }
@@ -37,3 +45,4 @@ export default function GioHangList({ first , skip = 0, sortBy, where }){
         <UI data = {data}/>
     )
 }
+

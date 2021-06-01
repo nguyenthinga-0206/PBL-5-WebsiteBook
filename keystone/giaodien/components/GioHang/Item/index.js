@@ -1,6 +1,6 @@
 import UI from './UI'
-export default function GioHangItem({gioHang}){
+export default function GioHangItem({gio}){
     return (
-        <UI gioHang = {gioHang}/>
+        <UI gio = {gio}/>
     )
 }
