@@ -1,6 +1,5 @@
-import UI from "./UI";
 
-export default function ThanhTieuDe(){
+export default function ThanhTieuDe({UI}){
     return <UI/>
     
 }

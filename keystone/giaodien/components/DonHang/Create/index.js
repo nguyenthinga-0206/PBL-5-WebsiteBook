@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import UI from "./UI";
+
 // import { refetchDonHangList } from "../List";
 
-export default function DonHangCreate() {
+export default function DonHangCreate({UI}) {
   const [onCreateDonHang, resultCreateDonHang] = useMutation(gql`
    mutation($data: DonhangCreateInput) {
       createDonhang(data: $data) {

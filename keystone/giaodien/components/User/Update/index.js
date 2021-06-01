@@ -1,8 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import UI from "./UI";
 import { refetchUserList } from "../List";
-export default function UserUpdate({ user }) {
+export default function UserUpdate({UI, user }) {
   const [onUpdateUser, resultUpdateUser] = useMutation(gql`
     mutation($id: ID!, $data: UserUpdateInput) {
       updateUsers(data: { id: $id, data: $data }) {

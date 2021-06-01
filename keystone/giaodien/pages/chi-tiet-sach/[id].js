@@ -2,6 +2,8 @@ import {route} from "next/dist/next-server/server/router";
 import {useRouter} from "next/router";
 import { Fragment } from "react";
 import ChiTietSach from "./index";
+import SachItem from "../../components/Sach/Item";
+import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 
 const Sach = () => {
     const  router =  useRouter()
@@ -30,6 +32,11 @@ const Sach = () => {
         tieude = {tieude}
         baiViet = {baiViet}
         loai = {loai}
+        />
+        <SachItem 
+            UI={SachItemThemGioHangUI} 
+            soLuong = {soLuong}
+            gia = {gia}
         />
     </Fragment>
     )

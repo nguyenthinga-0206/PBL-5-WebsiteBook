@@ -1,5 +1,5 @@
-import UI from './UI'
-export default function ChanTrang()
+
+export default function ChanTrang({UI})
 {
     return <UI/>
 }

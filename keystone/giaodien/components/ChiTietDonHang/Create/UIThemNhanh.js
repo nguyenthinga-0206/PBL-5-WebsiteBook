@@ -24,7 +24,6 @@ import { useRouter } from "next/router";
 export default function UI({ donHang, handleChange, onCreate, resultCreateDonHang }) {
 
   const router = useRouter();
-  return <div><input placeholder="sl" /><button>Mua</button></div>
   return (
     <Grid
       h="800px"

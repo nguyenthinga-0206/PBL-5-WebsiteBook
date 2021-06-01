@@ -15,7 +15,6 @@ import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import { SimpleGrid, Grid, GridItem, Flex, Box, Center } from "@chakra-ui/layout";
-import Search from "../components/ThanhTieuDe";
 import { Button, Container } from "@chakra-ui/react";
 export default function Home() {
   // Tim kiem
@@ -33,35 +32,35 @@ export default function Home() {
   };
 
   return (
-  
-      <Container maxW="container.xl" > 
-        <Grid
-          templateColumns="repeat(8, 1fr)"
-          gap={4}
-          margin={10}   
-        >
-          <GridItem  colSpan={2}   bg="white" >
-            <Button 
+
+    <Container maxW="container.xl" >
+      <Grid
+        templateColumns="repeat(8, 1fr)"
+        gap={4}
+        margin={10}
+      >
+        <GridItem colSpan={2} bg="white" >
+          <Button
             bg="#67BF7F"
-            w ={280}
+            w={280}
           >
             <Center>
-            DANH MỤC SÁCH
+              DANH MỤC SÁCH
             </Center>
-            </Button>
-          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai}  margin={20} />
-          </GridItem>
-          <GridItem colSpan={6}   bg="white"  >
-            <SimpleGrid columns={3} spacingX="2px">
-              <SachList
-                first={30}
-                UI={SachListUI}
-                where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
-              />
-            </SimpleGrid>
-          </GridItem>
-        </Grid>
-      </Container>
-     
+          </Button>
+          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai} margin={20} />
+        </GridItem>
+        <GridItem colSpan={6} bg="white"  >
+          <SimpleGrid columns={3} spacingX="2px">
+            <SachList
+              first={30}
+              UI={SachListUI}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+            />
+          </SimpleGrid>
+        </GridItem>
+      </Grid>
+    </Container>
+
   );
 }

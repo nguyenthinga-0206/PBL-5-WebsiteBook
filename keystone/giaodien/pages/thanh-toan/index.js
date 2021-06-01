@@ -29,7 +29,9 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
+import ChiTietDonHangListUI from "../../components/ChiTietDonHang/List/UI";
 import DonHangCreate from "../../components/DonHang/Create";
+import DonHangCreateUI from "../../components/DonHang/Create/UI";
 
 export default function ThanhToan() {
 
@@ -63,10 +65,10 @@ export default function ThanhToan() {
               </GridItem>            
               </Grid>
           </Box>  
-          <ChiTietDonHangList />
+          <ChiTietDonHangList UI={ChiTietDonHangListUI} />
           <br/>     
           <br/>      
-          <DonHangCreate/>
+          <DonHangCreate UI={DonHangCreateUI}/>
         </Container>
       </Box>
     </Box>

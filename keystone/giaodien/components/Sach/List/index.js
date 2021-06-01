@@ -1,6 +1,6 @@
-import UI from "./UI";
+
 import { useQuery, gql } from "@apollo/client";
-export default function SachList({ first = 3, skip = 0, sortBy, where }) {
+export default function SachList({ UI,  first = 3, skip = 0, sortBy, where }) {
   const { loading, error, data } = useQuery(
     gql`
       query(

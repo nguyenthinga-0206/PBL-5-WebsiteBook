@@ -14,6 +14,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import SignUpUser from "../../components/User/SignUp"
+import SignUpUserUI from "../../components/User/SignUp/UI";
 
 const avatars = [
   {
@@ -122,7 +123,7 @@ export default function DangKy() {
           </Stack>
         </Stack>
        
-        <SignUpUser />
+        <SignUpUser UI={SignUpUserUI}/>
           
       </Container>
       <Blur

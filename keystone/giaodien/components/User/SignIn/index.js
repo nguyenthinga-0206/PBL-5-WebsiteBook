@@ -4,7 +4,6 @@ import {
   gql,
   useSubscription,
 } from "@apollo/client";
-// import gql from "graphql-tag";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 export default function UserSignIn({ UI }) {

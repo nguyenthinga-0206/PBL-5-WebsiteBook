@@ -1,6 +1,6 @@
-import UI from "./UI";
+
 import { useQuery, gql } from "@apollo/client";
-export default function PhanloaiList({ first, skip = 0, sortBy, where, clickPhanLoai }) {
+export default function PhanloaiList({UI, first, skip = 0, sortBy, where, clickPhanLoai }) {
   const { loading, error, data } = useQuery(
     gql`
       query(

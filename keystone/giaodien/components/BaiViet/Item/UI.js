@@ -1,4 +1,8 @@
 
 export default function UI({ baiViet }) {
-  return HTML.generation(baiViet);
+  return (
+    <div>
+      <p>{baiViet.id}</p>
+    </div>
+  );
 }

@@ -1,8 +1,7 @@
 import { useApolloClient, useMutation, gql, useSubscription } from "@apollo/client";
 import { Fragment, useState } from "react";
-import UI from "./UI";
 import { useRouter } from "next/router";
-export default function UserSignUp() {
+export default function UserSignUp({UI}) {
   const [onSignUpUser, resultSignUpUser] = useMutation(gql`
     mutation($data: UserCreateInput) {
       createUser(data: $data) {
