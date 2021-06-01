@@ -22,28 +22,16 @@ import {
   Center,
   useToast,
 } from "@chakra-ui/react";
-import {
-  CheckCircleIcon,
-} from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import { Fragment, useState, useRef } from "react";
+import { Fragment, useState } from "react";
+import { useQuery, gql } from "@apollo/client";
 import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 
-export default function ChiTietSach({
-  id, tenSach, tenTacGia, tenNhaXuatBan, ngayXuatBan, 
-  soLuong, soTrang, 
-  IMG1, IMG2, IMG3, IMG4, IMG5,
-  tieude, baiViet, loai,
-  
-}) {
-  const toast = useToast()
-  const toastIdRef = useRef()
-  function addToast() {
-    toastIdRef.current = toast({ description: "Thêm vào giỏ hàng thành công" })
-  }
-
+export default function ChiTietSach({ sach }) {
   const router = useRouter();
+  console.log(sach);
+  console.log(sach?.baiViet[0]?.tieude);
 
   return (
     <Fragment>
@@ -56,13 +44,13 @@ export default function ChiTietSach({
           gap={4}
         >
           <GridItem rowSpan={8} colSpan={5} bg="white">
-            <Image src={IMG1} alt="Segun Adebayo" w="100%" h="100%" />
+            <Image src={sach.IMG[0]?.anh?.publicUrl} alt="Segun Adebayo" w="100%" h="100%" />
           </GridItem>
           <GridItem rowSpan={10} colSpan={5} bg="white">
             <GridItem rowSpan={5} colSpan={5} bg="white">
               <Box ml={14}>
                 <Heading as="h2" size="xl" md={14} ml={14} name = 'tenSach'>
-                  {tenSach}
+                  {sach.tenSach}
                 </Heading>
                 <br />
                 <hr></hr>
@@ -71,13 +59,13 @@ export default function ChiTietSach({
                   <b>
                     <i>Mã sản phẩm:</i>
                   </b>{" "}
-                  <i> {id}</i>
+                  <i> {sach.id}</i>
                 </p>
                 <br />
-                <b>Tác giả: </b>{tenTacGia}<br/>
-                <b>NXB: </b>{tenNhaXuatBan}<br/>
-                <b>Năm xuất bản: </b>{ngayXuatBan}<br/>
-                <b>Số trang: </b>{soTrang}<br/>
+                <b>Tác giả: </b>{sach.tenTacGia}<br/>
+                <b>NXB: </b>{sach.tenNhaXuatBan}<br/>
+                <b>Năm xuất bản: </b>{sach.ngayXuatBan}<br/>
+                <b>Số trang: </b>{sach.soTrang}<br/>
                 <hr />
                 <br></br>            
               </Box>
@@ -93,7 +81,15 @@ export default function ChiTietSach({
             >
               <GridItem rowSpan={1} colSpan={1} bg="white">
                 <Image
-                  src={IMG1}
+                  src={sach.IMG[1]?.anh?.publicUrl}
+                  alt="Segun Adebayo"
+                  w="100%"
+                  h="100%"
+                />
+              </GridItem>
+              <GridItem rowSpan={2} colSpan={1} bg="blue">
+                <Image
+                  src={sach.IMG[1]?.anh?.publicUrl}
                   alt="Segun Adebayo"
                   w="100%"
                   h="100%"
@@ -101,7 +97,7 @@ export default function ChiTietSach({
               </GridItem>
               <GridItem rowSpan={1} colSpan={1} bg="blue">
                 <Image
-                  src={IMG2}
+                  src={sach.IMG[3]?.anh?.publicUrl}
                   alt="Segun Adebayo"
                   w="100%"
                   h="100%"
@@ -109,7 +105,7 @@ export default function ChiTietSach({
               </GridItem>
               <GridItem rowSpan={1} colSpan={1} bg="blue">
                 <Image
-                  src={IMG3}
+                  src={sach.IMG[4]?.anh?.publicUrl}
                   alt="Segun Adebayo"
                   w="100%"
                   h="100%"
@@ -117,15 +113,7 @@ export default function ChiTietSach({
               </GridItem>
               <GridItem rowSpan={1} colSpan={1} bg="blue">
                 <Image
-                  src={IMG4}
-                  alt="Segun Adebayo"
-                  w="100%"
-                  h="100%"
-                />
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1} bg="blue">
-                <Image
-                  src={IMG5}
+                  src={sach.IMG[5]?.anh?.publicUrl}
                   alt="Segun Adebayo"
                   w="100%"
                   h="100%"
@@ -152,14 +140,14 @@ export default function ChiTietSach({
                 <p>
                   <Center>
                     <Heading as="h2" size="xl" md={14} ml={4}>
-                      {tieude}
+                      {sach?.baiViet[0]?.tieude}
                     </Heading>
                   </Center> 
                   <br />
                   <br />
                   <Center>
                     <Image
-                      src={IMG1}
+                      src={sach.IMG[0]?.anh?.publicUrl}
                       alt="Segun Adebayo"
                       w="30%"
                       h="30%"
@@ -167,11 +155,11 @@ export default function ChiTietSach({
                   </Center>    
                   <br />
                   <br />  
-                  <b>Thể loại: </b> {loai}
+                  <b>Thể loại: </b> {""}
                   <br/>
                   <b>Giới thiệu: </b>
                   <br/>
-                  {baiViet}        
+                  {sach?.baiViet[0]?.baiViet}        
                 </p>
               </TabPanel>
               <TabPanel>

@@ -18,7 +18,7 @@ const authLink = setContext((_, { headers }) => {
     };
   }
 });
-const uri =  "/admin/api";
+const uri =  "http://192.168.43.91:8080/admin/api";
 console.log(uri);
 const httpLink = new HttpLink({
   uri,

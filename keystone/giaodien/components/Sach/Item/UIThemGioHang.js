@@ -18,10 +18,11 @@ import {
 } from "@chakra-ui/icons";
 import { useState, useRef } from "react";
 import { useRouter } from "next/router";
+import { useQuery, gql, useMutation } from "@apollo/client";
 
-export default function UIThemGioHang({ gia, soLuong }) {
+export default function UIThemGioHang({ sach }) {
     const [value, setValue] = useState("1");
-
+    console.log(sach);
     const router = useRouter();
 
     const toast = useToast()
@@ -38,7 +39,7 @@ export default function UIThemGioHang({ gia, soLuong }) {
         step: 1,
         defaultValue: 1,
         min: 1,
-        max: soLuong,
+        max: 10,
         precision: 2,
     });
     const inc = getIncrementButtonProps();
@@ -61,12 +62,12 @@ export default function UIThemGioHang({ gia, soLuong }) {
                                         <b name='gia'>Giá:</b>{" "}
                                         <Text fontSize="xl" ml={30} color={"green.600"}>
                                             {" "}
-                                            {new Intl.NumberFormat().format(gia)}đ
+                                            {new Intl.NumberFormat().format("")}đ
                         </Text>{" "}
                                     </p>
                                     <br />
                                     <p>
-                                        <b>Số lượng có trong kho: </b> {soLuong}
+                                        <b>Số lượng có trong kho: </b> 
                                     </p>
                                 </p>
                                 <br />
