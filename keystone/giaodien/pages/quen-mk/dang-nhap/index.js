@@ -17,23 +17,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function DangNhap() {
-  // console.log(user);
-  // const router = useRouter();
-
-  // const [values, setValues] = useState({
-  //   email: null,
-  //   password: null,
-  // });
-  // /**
-  //  * @param {String} name
-  //  */
-  // const handleChange = (name) => (e) => {
-  //   setValues({ ...values, [name]: e.target.value });
-  // };
-  // console.log(values);
-
-  // <UserList where = {email_contains}/>
-
   return (
     <Stack
       minH={"100vh"}

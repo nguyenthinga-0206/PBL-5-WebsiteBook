@@ -92,42 +92,41 @@ export default function UI() {
               />
             </Text>
           </Link>
-         
           <Button
             onClick={(e) => {
-              router.push("/dang-nhap");
+            router.push("/dang-nhap");
             }}
             display={{ base: "none", md: "inline-flex" }}
-             fontSize={"x-small"}
-             w={'100%'}
-             fontWeight={600}
+            fontSize={"x-small"}
+            w={'100%'}
+            fontWeight={600}
             color={"white"}
             bg={"#66CDAA"}
             href={"#"}
             _hover={{
-              bg: "#276749",
+            bg: "#276749",
             }}
-          >
+        >
             Đăng Nhập
-          </Button>
+        </Button>
 
-          <Button
+        <Button
             onClick={(e) => {
-              router.push("/dang-ky");
+            router.push("/dang-ky");
             }}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"x-small"}
-             w={'100%'}
-             fontWeight={600}
+            w={'100%'}
+            fontWeight={600}
             color={"white"}
             bg={"green.300"}
             href={"#"}
             _hover={{
-              bg: "#1C4532",
+            bg: "#1C4532",
             }}
-          >
+        >
             Đăng Ký
-          </Button>
+        </Button>
         </Stack>
       </Flex>
     </Box>
