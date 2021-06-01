@@ -133,7 +133,7 @@ function UI({ sach }) {
                 {sach.tenSach}
               </Box>
             </Link>
-            <SachItem UI={SachItemThemGioHangNhanhUI} />
+            {/* <SachItem UI={SachItemThemGioHangNhanhUI} /> */}
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">

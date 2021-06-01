@@ -29,7 +29,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
-import ChiTietDonHangListUI from "../../components/ChiTietDonHang/List/UI";
+import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
 import DonHangCreate from "../../components/DonHang/Create";
 import DonHangCreateUI from "../../components/DonHang/Create/UI";
 
@@ -48,14 +48,11 @@ export default function ThanhToan() {
               <Grid
               h="50px"
               templateRows="repeat(1, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(7, 1fr)"
               gap={4}
               >
-              <GridItem rowSpan={1} colSpan={1}>
+              <GridItem rowSpan={5} colSpan={1}>
                   <Center mb={20}><b>Sản phẩm</b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                  <Center><b>Giá</b></Center>
               </GridItem>
               <GridItem rowSpan={1} colSpan={1}>
                   <Center><b>Số lượng</b></Center>
@@ -65,10 +62,9 @@ export default function ThanhToan() {
               </GridItem>            
               </Grid>
           </Box>  
-          <ChiTietDonHangList UI={ChiTietDonHangListUI} />
+          <ChiTietDonHangList UI={ChiTietDonHangThanhToanUI} />
           <br/>     
           <br/>      
-          <DonHangCreate UI={DonHangCreateUI}/>
         </Container>
       </Box>
     </Box>

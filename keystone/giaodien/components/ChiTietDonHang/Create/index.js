@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
+import { Center } from "@chakra-ui/layout";
 import { useState } from "react";
-import { refetchChiTietDonHangList } from "../List";
+// import { refetchChiTietDonHangList } from "../List";
 
 export default function ChiTietDonHangCreate({ sach, gioHang, soLuong, UI }) {
   const [onCreateChiTietDH, resultCreateChiTietDH] = useMutation(gql`
@@ -21,7 +22,7 @@ export default function ChiTietDonHangCreate({ sach, gioHang, soLuong, UI }) {
     tien: sach.gia * soLuong,
     soLuong,
   };
-  console.log({ tenSach });
+  console.log( values );
   /**
    * @param {String} name
    */
@@ -32,13 +33,12 @@ export default function ChiTietDonHangCreate({ sach, gioHang, soLuong, UI }) {
       },
     })
       .then((data) => {
-        refetchChiTietDonHangList()();
+        // refetchChiTietDonHangList()();
       })
       .catch((e) => {
         console.log(e);
       });
   };
-
   if (resultCreateChiTietDH.loading) return "Loading...";
 
   return (

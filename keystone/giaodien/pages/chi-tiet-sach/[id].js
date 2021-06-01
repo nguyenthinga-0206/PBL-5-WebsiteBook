@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Fragment } from "react";
 import ChiTietSach from "./index";
-import SachItem from "../../components/Sach/Item";
-import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
+import SachChiTietDonHangCreate from "../../components/ChiTietDonHang/Create";
+import SachChiTietDonHangCreateUI from "../../components/ChiTietDonHang/Create//UI";
 
 const Sach = () => {
     const router = useRouter()
@@ -39,6 +39,7 @@ const Sach = () => {
     return (
         <Fragment>
             <ChiTietSach sach={sach} />
+            <SachChiTietDonHangCreate sach={sach}/>
         </Fragment>
     );
 };
