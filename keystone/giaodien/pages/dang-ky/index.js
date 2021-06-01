@@ -13,8 +13,8 @@ import {
   useBreakpointValue,
   Icon,
 } from '@chakra-ui/react';
-import SignUpUser from "../../components/User/SignUp"
-
+import SignUpUser from "../../components/User/SignUp";
+import SignUpUserUI from "../../components/User/SignUp/UI.js";
 const avatars = [
   {
     name: 'Ryan Florence',
@@ -122,7 +122,7 @@ export default function DangKy() {
           </Stack>
         </Stack>
        
-        <SignUpUser />
+        <SignUpUser UI={SignUpUserUI}/>
           
       </Container>
       <Blur

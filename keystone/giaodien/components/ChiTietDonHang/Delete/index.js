@@ -2,8 +2,8 @@ import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import UI from "./UI";
 import { refetchDetailsList } from "../List";
-export default function UserCreate() {
-  const [onCreateUser, resultCreateUser] = useMutation(gql`
+export default function UserDelete({userID}) {
+  const [onDeleteUser, resultDeleteUser] = useMutation(gql`
   mutation($data: ChitietdonhangCreateInput) {
     createChitietdonhang(data: $data) {
         id
@@ -19,23 +19,12 @@ export default function UserCreate() {
     }
 }
 
-
   `);
-  const [values, setValues] = useState({
-    name: null,
-    email: null,
-    password: null,
-  });
-  /**
-   * @param {String} name
-   */
-  const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.values });
-  };
-  const onCreate = (e) => {
-    onCreateUser({
+console.log(userID);
+  const onDelete = (e) => {
+    onDeleteUser({
       variables: {
-        data: values,
+        id: userID,
       },
     })
       .then((data) => {
@@ -46,12 +35,11 @@ export default function UserCreate() {
       });
   };
 
-  if (resultCreateUser.loading) return "Loading...";
+  if (resultDeleteUser.loading) return "Loading...";
   return (
     <UI
-      handleChange={handleChange}
-      onCreate={onCreate}
-      resultCreateUser={resultCreateUser}
+      onDelete={onDelete}
+      resultDeleteUser={resultDeleteUser}
     />
   );
 }
