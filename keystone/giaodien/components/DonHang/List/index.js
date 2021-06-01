@@ -17,7 +17,9 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             where: $where
           ) {
             id
+            hoten
             sdt
+            diachi
             tongtien
             tinhTrangThanhToan
             tinhTrangGiao
@@ -25,7 +27,10 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             cachThucGiaoHang
             ngayDat
             ngayGiao
-            soLuong
+            chiTietDonHang {
+              soLuong
+              tien
+            }
           }
         }    
       `,

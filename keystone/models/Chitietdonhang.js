@@ -8,7 +8,7 @@ module.exports = {
       },
       tien: {
         type: Float,
-        label: 'Giá tiền'
+        label: 'Thành tiền'
       },
       sach: {
         type: Relationship, ref: 'Sach.chiTietDonHang', many: false,

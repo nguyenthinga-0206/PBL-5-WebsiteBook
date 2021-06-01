@@ -2,9 +2,17 @@ const { Text, Checkbox, Integer, Relationship, Float, DateTime ,Select} = requir
 
 module.exports = {
   fields: {
+    hoten: {
+      type: Text,
+      label: 'Họ và tên'
+    },
     sdt: {
       type: Text,
-      label: 'Sdt'
+      label: 'Số điện thoại'
+    },
+    diachi: {
+      type: Text,
+      label: 'Địa chỉ giao hàng'
     },
     tongtien: {
       type: Float,
@@ -48,10 +56,6 @@ module.exports = {
     ngayGiao: {
       type: DateTime,
       label: 'Ngày giao'
-    },
-    soLuong: {
-      type: Integer,
-      label: 'Số lượng'
     },
     chiTietDonHang: {
       type: Relationship, ref: 'Chitietdonhang.donHang', many: true,

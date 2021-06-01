@@ -1,4 +1,3 @@
-
 export default function UI({donHang}){
     return<div>
         <p>{donHang.sdt}</p>
@@ -11,5 +10,5 @@ export default function UI({donHang}){
         <p>{donHang.ngayGiao}</p>
         <p>{donHang.soLuong}</p>
         </div>
-
 }
+
