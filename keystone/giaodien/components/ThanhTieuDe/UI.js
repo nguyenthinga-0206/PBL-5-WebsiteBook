@@ -26,9 +26,8 @@ import {
 } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import TimKiemUI from "./UITimKiem";
 
-export default function UI() {
+export default function UI({change}) {
 
   const router = useRouter();
   const { isOpen, onOpen, onClose ,onToggle} = useDisclosure()
@@ -66,7 +65,16 @@ export default function UI() {
             </Text>
           </Link>
         </Flex>
-        <TimKiemUI/>
+        <Input
+            ml={10}
+            mg = {200}
+            md=  {200}
+            mr ="20px"
+            w={"50%"} 
+            bg ="white"
+            onChange ={change}
+            placeholder="Tìm kiếm"
+        />
        
         <Stack
           flex={{ base: 1, md: 0 }}

@@ -26,7 +26,6 @@ import {
   } from "@chakra-ui/icons";
   import { useState } from "react";
   import { useRouter } from "next/router";
-  import TimKiemUI from "./UITimKiem";
   
   export default function UI({onSignOut}) {
   
@@ -66,7 +65,16 @@ import {
               </Text>
             </Link>
           </Flex>
-          <TimKiemUI/>
+          <Input
+            ml={10}
+            mg = {200}
+            md=  {200}
+            mr ="20px"
+            w={"50%"} 
+            bg ="white"
+           
+            placeholder="Tìm kiếm"
+        />
          
           <Stack
             flex={{ base: 1, md: 0 }}

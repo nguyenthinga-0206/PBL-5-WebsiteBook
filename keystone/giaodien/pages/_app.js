@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
         <CartProvider>
           <Box bg="#F0F0F0">
             {/* Đầu trang */}
-            <ThanhTieuDe UI={ThanhTieuDeUI} />
+            {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
 
             <Component {...pageProps} />
 

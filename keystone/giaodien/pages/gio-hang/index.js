@@ -42,7 +42,9 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import GioHangItem from "../../components/GioHang/Item/UIGioHang"
+import GioHangItem from "../../components/GioHang/Item/UIGioHang";
+import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import { Fragment } from "react";
 
 export default function GioHang({id, tenSach,}) {
   const { isOpen, onToggle } = useDisclosure();
@@ -64,70 +66,73 @@ export default function GioHang({id, tenSach,}) {
   const dec = getDecrementButtonProps();
   const input = getInputProps({ isReadOnly: true });
   return (
-    <Box bg={"gray.500"}>
-      <Box bg={"gray.50"} color={"black"}>
-        <Container maxW={"container.xl"} bg="white" py={10}>
-            <Heading size="lg" ml={14}>
-              <i>Giỏ Hàng</i>
-            </Heading>
-            <br />
-            <br />
-            <hr></hr>
-            <Grid
-              h="50px"
-              templateRows="repeat(1, 1fr)"
-              templateColumns="repeat(5, 1fr)"
-              gap={4}
-            >
-              <GridItem rowSpan={1} colSpan={2}>
-                <Center mb={20}><b>Sản phẩm</b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center><b>Số lượng </b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center><b>Thành tiền</b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center><b>Xóa</b></Center>
-              </GridItem>
-            </Grid>
-
-            <GioHangItem/>
-
-            <br/>
-            <br/>
-            <Grid
+    <Fragment>
+      <ThanhTieuDeDangXuatUI/>
+      <Box bg={"gray.500"}>
+        <Box bg={"gray.50"} color={"black"}>
+          <Container maxW={"container.xl"} bg="white" py={10}>
+              <Heading size="lg" ml={14}>
+                <i>Giỏ Hàng</i>
+              </Heading>
+              <br />
+              <br />
+              <hr></hr>
+              <Grid
                 h="50px"
-                templateColumns="repeat(2, 1fr)"
+                templateRows="repeat(1, 1fr)"
+                templateColumns="repeat(5, 1fr)"
                 gap={4}
-            >
-                <GridItem colSpan={1}>
-                    <b>Tong Tien: </b>
-                    12233d
+              >
+                <GridItem rowSpan={1} colSpan={2}>
+                  <Center mb={20}><b>Sản phẩm</b></Center>
                 </GridItem>
-                <GridItem colSpan={1}>
-                    <Button
-                    onClick={(e) => {
-                    router.push("/thanh-toan");
-                    }}
-                    display={{ base: "none", md: "inline-flex" }}
-                    fontSize={"x-small"}
-                    w={'100px'}
-                    fontWeight={600}
-                    color={"white"}
-                    bg={"#66CDAA"}
-                    href={"#"}
-                    _hover={{
-                    bg: "#276749",
-                    }}
-                >
-                    Mua hàng
-                </Button>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center><b>Số lượng </b></Center>
                 </GridItem>
-            </Grid>
-        </Container>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center><b>Thành tiền</b></Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center><b>Xóa</b></Center>
+                </GridItem>
+              </Grid>
+
+              <GioHangItem/>
+
+              <br/>
+              <br/>
+              <Grid
+                  h="50px"
+                  templateColumns="repeat(2, 1fr)"
+                  gap={4}
+              >
+                  <GridItem colSpan={1}>
+                      <b>Tong Tien: </b>
+                      12233d
+                  </GridItem>
+                  <GridItem colSpan={1}>
+                      <Button
+                      onClick={(e) => {
+                      router.push("/thanh-toan");
+                      }}
+                      display={{ base: "none", md: "inline-flex" }}
+                      fontSize={"x-small"}
+                      w={'100px'}
+                      fontWeight={600}
+                      color={"white"}
+                      bg={"#66CDAA"}
+                      href={"#"}
+                      _hover={{
+                      bg: "#276749",
+                      }}
+                  >
+                      Mua hàng
+                  </Button>
+                  </GridItem>
+              </Grid>
+          </Container>
+        </Box>
       </Box>
-     </Box>
+    </Fragment>
   );
 }

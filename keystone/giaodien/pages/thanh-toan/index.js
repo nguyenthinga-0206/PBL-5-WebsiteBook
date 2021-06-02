@@ -32,6 +32,8 @@ import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
 import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
 import DonHangCreateUI from "../../components/DonHang/Create/UI";
 import DonHangCreate from "../../components/DonHang/Create/UI";
+import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import { Fragment } from "react";
 
 export default function ThanhToan() {
 
@@ -40,35 +42,38 @@ export default function ThanhToan() {
 
   
   return (
-    <Box bg={"gray.50"}>  
-      <Box bg={"gray.50"} color={"black"}>
-        <Container maxW={"container.xl"} bg="white" py={10}>
-          <Box borderWidth={1} bg={"gray.50"}>
-            <br></br>
-              <Grid
-              h="50px"
-              templateRows="repeat(1, 1fr)"
-              templateColumns="repeat(4, 1fr)"
-              gap={4}
-              >
-              <GridItem rowSpan={1} colSpan={2}>
-                  <Center mb={20}><b>Sản phẩm</b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                  <Center><b>Số lượng</b></Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                  <Center><b>Thành tiền</b></Center>
-              </GridItem>            
-              </Grid>
-          </Box>  
-          <ChiTietDonHangList UI={ChiTietDonHangThanhToanUI} />
-          <br/>     
-          <br/>  
-          <DonHangCreate/>    
-        </Container>
+    <Fragment>
+      <ThanhTieuDeDangXuatUI/>
+      <Box bg={"gray.50"}>  
+        <Box bg={"gray.50"} color={"black"}>
+          <Container maxW={"container.xl"} bg="white" py={10}>
+            <Box borderWidth={1} bg={"gray.50"}>
+              <br></br>
+                <Grid
+                h="50px"
+                templateRows="repeat(1, 1fr)"
+                templateColumns="repeat(4, 1fr)"
+                gap={4}
+                >
+                <GridItem rowSpan={1} colSpan={2}>
+                    <Center mb={20}><b>Sản phẩm</b></Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                    <Center><b>Số lượng</b></Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                    <Center><b>Thành tiền</b></Center>
+                </GridItem>            
+                </Grid>
+            </Box>  
+            <ChiTietDonHangList UI={ChiTietDonHangThanhToanUI} />
+            <br/>     
+            <br/>  
+            <DonHangCreate/>    
+          </Container>
+        </Box>
       </Box>
-    </Box>
+    </Fragment>
   );
 }
 
