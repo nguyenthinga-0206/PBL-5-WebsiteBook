@@ -52,7 +52,7 @@ import {
                 color={'blue.500'} 
                 textAlign={'end'} ml={'auto'}
                 onClick = { (e) => {
-                  router.push("/quen-mat-khau")
+                  router.push("/quen-mk")
                 }}
               >
                 Quên mật khẩu 

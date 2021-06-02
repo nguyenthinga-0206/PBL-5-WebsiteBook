@@ -52,6 +52,7 @@ function Rating({ rating, numReviews }) {
 
 function UI({ sach }) {
 
+
   const router = useRouter();
 
   return (
@@ -64,7 +65,6 @@ function UI({ sach }) {
         rounded="lg"
         shadow="lg"
         position="relative"
-        href={"#"}
         _hover={{
           borderColor : "#22543D",
           borderWidth: "1px",
@@ -104,7 +104,6 @@ function UI({ sach }) {
                 })
               }}
             >
-
         <Image
           w={'100%'}
           h={'100%'}
@@ -152,43 +151,20 @@ function UI({ sach }) {
               }}
             >
               <Box
-              
-
                 fontSize="small"
                 fontWeight="semibold"
                 text-overflow="ellipsis"
                 w="150px"
                 as="h4"
                 lineHeight="tight"
-                isTruncated
-                
+                isTruncated               
               >
                 {sach.tenSach}
               </Box>
             </Link>
-            <Link
-             
+            <Link           
              onClick={(e) => {
-                router.push({
-                  pathname: '/gio-hang/[id]',
-                  query: { 
-                    id: sach.id, 
-                    tenSach: sach.tenSach, 
-                    tenTacGia: sach.tenTacGia,
-                    tenNhaXuatBan: sach.tenNhaXuatBan,
-                    gia: sach.gia,
-                    soTrang: sach.soTrang,
-                    ngayXuatBan: sach.ngayXuatBan,
-                    soLuong: sach.soLuong,
-                    IMG1: sach?.IMG[0]?.anh?.publicUrl,
-                    tieude: sach?.baiViet[0]?.tieude,
-                    baiViet: sach?.baiViet[0]?.baiViet,
-                    loai: sach?.phanLoaiSach?.loai,
-                  },
-                })
-             
-            
-            
+                // <ChiTietDonHangCreate sach = {sach} UI={...}/>
               }}
             >
               <Tooltip

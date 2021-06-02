@@ -35,54 +35,32 @@ export default function Home() {
   return (
   
       <Container maxW="container.xl" > 
-      <Grid
-        //  templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(8, 1fr)"
-         gap={4}
-         margin={10}
-         
-      >
-        <GridItem  colSpan={2}   bg="white" 
+        <Grid
+          templateColumns="repeat(8, 1fr)"
+          gap={4}
+          margin={10}   
         >
-          <Button 
-          bg="#67BF7F"
-          w ={280}
-
-      
-        >
-          <Center>
-          Danh Mục Sách
-          </Center>
-          </Button>
-        <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai}  margin={20} />
-        </GridItem>
-        <GridItem colSpan={6}   bg="white"  >
-        <SimpleGrid columns={3} spacingX="2px"
-        >
-            <SachList
-              first={25}
-              UI={SachListUI}
-              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
-            />
-          </SimpleGrid>
-        </GridItem>
-
-      </Grid>
-      {/* <Grid templateColumns="repeat(8, 1fr)">
-        <GridItem colSpan={1}>
-          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai} />
-        </GridItem>
-        <GridItem colSpan={5}>
-          <SimpleGrid columns={3} spacingX="2px">
-            <SachList
-              first={25}
-              UI={SachListUI}
-              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
-            />
-          </SimpleGrid>
-        </GridItem>
-      </Grid>
-      */}
+          <GridItem  colSpan={2}   bg="white" >
+            <Button 
+            bg="#67BF7F"
+            w ={280}
+          >
+            <Center>
+            DANH MỤC SÁCH
+            </Center>
+            </Button>
+          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai}  margin={20} />
+          </GridItem>
+          <GridItem colSpan={6}   bg="white"  >
+            <SimpleGrid columns={3} spacingX="2px">
+              <SachList
+                first={30}
+                UI={SachListUI}
+                where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+              />
+            </SimpleGrid>
+          </GridItem>
+        </Grid>
       </Container>
      
   );
