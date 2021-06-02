@@ -43,8 +43,7 @@ export default function ChiTietDonHangCreate({ sach, gioHang, soLuong, UI }) {
 
   return (
     <UI
-      onCreate={onCreate}
-      resultCreateChiTietDH={resultCreateChiTietDH}
+     
     />
   );
 }

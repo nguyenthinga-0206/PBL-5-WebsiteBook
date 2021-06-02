@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Fragment } from "react";
 import ChiTietSach from "./index";
-import SachChiTietDonHangCreate from "../../components/ChiTietDonHang/Create";
-import SachChiTietDonHangCreateUI from "../../components/ChiTietDonHang/Create//UI";
 
 const Sach = () => {
     const router = useRouter()
@@ -37,10 +35,7 @@ const Sach = () => {
     if (loading || error) return 'Loading...';
     const { allSaches: [sach] } = data;
     return (
-        <Fragment>
-            <ChiTietSach sach={sach} />
-            <SachChiTietDonHangCreate sach={sach}/>
-        </Fragment>
+       <ChiTietSach sach={sach} />
     );
 };
 export default Sach;

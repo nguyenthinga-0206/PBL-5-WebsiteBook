@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { FiShoppingCart } from "react-icons/fi";
 
-export default function(){
+export default function UIMuaNhanh(){
     return(
         <Link           
              onClick={(e) => {

@@ -30,8 +30,8 @@ import {
 import { useRouter } from "next/router";
 import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
 import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
-import DonHangCreate from "../../components/DonHang/Create";
 import DonHangCreateUI from "../../components/DonHang/Create/UI";
+import DonHangCreate from "../../components/DonHang/Create/UI";
 
 export default function ThanhToan() {
 
@@ -48,10 +48,10 @@ export default function ThanhToan() {
               <Grid
               h="50px"
               templateRows="repeat(1, 1fr)"
-              templateColumns="repeat(7, 1fr)"
+              templateColumns="repeat(4, 1fr)"
               gap={4}
               >
-              <GridItem rowSpan={5} colSpan={1}>
+              <GridItem rowSpan={1} colSpan={2}>
                   <Center mb={20}><b>Sản phẩm</b></Center>
               </GridItem>
               <GridItem rowSpan={1} colSpan={1}>
@@ -64,7 +64,8 @@ export default function ThanhToan() {
           </Box>  
           <ChiTietDonHangList UI={ChiTietDonHangThanhToanUI} />
           <br/>     
-          <br/>      
+          <br/>  
+          <DonHangCreate/>    
         </Container>
       </Box>
     </Box>

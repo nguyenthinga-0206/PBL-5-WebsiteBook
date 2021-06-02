@@ -5,34 +5,32 @@ import {
     Center,
     Input,
 } from "@chakra-ui/react";
-import SachItem from "../../Sach/Item";
-import SachItemSachUI from "../../Sach/Item/UISach";
+import { Fragment } from "react";
+// import SachItem from "../../Sach/Item";
 
-export default function UIThanhToan({chiTietDH}){
+export default function UIThanhToan({}){
     return(
-        <Box bg={"gray.50"}>
-            <hr></hr>
-            <br/>
+        <Fragment>
+            <hr/>
             <Grid
-                h="50px"
+                h="100px"
                 templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(7, 1fr)"
+                templateColumns="repeat(4, 1fr)"
                 gap={4}
             >
-                <GridItem rowSpan={5} colSpan={1}>
+                <GridItem rowSpan={1} colSpan={2}>
                     <Center mb={20}>
-                        <SachItems
-                            UI={SachItemSachUI} 
-                        />
+                        asdf
                     </Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Center>{chiTietDH.soLuong}</Center>
+                    <Center>xcv</Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Center>{chiTietDH.tien}</Center>
-                </GridItem>            
+                    <Center>asd</Center>
+                </GridItem>  
             </Grid>
-        </Box>
+            <hr/>
+        </Fragment>
     )
 }

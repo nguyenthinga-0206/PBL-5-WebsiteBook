@@ -23,8 +23,6 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { Fragment, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
 import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 
@@ -32,7 +30,6 @@ export default function ChiTietSach({ sach }) {
   const router = useRouter();
 
   return (
-    <Fragment>
       <Box bg={"gray.50"}>
       <Container maxW={"container.xl"} py={8}>
         <Grid
@@ -168,7 +165,6 @@ export default function ChiTietSach({ sach }) {
         </GridItem>
       </Container>
     </Box>
-    </Fragment>
   );
 
 }

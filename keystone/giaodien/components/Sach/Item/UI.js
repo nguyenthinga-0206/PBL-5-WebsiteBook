@@ -13,8 +13,7 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { Grid, GridItem } from "@chakra-ui/react";
-import SachItem from "../../Sach/Item";
-import SachItemThemGioHangNhanhUI from "../../Sach/Item/UIThemGioHangNhanh";
+import SachItemMuaNhanhUI from "./UIMuaNhanh";
 
 const data = {
   isNew: true,
@@ -133,7 +132,7 @@ function UI({ sach }) {
                 {sach.tenSach}
               </Box>
             </Link>
-            {/* <SachItem UI={SachItemThemGioHangNhanhUI} /> */}
+            <SachItemMuaNhanhUI />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">

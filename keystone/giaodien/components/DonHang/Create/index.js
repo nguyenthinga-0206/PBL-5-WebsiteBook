@@ -28,10 +28,10 @@ export default function DonHangCreate({UI}) {
     sdt: null,
     diachi: null,
     tongtien:0,
-    tinhTrangThanhToan: "Thanh toán khi nhận hàng",
-    tinhtrangGiao: null,
+    tinhTrangThanhToan: tienmat,
+    tinhtrangGiao: choxacnhan,
     duyetBoiTaiKhoan: null,
-    cachThucGiaoHang: "Chỉ giao hàng trong giờ hành chính",
+    cachThucGiaoHang: giohanhchinh,
     ngayDat: null,
     ngayGiao: null,
   });
