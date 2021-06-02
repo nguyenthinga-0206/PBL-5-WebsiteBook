@@ -42,7 +42,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import GioHangItem from "../../components/GioHang/Item/UIGioHang";
+import GioHangItemUI from "../../components/GioHang/Item/UI";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
@@ -98,7 +98,7 @@ export default function GioHang({id, tenSach,}) {
                 </GridItem>
               </Grid>
 
-              <GioHangItem/>
+              <GioHangItemUI/>
 
               <br/>
               <br/>

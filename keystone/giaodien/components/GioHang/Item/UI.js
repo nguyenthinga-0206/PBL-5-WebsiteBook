@@ -7,11 +7,11 @@ import {
     Button
 } from "@chakra-ui/react";
 import SachItem from "../../Sach/Item";
-import GioHangXoaUI from "../../GioHang/Item/UIXoa";
-import GioHangSuaUI from "../../GioHang/Item/UISua";
+import GioHangXoaUI from "./UIXoa";
+import GioHangSuaUI from "./UISua";
 import { Fragment } from "react";
 
-export default function UIGioHang({}){
+export default function UI({}){
     return(
         <Fragment>
             <hr/>
