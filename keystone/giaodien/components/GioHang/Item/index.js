@@ -1,5 +1,5 @@
 
-export default function BaiVietItem({UI, gioHang}){
+export default function GioHangItem({UI, gioHang}){
     return (
         <UI gioHang = {gioHang}/>
     )

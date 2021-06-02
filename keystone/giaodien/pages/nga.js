@@ -7,6 +7,7 @@ import ImgList from "../components/Img/List";
 import NhapsachList from "../components/Phieunhapsach/List";
 import NhaCungCapList from "../components/Nhacungcap/List";
 import UserList from "../components/User/List";
+import GioHangList from "../components/GioHang/List";
 import { Fragment, useState } from "react";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   return (
     <Fragment>
       
-      {/* <UserList/> */}
+      {/* <GioHangList/> */}
       {/* <input
         type="text"
         style={{ border: "1px solid #333", margin: 34 }}

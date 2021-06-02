@@ -4,33 +4,66 @@ import {
     GridItem,
     Center,
     Input,
-    Button
+    Button,
+    Image,
+    useNumberInput,
+    HStack
 } from "@chakra-ui/react";
-import SachItem from "../../Sach/Item";
 import GioHangXoaUI from "./UIXoa";
-import GioHangSuaUI from "./UISua";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import {useRouter} from "next/router";
 
-export default function UI({}){
+export default function UI({gioHang}){
+    const [value, setValue] = useState("1");
+    const router = useRouter();
+
+    // Thay đôi so luong mua hang
+    const {
+        getInputProps,
+        getIncrementButtonProps,
+        getDecrementButtonProps,
+    } = useNumberInput({
+        step: 1,
+        defaultValue: gioHang.chiTietDonHang[0]?.soLuong,
+        min: 1,
+        max: gioHang.chiTietDonHang[0]?.sach?.soLuong,
+        precision: 2,
+    });
+    const inc = getIncrementButtonProps();
+    const dec = getDecrementButtonProps();
+    const input = getInputProps({ isReadOnly: true });
+
     return(
         <Fragment>
             <hr/>
+            <br/>
             <Grid
-                h="100px"
+                h="130px"
                 templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(5, 1fr)"
+                templateColumns="repeat(6, 1fr)"
                 gap={4}
             >
                 <GridItem rowSpan={1} colSpan={2}>
                     <Center mb={20}>
-                        asdf
+                       <Image src= {gioHang.chiTietDonHang[0]?.sach?.IMG[0]?.anh?.publicUrl} alt="Segun Adebayo" boxSize="120px"/>
                     </Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Center><GioHangSuaUI/></Center>
+                    <Center mb={20}>
+                        {gioHang.chiTietDonHang[0]?.sach?.tenSach}
+                    </Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Center>asd</Center>
+                    <Center>
+                    <HStack maxW="180px">
+                        <Button {...inc} onClick={(e) => { setValue(input) }}>+</Button>
+                        <Input {...input} name='soLuong' />
+                        <Button {...dec} onClick={(e) => { setValue(input) }}>-</Button>
+                    </HStack> 
+                    </Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                    <Center>{new Intl.NumberFormat().format(gioHang.chiTietDonHang[0]?.tien)}đ</Center>
                 </GridItem>  
                 <GridItem rowSpan={1} colSpan={1}>
                     <Center>

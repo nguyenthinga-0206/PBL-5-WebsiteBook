@@ -17,8 +17,15 @@ export default function GioHangList({UI, first, skip = 0, sortBy, where }) {
         chiTietDonHang{
         sach{
             tenSach
+            IMG{
+              anh{
+                publicUrl
+              }
+            }
             gia
+            soLuong
         }
+        
         soLuong
         tien
         }
