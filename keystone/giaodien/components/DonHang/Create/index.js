@@ -34,6 +34,7 @@ export default function DonHangCreate({UI}) {
     cachThucGiaoHang: giohanhchinh,
     ngayDat: null,
     ngayGiao: null,
+    chiTietDonHang: {connect: {id: null}}
   });
   /**
    * @param {String} name

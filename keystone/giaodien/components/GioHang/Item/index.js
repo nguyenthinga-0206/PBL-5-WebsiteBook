@@ -1,6 +1,6 @@
 
-export default function GioHangItem({UI, gioHang}){
+export default function GioHangItem({ UI, gioHang }) {
     return (
-        <UI gioHang = {gioHang}/>
+        <UI gioHang={gioHang} />
     )
 }
