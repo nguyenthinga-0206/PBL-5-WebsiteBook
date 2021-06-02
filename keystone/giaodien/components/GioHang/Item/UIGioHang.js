@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import SachItem from "../../Sach/Item";
 import GioHangXoaUI from "../../GioHang/Item/UIXoa";
+import GioHangSuaUI from "../../GioHang/Item/UISua";
 import { Fragment } from "react";
 
 export default function UIGioHang({}){
@@ -26,7 +27,7 @@ export default function UIGioHang({}){
                     </Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Center>xcv</Center>
+                    <Center><GioHangSuaUI/></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
                     <Center>asd</Center>
