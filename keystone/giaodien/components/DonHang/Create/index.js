@@ -38,7 +38,6 @@ export default function DonHangCreate({UI}) {
   /**
    * @param {String} name
    */
-  console.log(values);
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
