@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
 
             {/* Chân trang */}
-            <ChanTrang UI={ChanTrangUI} />
+            {/* <ChanTrang UI={ChanTrangUI} /> */}
           </Box>
         </CartProvider>
       </ApolloProvider>

@@ -27,6 +27,7 @@ import { Fragment } from "react";
 import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ChanTrangUI from "../../components/ChanTrang/UI";
 
 export default function ChiTietSach({ sach }) {
 
@@ -170,6 +171,7 @@ export default function ChiTietSach({ sach }) {
             </GridItem>
           </Container>
         </Box>
+        <ChanTrangUI/>
       </Fragment>
   );
 

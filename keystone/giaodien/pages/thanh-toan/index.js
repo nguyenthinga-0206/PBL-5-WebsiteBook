@@ -33,6 +33,7 @@ import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UITh
 import DonHangCreateUI from "../../components/DonHang/Create/UI";
 import DonHangCreate from "../../components/DonHang/Create/UI";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
 
 export default function ThanhToan() {
@@ -73,6 +74,7 @@ export default function ThanhToan() {
           </Container>
         </Box>
       </Box>
+      <ChanTrangUI/>
     </Fragment>
   );
 }

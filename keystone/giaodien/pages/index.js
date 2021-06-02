@@ -15,6 +15,7 @@ import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import ThanhTieuDe from "../components/ThanhTieuDe/UI";
+import ChanTrangUI from "../components/ChanTrang/UI";
 import { SimpleGrid, Grid, GridItem, Flex, Box, Center } from "@chakra-ui/layout";
 import { Button, Container } from "@chakra-ui/react";
 
@@ -65,6 +66,7 @@ export default function Home() {
           </GridItem>
         </Grid>
       </Container>
+      <ChanTrangUI/>
     </Fragment>
   );
 }

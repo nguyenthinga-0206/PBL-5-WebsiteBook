@@ -44,6 +44,7 @@ import {
 } from "@chakra-ui/react";
 import GioHangItem from "../../components/GioHang/Item/UIGioHang";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
 
 export default function GioHang({id, tenSach,}) {
@@ -133,6 +134,7 @@ export default function GioHang({id, tenSach,}) {
           </Container>
         </Box>
       </Box>
+      <ChanTrangUI/>
     </Fragment>
   );
 }
