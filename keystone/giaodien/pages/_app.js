@@ -17,12 +17,12 @@ function MyApp({ Component, pageProps }) {
     <CartProvider>
       <ChakraProvider>
           {/* Đầu trang */}
-          <ThanhTieuDe/>
+          {/* <ThanhTieuDe/> */}
 
         <Component {...pageProps} />
 
         {/* Chân trang */}
-        <ChanTrang/>
+        {/* <ChanTrang/> */}
       </ChakraProvider>
     </CartProvider>
   </ApolloProvider>
