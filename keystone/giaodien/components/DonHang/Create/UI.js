@@ -21,8 +21,7 @@ import {
 import{ useState } from "react";
 import { useRouter } from "next/router";
 
-export default function UI({donHang, handleChange, onCreate, resultCreateDonHang}){
-
+export default function UI({ handleChange, onCreate, resultCreateDonHang}){
       const router = useRouter();
       return(
           <Grid
@@ -38,16 +37,16 @@ export default function UI({donHang, handleChange, onCreate, resultCreateDonHang
                   </Center>
   
                   <br />
-                  <Input name = 'hoten' placeholder="Họ Tên" size="md" onChange = {handleChange("hoten")}/>
+                  <Input name = 'hoten' placeholder="Họ Tên" size="md" />
   
                   <br />
                   <br />
   
-                  <Input name = 'sdt' placeholder="Số Điện Thoại" size="md" onChange = {handleChange("sdt")}/>
+                  <Input name = 'sdt' placeholder="Số Điện Thoại" size="md" />
   
                   <br />
                   <br />
-                  <Input name = 'diachi' placeholder="Địa Chỉ " size="md" onChange = {handleChange("diachi")}/>
+                  <Input name = 'diachi' placeholder="Địa Chỉ " size="md" />
   
                   <br />
                   <br />
@@ -72,9 +71,9 @@ export default function UI({donHang, handleChange, onCreate, resultCreateDonHang
                   </b>
                   <br></br>
                   <br></br>
-                  <Select name = 'tinhTrangThanhToan' placeholder="Cách thức giao hàng" onChange = {handleChange("tinhTrangThanhToan")}>
-                        <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
-                        <option value="Thanh toán bằng ví điện tử">Thanh toán bằng ví điện tử</option>
+                  <Select name = 'tinhTrangThanhToan' placeholder="Cách thức giao hàng" >
+                        <option value="tienmat">Thanh toán khi nhận hàng</option>
+                        <option value="the">Thanh toán bằng ví điện tử</option>
                   </Select>
                   <br/>
                   <br />
@@ -83,9 +82,9 @@ export default function UI({donHang, handleChange, onCreate, resultCreateDonHang
                   </b>
                   <br></br>
                   <br></br>
-                  <Select name = 'cachThucGiaoHang' placeholder="Cách thức giao hàng" onChange = {handleChange("cachThucGiaoHang")}>
-                        <option value="Chỉ giao hàng trong giờ hành chính">Chỉ giao hàng trong giờ hành chính</option>
-                        <option value="Tất cả các ngày trong tuần">Tất cả các ngày trong tuần</option>
+                  <Select name = 'cachThucGiaoHang' placeholder="Cách thức giao hàng" >
+                        <option value="giohanhchinh">Chỉ giao hàng trong giờ hành chính</option>
+                        <option value="all">Tất cả các ngày trong tuần</option>
                   </Select>
             </GridItem>
             <GridItem colSpan={1} bg="white">

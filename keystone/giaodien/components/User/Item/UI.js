@@ -1,14 +1,11 @@
 import { Fragment } from "react";
-// import HTML from "../../HTML";
-// import UserLogin from "../../../pages/dang-nhap";
 import UserUpdate from "../Update";
+import UserUpdateUI from "../Update/UI";
 
 export default function UI({ user }) {
   return (
     <Fragment>
-      {/* {HTML.generation(user)}  */}
-      {/* <UserLogin user={user} /> */}
-      <UserUpdate user={user} />
+      <UserUpdate UI={UserUpdateUI} user={user} />
     </Fragment>
   );
 }

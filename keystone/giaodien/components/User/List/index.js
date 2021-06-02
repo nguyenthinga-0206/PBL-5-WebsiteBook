@@ -1,7 +1,7 @@
-import UI from "./UI";
+
 import { useQuery, gql, useMutation, makeVar } from "@apollo/client";
 export const refetchUserList = makeVar();
-export default function UserList({ first = 3, skip = 0, sortBy, where }) {
+export default function UserList({UI, first = 3, skip = 0, sortBy, where }) {
   const { loading, error, data, refetch } = useQuery(
     gql`
       query(

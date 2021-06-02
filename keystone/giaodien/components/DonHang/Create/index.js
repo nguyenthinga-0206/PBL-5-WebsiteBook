@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import UI from "./UI";
+
 // import { refetchDonHangList } from "../List";
 
-export default function DonHangCreate() {
+export default function DonHangCreate({UI}) {
   const [onCreateDonHang, resultCreateDonHang] = useMutation(gql`
    mutation($data: DonhangCreateInput) {
       createDonhang(data: $data) {
@@ -28,17 +28,16 @@ export default function DonHangCreate() {
     sdt: null,
     diachi: null,
     tongtien:0,
-    tinhTrangThanhToan: "Thanh toán khi nhận hàng",
-    tinhtrangGiao: null,
+    tinhTrangThanhToan: tienmat,
+    tinhtrangGiao: choxacnhan,
     duyetBoiTaiKhoan: null,
-    cachThucGiaoHang: "Chỉ giao hàng trong giờ hành chính",
+    cachThucGiaoHang: giohanhchinh,
     ngayDat: null,
     ngayGiao: null,
   });
   /**
    * @param {String} name
    */
-  console.log(values);
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };

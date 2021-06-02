@@ -6,29 +6,31 @@ import { CartProvider } from "../CartProvider";
 import { useRouter } from "next/router";
 import "./_app.css";
 import ThanhTieuDe from "../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../components/ThanhTieuDe/UI";
 import ChanTrang from "../components/ChanTrang";
+import ChanTrangUI from "../components/ChanTrang/UI";
 
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
-  
+
   return (
-    <Box bg="#F0F0F0"> 
-       <ApolloProvider client={apolloClient}>
-    <CartProvider>
-      <ChakraProvider>
-          {/* Đầu trang */}
-          <ThanhTieuDe/>
+    <ChakraProvider>
+      <ApolloProvider client={apolloClient}>
+        <CartProvider>
+          <Box bg="#F0F0F0">
+            {/* Đầu trang */}
+            {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
 
-        <Component {...pageProps} />
+            <Component {...pageProps} />
 
-        {/* Chân trang */}
-        <ChanTrang/>
-      </ChakraProvider>
-    </CartProvider>
-  </ApolloProvider>
+            {/* Chân trang */}
+            {/* <ChanTrang UI={ChanTrangUI} /> */}
+          </Box>
+        </CartProvider>
+      </ApolloProvider>
 
-    </Box>
-  
+    </ChakraProvider>
+
   );
 };
 export default MyApp;

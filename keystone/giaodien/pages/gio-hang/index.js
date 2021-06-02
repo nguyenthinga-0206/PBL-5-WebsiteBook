@@ -42,6 +42,12 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
+import GioHangList from "../../components/GioHang/List";
+import GioHangListUI from "../../components/GioHang/List/UI";
+import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ChanTrangUI from "../../components/ChanTrang/UI";
+import { Fragment } from "react";
+
 export default function GioHang({id, tenSach,}) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -62,236 +68,74 @@ export default function GioHang({id, tenSach,}) {
   const dec = getDecrementButtonProps();
   const input = getInputProps({ isReadOnly: true });
   return (
-    <Box bg={"gray.500"}>
-      <Box bg={"gray.50"} color={"black"}>
-        <Container maxW={"container.xl"} bg="white" py={10}>
-          <Grid
-            h="400px"
-            templateRows="repeat(10, 1fr)"
-            templateColumns="repeat(10, 1fr)"
-            gap={4}
-          >
-            <GridItem rowSpan={2} colSpan={10} bg="white">
+    <Fragment>
+      <ThanhTieuDeDangXuatUI/>
+      <Box bg={"gray.500"}>
+        <Box bg={"gray.50"} color={"black"}>
+          <Container maxW={"container.xl"} bg="white" py={10}>
               <Heading size="lg" ml={14}>
                 <i>Giỏ Hàng</i>
               </Heading>
               <br />
-              <hr />
-              <br />
-              <hr />
               <br />
               <hr></hr>
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={10} bg="white">
               <Grid
                 h="50px"
                 templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(10, 1fr)"
+                templateColumns="repeat(6, 1fr)"
                 gap={4}
               >
-                <GridItem rowSpan={1} colSpan={1}>
-                  <Center mb={20}></Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
+                <GridItem rowSpan={1} colSpan={3}>
                   <Center mb={20}><b>Sản phẩm</b></Center>
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center><b>Giá</b></Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
+                <GridItem rowSpan={1} colSpan={1}>
                   <Center><b>Số lượng </b></Center>
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>Tổng</Center>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center><b>Thành tiền</b></Center>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                  <Center>Xóa</Center>
+                  <Center><b>Xóa</b></Center>
                 </GridItem>
               </Grid>
-              <hr></hr>
-            </GridItem>
 
-            <GridItem rowSpan={1} colSpan={10} bg="white">
+              <GioHangList UI={GioHangListUI}/>
+
+              <br/>
+              <br/>
               <Grid
-                h="50px"
-                templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(10, 1fr)"
-                gap={4}
+                  h="50px"
+                  templateColumns="repeat(2, 1fr)"
+                  gap={4}
               >
-                <GridItem rowSpan={1} colSpan={1}>
-                  <Center mb={20}>
-                    <Image src="img/sach2.jpg" width="53" height="50"></Image>
-                  </Center>
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center mb={20}>{tenSach}</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>199.000đ</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>5</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>567,000đ</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={1}>
-                  <Center>
-                    <Button bg={"white"}>
-                      <Popover>
-                        <PopoverTrigger>
-                          <Button>
-                            {" "}
-                            <Icon as={SmallCloseIcon}></Icon>
-                          </Button>
-                        </PopoverTrigger>
-                        <Portal>
-                          <PopoverContent>
-                            <PopoverArrow />
-                            <PopoverHeader>
-                              Bạn có chắc chắn muốn xóa Sản Phẩm không?
-                            </PopoverHeader>
-                            <PopoverCloseButton />
-                            <PopoverFooter>
-                              <Button bg="gray.500" color="black">
-                                No
-                              </Button>
-                            </PopoverFooter>
-
-                            <PopoverBody>
-                              <Button bg="gray.500" color="black">
-                                Yes
-                              </Button>
-                            </PopoverBody>
-                          </PopoverContent>
-                        </Portal>
-                      </Popover>
-                    </Button>
-                  </Center>
-                </GridItem>
-              </Grid>
-              <hr></hr>
-            </GridItem>
-
-            <GridItem rowSpan={1} colSpan={10} bg="white">
-              <Grid
-                h="50px"
-                templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(10, 1fr)"
-                gap={4}
-              >
-                <GridItem rowSpan={1} colSpan={1}>
-                  <Center mb={20}>
-                    <Image src="img/sach2.jpg" width="53" height="50"></Image>
-                  </Center>
-                </GridItem>
-
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center mb={20}>Vui học tiếng anh</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>199.000đ</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>5</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                  <Center>567,000đ</Center>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={1}>
-                  <Center>
-                    <Button bg={"white"}>
-                      <Popover>
-                        <PopoverTrigger>
-                          <Button>
-                            {" "}
-                            <Icon as={SmallCloseIcon}></Icon>
-                          </Button>
-                        </PopoverTrigger>
-                        <Portal>
-                          <PopoverContent>
-                            <PopoverArrow />
-                            <PopoverHeader>
-                              Bạn có chắc chắn muốn xóa Sản Phẩm không?
-                            </PopoverHeader>
-                            <PopoverCloseButton />
-                            <PopoverFooter>
-                              <Button bg="gray.500" color="black">
-                                No
-                              </Button>
-                            </PopoverFooter>
-
-                            <PopoverBody>
-                              <Button bg="gray.500" color="black">
-                                Yes
-                              </Button>
-                            </PopoverBody>
-                          </PopoverContent>
-                        </Portal>
-                      </Popover>
-                    </Button>
-                  </Center>
-                </GridItem>
-              </Grid>
-              <hr></hr>
-            </GridItem>
-
-            <GridItem rowSpan={2} colSpan={10} bg="white">
-              <Grid
-                h="50px"
-                templateRows="repeat(1, 1fr)"
-                templateColumns="repeat(10, 1fr)"
-                gap={4}
-              >
-                <GridItem rowSpan={1} colSpan={5} bg="white">
-                  <b>Tổng tiền : </b> 456,000đ
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={3} bg="white">
-                  <Box>
-                    <Button
-                      onClick={(event) => {
-                        router.push("/trang-chu");
+                  <GridItem colSpan={1}>
+                      <b>Tong Tien: </b>
+                      12233d
+                  </GridItem>
+                  <GridItem colSpan={1}>
+                      <Button
+                      onClick={(e) => {
+                      router.push("/thanh-toan");
                       }}
                       display={{ base: "none", md: "inline-flex" }}
-                      fontSize={"sm"}
-                      fontWeight={50}
+                      fontSize={"x-small"}
+                      w={'100px'}
+                      fontWeight={600}
                       color={"white"}
-                      bg={"orange.500"}
+                      bg={"#66CDAA"}
                       href={"#"}
                       _hover={{
-                        bg: "teal.600",
+                      bg: "#276749",
                       }}
-                    >
-                      Tiếp tục mua sắm
-                    </Button>
-                  </Box>
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2} bg="white">
-                  <Box>
-                    <Button
-                      onClick={(event) => {
-                        router.push("/thanh-toan");
-                      }}
-                      display={{ base: "none", md: "inline-flex" }}
-                      fontSize={"sm"}
-                      fontWeight={50}
-                      color={"white"}
-                      bg={"teal.600"}
-                      href={"#"}
-                      _hover={{
-                        bg: "orange.500",
-                      }}
-                    >
-                      Thanh toán
-                    </Button>
-                  </Box>
-                </GridItem>
+                  >
+                      Mua hàng
+                  </Button>
+                  </GridItem>
               </Grid>
-            </GridItem>
-          </Grid>
-        </Container>
+          </Container>
+        </Box>
       </Box>
-     </Box>
+      <ChanTrangUI/>
+    </Fragment>
   );
 }

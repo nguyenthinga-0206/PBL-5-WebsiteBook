@@ -14,9 +14,11 @@ import PhanLoaiList from "../components/PhanLoaiSach/List";
 import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
+import ThanhTieuDe from "../components/ThanhTieuDe/UI";
+import ChanTrangUI from "../components/ChanTrang/UI";
 import { SimpleGrid, Grid, GridItem, Flex, Box, Center } from "@chakra-ui/layout";
-import Search from "../components/ThanhTieuDe";
 import { Button, Container } from "@chakra-ui/react";
+
 export default function Home() {
   // Tim kiem
   const [keyword, setKeyword] = useState();
@@ -26,6 +28,7 @@ export default function Home() {
   };
   console.log(keyword);
 
+
   const [where, setWhere] = useState({});
 
   const clickPhanLoai = (phanloai) => {
@@ -33,25 +36,26 @@ export default function Home() {
   };
 
   return (
-  
-      <Container maxW="container.xl" > 
+    <Fragment>
+      <ThanhTieuDe change={change}/>
+      <Container maxW="container.xl" >
         <Grid
           templateColumns="repeat(8, 1fr)"
           gap={4}
-          margin={10}   
+          margin={10}
         >
-          <GridItem  colSpan={2}   bg="white" >
-            <Button 
-            bg="#67BF7F"
-            w ={280}
-          >
-            <Center>
-            DANH MỤC SÁCH
-            </Center>
+          <GridItem colSpan={2} bg="white" >
+            <Button
+              bg="#67BF7F"
+              w={280}
+            >
+              <Center>
+                DANH MỤC SÁCH
+              </Center>
             </Button>
-          <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai}  margin={20} />
+            <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai} margin={20} />
           </GridItem>
-          <GridItem colSpan={6}   bg="white"  >
+          <GridItem colSpan={6} bg="white"  >
             <SimpleGrid columns={3} spacingX="2px">
               <SachList
                 first={30}
@@ -62,6 +66,7 @@ export default function Home() {
           </GridItem>
         </Grid>
       </Container>
-     
+      <ChanTrangUI/>
+    </Fragment>
   );
 }

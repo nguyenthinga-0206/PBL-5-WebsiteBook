@@ -1,6 +1,6 @@
-import UI from './UI'
+
 import {useQuery, gql} from '@apollo/client'
-export default function NhapsachList({ first = 4, skip = 0, sortBy, where }){
+export default function NhapsachList({UI, first = 4, skip = 0, sortBy, where }){
     const {
         loading, error, data
     } = useQuery (gql `

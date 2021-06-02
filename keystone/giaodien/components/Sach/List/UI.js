@@ -1,7 +1,6 @@
 import SachItem from '../Item'
 import SachItemUI from '../Item/UI'
-// import SachItemUIChiTiet from '../Item/UIChiTiet'
-export default function UI({ data, text }) {
+export default function UI({ data }) {
     const { allSaches } = data;
     return (
         allSaches.map(sach => {

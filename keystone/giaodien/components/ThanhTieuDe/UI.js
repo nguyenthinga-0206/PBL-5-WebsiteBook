@@ -27,7 +27,7 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function UI() {
+export default function UI({change}) {
 
   const router = useRouter();
   const { isOpen, onOpen, onClose ,onToggle} = useDisclosure()
@@ -38,7 +38,6 @@ export default function UI() {
         bg={useColorModeValue("#b8ddd1", "white")}
         color={useColorModeValue("gray.800", "white")}
         minH={"60px"}
-        // py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
@@ -67,14 +66,14 @@ export default function UI() {
           </Link>
         </Flex>
         <Input
-          ml={10}
-          mg = {200}
-          md=  {200}
-          mr ="20px"
-          w={"50%"} 
-          bg ="white"
-          // onChange = {change}
-          placeholder="Tìm kiếm"
+            ml={10}
+            mg = {200}
+            md=  {200}
+            mr ="20px"
+            w={"50%"} 
+            bg ="white"
+            onChange ={change}
+            placeholder="Tìm kiếm"
         />
        
         <Stack
@@ -101,42 +100,41 @@ export default function UI() {
               />
             </Text>
           </Link>
-         
           <Button
             onClick={(e) => {
-              router.push("/dang-nhap");
+            router.push("/dang-nhap");
             }}
             display={{ base: "none", md: "inline-flex" }}
-             fontSize={"x-small"}
-             w={'100%'}
-             fontWeight={600}
+            fontSize={"x-small"}
+            w={'100%'}
+            fontWeight={600}
             color={"white"}
             bg={"#66CDAA"}
             href={"#"}
             _hover={{
-              bg: "#276749",
+            bg: "#276749",
             }}
-          >
+        >
             Đăng Nhập
-          </Button>
+        </Button>
 
-          <Button
+        <Button
             onClick={(e) => {
-              router.push("/dang-ky");
+            router.push("/dang-ky");
             }}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"x-small"}
-             w={'100%'}
-             fontWeight={600}
+            w={'100%'}
+            fontWeight={600}
             color={"white"}
             bg={"green.300"}
             href={"#"}
             _hover={{
-              bg: "#1C4532",
+            bg: "#1C4532",
             }}
-          >
+        >
             Đăng Ký
-          </Button>
+        </Button>
         </Stack>
       </Flex>
     </Box>
