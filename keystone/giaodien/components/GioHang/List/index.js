@@ -1,41 +1,33 @@
 import { useQuery, gql } from "@apollo/client";
 
 export default function GioHangList({ UI, first, skip = 0, sortBy, where }) {
-  const { loading, error, data } = useQuery(gql`
-    query (
-      $first: Int
-      $skip: Int
-      $sortBy: [SortGiohangsBy!]
-      $where: GiohangWhereInput
-    ) {
-        allGiohangs (
-        first: $first
-        skip: $skip
-        sortBy: $sortBy
-        where: $where
-      ) {
-        id
-        chiTietDonHang {
+  console.log(where);
+  const { loading, error, data } = useQuery(
+    gql`
+      query($first: Int, $skip: Int, $where: GiohangWhereInput) {
+        allGiohangs(first: $first, skip: $skip, where: $where) {
           id
-          sach {
+          chiTietDonHang {
             id
-            tenSach
-            IMG {
+            sach {
               id
-              anh {
-                publicUrl
+              tenSach
+              IMG {
+                id
+                anh {
+                  publicUrl
+                }
               }
+              gia
+              soLuong
             }
-            gia
             soLuong
-          }       
-          soLuong
-          tien
+            tien
+          }
         }
       }
-    }
-  `,
-    { variables: { first, skip, sortBy, where } }
+    `,
+    { variables: { first, skip, where } }
   );
   if (loading || error) {
     return "Loading...";

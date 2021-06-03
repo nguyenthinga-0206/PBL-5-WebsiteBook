@@ -12,13 +12,12 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=3000 UI=true DISABLE_LOGGING=true keystone dev",
-    "be": "cross-env NODE_ENV=development PORT=3000 UI=false DISABLE_LOGGING=true keystone dev",
+    "be": "cross-env NODE_ENV=development cross-env PORT=3000 cross-env UI=false DISABLE_LOGGING=true keystone dev",
     "share": "cross-env NODE_ENV=development PORT=8080 DISABLE_LOGGING=true keystone dev",
-
     "build": "cross-env NODE_ENV=production keystone build",
     "start": "cross-env NODE_ENV=production keystone start",
     "create-tables": "cross-env CREATE_TABLES=true keystone create-tables",
-    "next": "next dev"
+    "next": "next dev -p 8080"
   },
   "dependencies": {
     "@apollo/client": "^3.3.17",
