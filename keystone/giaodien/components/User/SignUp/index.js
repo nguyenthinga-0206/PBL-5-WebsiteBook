@@ -1,7 +1,7 @@
 import { useApolloClient, useMutation, gql, useSubscription } from "@apollo/client";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
-export default function UserSignUp({UI}) {
+export default function UserSignUp({ UI }) {
   const [onSignUpUser, resultSignUpUser] = useMutation(gql`
     mutation($data: UserCreateInput) {
       createUser(data: $data) {
@@ -31,7 +31,7 @@ export default function UserSignUp({UI}) {
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
-  
+
   const onSignUp = async (event) => {
     event.preventDefault();
     try {
@@ -46,7 +46,7 @@ export default function UserSignUp({UI}) {
         content: "Đăng kí thành công.",
       });
       await onSignIn({
-        preventDefault: () => {},
+        preventDefault: () => { },
         currentTarget: {
           elements: { email: { value: values.email }, password: { value: values.password } },
         },
@@ -75,16 +75,8 @@ export default function UserSignUp({UI}) {
       <UI
         onSignUp={onSignUp}
         handleChange={handleChange}
+        notification={notification}
       />
-      <p
-        style={{
-          padding: 5,
-          backgroundColor: notification.color,
-          textAlign: "center",
-        }}
-      >
-        {notification.content}
-      </p>
     </Fragment>
   );
 }

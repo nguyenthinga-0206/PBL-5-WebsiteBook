@@ -9,7 +9,8 @@ import {
     useNumberInput,
     HStack
 } from "@chakra-ui/react";
-import GioHangXoaUI from "./UIXoa";
+import GioHangDelete from "../Delete";
+import GioHangDeleteUI from "../Delete/UI";
 import { Fragment, useState } from "react";
 import {useRouter} from "next/router";
 
@@ -67,7 +68,7 @@ export default function UI({gioHang}){
                 </GridItem>  
                 <GridItem rowSpan={1} colSpan={1}>
                     <Center>
-                        <GioHangXoaUI />
+                        <GioHangDelete UI={GioHangDeleteUI} GioHang = {gioHang} />
                     </Center>
                 </GridItem>  
             </Grid>

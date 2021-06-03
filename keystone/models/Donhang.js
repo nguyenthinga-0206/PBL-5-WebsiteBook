@@ -14,6 +14,10 @@ module.exports = {
       type: Text,
       label: 'Địa chỉ giao hàng'
     },
+    phiShip: {
+      type: Float,
+      label: 'Phí giao hàng'
+    },
     tongtien: {
       type: Float,
       label: 'Tổng tiền'

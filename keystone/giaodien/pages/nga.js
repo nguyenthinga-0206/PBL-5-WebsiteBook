@@ -16,23 +16,6 @@ export default function Home() {
   return (
     <Fragment>
       
-      {/* <GioHangList/> */}
-      {/* <input
-        type="text"
-        style={{ border: "1px solid #333", margin: 34 }}
-        onChange={(e) => setTuKhoa(e.target.value)}
-      />
-      <h2>Bạn đang tìm kiếm: {tuKhoa}</h2>
-      <hr /> */}
-      {/* <BaiVietList where={{ tieude_contains_i: tuKhoa }} /> */}
-      {/* <ChiTietDonHangList where={{soLuong_lte: parseInt(tuKhoa)}}/> */}
-      {/* <DonHangList where={{ sdt_contains: tuKhoa }} /> */}
-      {/* <ImgList first={parseInt(tuKhoa)} /> */}
-      {/* <NhapsachList /> */}
-      {/* <UserList /> */}
-      {/* <PhanloaiList /> */}
-      {/* <SachList /> */}
-      {/* <NhaCungCapList /> */}   
     </Fragment> 
   );
 }

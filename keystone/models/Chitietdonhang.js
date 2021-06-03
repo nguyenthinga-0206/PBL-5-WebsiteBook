@@ -27,10 +27,10 @@ module.exports = {
       resolvedData,
       context,
     }) => {
-      //console.log(resolvedData);
+      // console.log(resolvedData);
       const {data} = await context.executeGraphQL(
         {
-          query: gql`query($id:ID!) {
+          query: gql`query($id: ID!) {
             Sach(where: { id: $id }) {
               tenSach
               gia

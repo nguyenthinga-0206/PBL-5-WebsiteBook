@@ -14,7 +14,7 @@ import {
   import { useRouter } from "next/router";
   import { useState } from "react";
   
-  export default function UI({onSignIn, handleChange}) {
+  export default function UI({onSignIn, handleChange, notification}) {
     return (
       <Flex p={8} flex={2} align={'center'} justify={'center'}>
         <Stack spacing={4} w={'full'} maxW={'md'}>
@@ -58,6 +58,15 @@ import {
                 Quên mật khẩu 
               </Link>
             </Stack>
+            <p
+              style={{
+                padding: 5,
+                backgroundColor: notification.color,
+                textAlign: "center",
+              }}
+            >
+              {notification.content}
+            </p>
             <Button 
               colorScheme={'blue'} 
               variant={'solid'}

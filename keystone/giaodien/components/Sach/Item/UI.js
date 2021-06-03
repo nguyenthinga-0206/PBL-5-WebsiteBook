@@ -13,7 +13,8 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { Grid, GridItem } from "@chakra-ui/react";
-import SachItemMuaNhanhUI from "./UIMuaNhanh";
+import GioHangCreate from "../../GioHang/Create";
+import GioHangCreateUI from "../../GioHang/Create/UI";
 
 const data = {
   isNew: true,
@@ -60,13 +61,13 @@ function UI({ sach }) {
       <Box
         bg={useColorModeValue("white", "#F687B3")}
         maxW="250px"
-        borderColor ="white"
+        borderColor="white"
         borderWidth="1px"
         rounded="lg"
         shadow="lg"
         position="relative"
         _hover={{
-          borderColor : "#22543D",
+          borderColor: "#22543D",
           borderWidth: "1px",
         }}
       >
@@ -79,43 +80,43 @@ function UI({ sach }) {
             bg="#22543D"
           />
         )}
-        <Link 
-              onClick={(e) => {
-                router.push({
-                  pathname: '/chi-tiet-sach/[id]',
-                  query: { 
-                    id: sach.id, 
-                  },
-                })
-              }}
-            >
-        <Image
-          w={'100%'}
-          h={'100%'}
-          src={sach?.IMG[0]?.anh?.publicUrl}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
-      </Link>
+        <Link
+          onClick={(e) => {
+            router.push({
+              pathname: '/chi-tiet-sach/[id]',
+              query: {
+                id: sach.id,
+              },
+            })
+          }}
+        >
+          <Image
+            w={'100%'}
+            h={'100%'}
+            src={sach?.IMG[0]?.anh?.publicUrl}
+            alt={`Picture of ${data.name}`}
+            roundedTop="lg"
+          />
+        </Link>
 
         <Box p="6">
           <Box d="flex" alignItems="baseline">
-            <Badge 
-            rounded="full" 
-            px="2" 
-            text-overflow="ellipsis"
-            fontSize="xx-small" 
-            colorScheme="green">
+            <Badge
+              rounded="full"
+              px="2"
+              text-overflow="ellipsis"
+              fontSize="xx-small"
+              colorScheme="green">
               {sach.tenTacGia}
             </Badge>
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Link 
+            <Link
               onClick={(e) => {
                 router.push({
                   pathname: '/chi-tiet-sach/[id]',
-                  query: { 
-                    id: sach.id, 
+                  query: {
+                    id: sach.id,
                   },
                 })
               }}
@@ -127,12 +128,12 @@ function UI({ sach }) {
                 w="150px"
                 as="h4"
                 lineHeight="tight"
-                isTruncated               
+                isTruncated
               >
                 {sach.tenSach}
               </Box>
             </Link>
-            <SachItemMuaNhanhUI sach={sach}/>
+            <GioHangCreateUI  sach={sach} />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">
