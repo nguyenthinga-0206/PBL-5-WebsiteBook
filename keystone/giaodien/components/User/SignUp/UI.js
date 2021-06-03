@@ -16,9 +16,9 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
-export default function UI({ handleChange, onSignUp }) {
+export default function UI({ handleChange, onSignUp, notification }) {
 
   const router = useRouter();
 
@@ -33,45 +33,45 @@ export default function UI({ handleChange, onSignUp }) {
       maxW={{ lg: 'lg' }}>
       <Stack spacing={4}>
         <Heading
-          color = {'gray.800'}
-          lineHeight = {1.1}
-          fontSize = {{ base: '2xl', sm: '3xl', md: '4xl' }}>
+          color={'gray.800'}
+          lineHeight={1.1}
+          fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}>
           Đăng Ký Thành Viên
           <Text
-            as = {'span'}
-            bgGradient = "linear(to-r, red.400,pink.400)"
-            bgClip = "text">
+            as={'span'}
+            bgGradient="linear(to-r, red.400,pink.400)"
+            bgClip="text">
             !
           </Text>
-        </Heading>          
+        </Heading>
       </Stack>
       <Box as={'form'} mt={10}>
         <Stack spacing={4}>
-        <b>Email:</b>
-        <InputGroup>
-          <Input
-            placeholder = "Email"
-            name = {'email'} 
-            onChange={handleChange("email")}
-            bg = {'gray.100'}
-            border = {0}
-            color = {'gray.500'}
-            _placeholder = {{
-              color: 'gray.500',
-            }}
-          />
-          <InputRightElement 
-            children = {
-              <Link  
-                color="blue.500"
-                children = "Gửi OTP" 
-                onClick = { (e) => {
-                  // router.push("/gui-email-xac-nhan")
-                }}
-              />
-            }
-          />
-        </InputGroup>
+          <b>Email:</b>
+          <InputGroup>
+            <Input
+              placeholder="Email"
+              name={'email'}
+              onChange={handleChange("email")}
+              bg={'gray.100'}
+              border={0}
+              color={'gray.500'}
+              _placeholder={{
+                color: 'gray.500',
+              }}
+            />
+            <InputRightElement
+              children={
+                <Link
+                  color="blue.500"
+                  children="Gửi OTP"
+                  onClick={(e) => {
+                    // router.push("/gui-email-xac-nhan")
+                  }}
+                />
+              }
+            />
+          </InputGroup>
           <b>Mã xác nhận:</b>
           <Center>
             <HStack otp >
@@ -86,7 +86,7 @@ export default function UI({ handleChange, onSignUp }) {
           <b>Tên Đăng Nhập:</b>
           <Input
             placeholder="Tên Đăng Nhập"
-            name = {'name'}
+            name={'name'}
             onChange={handleChange('name')}
             bg={'gray.100'}
             border={0}
@@ -98,7 +98,7 @@ export default function UI({ handleChange, onSignUp }) {
           <b>Nhập mật Khẩu:</b>
           <Input
             placeholder="Mật Khẩu"
-            name = {'password'}
+            name={'password'}
             onChange={handleChange("password")}
             bg={'gray.100'}
             border={0}
@@ -108,18 +108,27 @@ export default function UI({ handleChange, onSignUp }) {
             }}
           />
         </Stack>
-          <Button
-            fontFamily={'heading'}
-            onClick={onSignUp}
-            mt={8}
-            w={'full'}
-            bgGradient="linear(to-r, blue.500,blue.200)"
-            color={'white'}
-            _hover={{
-              bgGradient: 'linear(to-r, green.500,green.200)',
-              boxShadow: 'xl',
-            }}>
-            Đăng Ký
+        <p
+          style={{
+            padding: 5,
+            backgroundColor: notification.color,
+            textAlign: "center",
+          }}
+        >
+          {notification.content}
+        </p>
+        <Button
+          fontFamily={'heading'}
+          onClick={onSignUp}
+          mt={8}
+          w={'full'}
+          bgGradient="linear(to-r, blue.500,blue.200)"
+          color={'white'}
+          _hover={{
+            bgGradient: 'linear(to-r, green.500,green.200)',
+            boxShadow: 'xl',
+          }}>
+          Đăng Ký
           </Button>
       </Box>
       form
@@ -127,4 +136,3 @@ export default function UI({ handleChange, onSignUp }) {
   );
 }
 
-  

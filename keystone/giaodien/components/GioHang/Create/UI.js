@@ -8,7 +8,7 @@ import {
   import { useRouter } from "next/router";
   import { FiShoppingCart } from "react-icons/fi";
   
-  export default function UI({ onCreate, sach }) {
+  export default function UI({ onCreate }) {
     const router = useRouter();
   
     return (

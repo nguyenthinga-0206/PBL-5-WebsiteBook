@@ -65,7 +65,8 @@ export default function UserSignIn({ UI }) {
     } catch (error) {
       console.log(error.toString());
       switch (error.toString()) {
-        case `Error: [passwordAuth:failure] Authentication failed`:
+        case `Error: [passwordAuth:secret:mismatch] The password provided is incorrect`:
+        case `Error: [passwordAuth:identity:notFound] The email provided didn't identify any undefined`:
           return setNoti({
             color: "var(--color-bg-warning)",
             content: "Sai tên đăng nhập hoặc mật khẩu.",
@@ -75,16 +76,8 @@ export default function UserSignIn({ UI }) {
   };
   return (
     <Fragment>
-      <UI onSignIn={onSignIn} handleChange={handleChange} />
-      <p
-        style={{
-          padding: 5,
-          backgroundColor: notification.color,
-          textAlign: "center",
-        }}
-      >
-        {notification.content}
-      </p>
+      <UI onSignIn={onSignIn} handleChange={handleChange} notification={notification}/>
+
     </Fragment>
   );
 }

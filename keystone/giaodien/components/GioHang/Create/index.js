@@ -1,10 +1,10 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 
-export default function GioHangCreate({ UI, sach }) {
+export default function GioHangCreate ({ UI, soLuong, sach }) {
     const [onCreateGioHang, resultCreateGioHang] = useMutation(gql`
     mutation($data: GiohangCreateInput) {
-        createGiohang(data: { data: $data }) {
+        createGiohang (data: { data: $data }) {
             id
             chiTietDonHang {
                 id
@@ -37,16 +37,18 @@ export default function GioHangCreate({ UI, sach }) {
                 data: values,
             },
         })
-            .catch((e) => {
-                console.log(e);
-            });
+        .then((data) => {
+            
+        })
+        .catch((e) => {
+            console.log(e);
+        });
     };
 
     if (resultCreateGioHang.loading) return "Loading...";
     return (
         <UI
             onCreate={onCreate}
-            sach={sach}
         />
     );
 }
