@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 
-export default function UI({ onDelete }) {
+export default function UI({ onDelete, onDeleteCart }) {
     return (
         <Center>
             <Button bg={"white"}>
@@ -38,7 +38,7 @@ export default function UI({ onDelete }) {
                                 </Button>
                             </PopoverFooter>
                             <PopoverBody>
-                                <Button bg="gray.500" color="black" onClick = {onDelete}>
+                                <Button bg="gray.500" color="black" onClick = {onDelete,onDeleteCart}>
                                     Yes
                                 </Button>
                             </PopoverBody>

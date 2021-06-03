@@ -68,7 +68,7 @@ export default function UI({gioHang}){
                 </GridItem>  
                 <GridItem rowSpan={1} colSpan={1}>
                     <Center>
-                        <GioHangDelete UI={GioHangDeleteUI} GioHangID = {gioHang.id} />
+                        <GioHangDelete UI={GioHangDeleteUI} GioHang = {gioHang} />
                     </Center>
                 </GridItem>  
             </Grid>

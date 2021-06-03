@@ -1,36 +1,37 @@
 import { gql, useMutation } from "@apollo/client";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 // import { refetchGioHangList } from "../List";
 
-export default function GioHangDelete({ UI, GioHangID }) {
-  const [onDeleteGioHang, resultDeleteGioHangor ] = useMutation(gql`
+export default function GioHangDelete({ UI, GioHang }) {
+  const [onDeleteGioHang, resultDeleteGioHang ] = useMutation(gql`
   mutation ($id: ID!) {
     deleteGiohang (
       id: $id
     ) {
         id
         chiTietDonHang {
-        sach {
-            tenSach
-            IMG {
-              anh {
-                publicUrl
+          id
+          sach {
+              tenSach
+              IMG {
+                anh {
+                  publicUrl
+                }
               }
-            }
-            gia
-            soLuong
-        }       
-        soLuong
-        tien
+              gia
+              soLuong
+          }       
+          soLuong
+          tien
         }
     }
   }
   `);
-  console.log(GioHangID);
-  const onDelete = (e) => {
+  
+  const onDeleteCart = (e) => {
     onDeleteGioHang({
       variables: {
-        id: GioHangID,
+        id: GioHang.id,
       },
     })
       .then((data) => {
@@ -44,7 +45,7 @@ export default function GioHangDelete({ UI, GioHangID }) {
   if (resultDeleteGioHang.loading) return "Loading...";
   return (
     <UI
-      onDelete={onDelete}
+      onDeleteCart={onDeleteCart}
     />
   );
 }

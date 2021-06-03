@@ -16,18 +16,21 @@ export default function GioHangList({ UI, first, skip = 0, sortBy, where }) {
       ) {
         id
         chiTietDonHang {
-        sach {
+          id
+          sach {
+            id
             tenSach
             IMG {
+              id
               anh {
                 publicUrl
               }
             }
             gia
             soLuong
-        }       
-        soLuong
-        tien
+          }       
+          soLuong
+          tien
         }
       }
     }
