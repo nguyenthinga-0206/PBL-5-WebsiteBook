@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 // import { refetchGioHangList } from "../List";
 
 export default function GioHangDelete({ UI, GioHang }) {
+
   const [onDeleteGioHang, resultDeleteGioHang ] = useMutation(gql`
   mutation ($id: ID!) {
     deleteGiohang (
