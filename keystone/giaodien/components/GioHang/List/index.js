@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-export default function GioHangList({UI, first, skip = 0, sortBy, where }) {
+
+export default function GioHangList({ UI, first, skip = 0, sortBy, where }) {
   const { loading, error, data } = useQuery(gql`
     query (
       $first: Int
@@ -14,25 +15,24 @@ export default function GioHangList({UI, first, skip = 0, sortBy, where }) {
         where: $where
       ) {
         id
-        chiTietDonHang{
-        sach{
+        chiTietDonHang {
+        sach {
             tenSach
-            IMG{
-              anh{
+            IMG {
+              anh {
                 publicUrl
               }
             }
             gia
             soLuong
-        }
-        
+        }       
         soLuong
         tien
         }
       }
     }
   `,
-  {variables: { first, skip, sortBy, where }}
+    { variables: { first, skip, sortBy, where } }
   );
   if (loading || error) {
     return "Loading...";
