@@ -42,8 +42,6 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import GioHangList from "../../components/GioHang/List";
-import GioHangListUI from "../../components/GioHang/List/UI";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
@@ -55,21 +53,6 @@ export default function GioHang({ id, tenSach }) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
 
-  const {
-    getInputProps,
-    getIncrementButtonProps,
-    getDecrementButtonProps,
-  } = useNumberInput({
-    step: 1,
-    defaultValue: 1,
-    min: 1,
-    max: 100,
-    precision: 2,
-  });
-
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps({ isReadOnly: true });
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
@@ -82,42 +65,69 @@ export default function GioHang({ id, tenSach }) {
             <br />
             <br />
             <hr></hr>
-            <Grid
-              h="50px"
-              templateRows="repeat(1, 1fr)"
-              templateColumns="repeat(6, 1fr)"
-              gap={4}
-            >
-              <GridItem rowSpan={1} colSpan={3}>
-                <Center mb={20}>
-                  <b>Sản phẩm</b>
-                </Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center>
-                  <b>Số lượng </b>
-                </Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center>
-                  <b>Thành tiền</b>
-                </Center>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={1}>
-                <Center>
-                  <b>Xóa</b>
-                </Center>
-              </GridItem>
-            </Grid>
+            <Box borderWidth={1} bg={"gray.50"}>
+            <br></br>
+              <Grid
+                h="50px"
+                templateRows="repeat(1, 1fr)"
+                templateColumns="repeat(6, 1fr)"
+                gap={4}
+              >
+                <GridItem rowSpan={1} colSpan={2}>
+                  <Center mb={20}>
+                    <b>Sản phẩm</b>
+                  </Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center mb={20}>
+                    <b>Đơn Giá</b>
+                  </Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center>
+                    <b>Số lượng </b>
+                  </Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center>
+                    <b>Số Tiền</b>
+                  </Center>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={1}>
+                  <Center>
+                    <b>Xóa</b>
+                  </Center>
+                </GridItem>
+              </Grid>
+            </Box>
 
-            <GioHangItem UI={GioHangItemUI} />
+            <GioHangItem UI={GioHangItemUI} check={true} />
 
             <br />
+            <Center color="blue.300">
+              <p> Miễn Phí Vận Chuyển cho đơn hàng từ ₫300.000 </p>
+            </Center>
             <br />
+            <br/>
             <Grid h="50px" templateColumns="repeat(2, 1fr)" gap={4}>
               <GridItem colSpan={1}>
-                <b>Tong Tien: </b>
-                12233d
+              <Center>
+                <Button
+                  onClick={(e) => {
+                    router.push("/");
+                  }}
+                  display={{ base: "none", md: "inline-flex" }}
+                  fontWeight={50}
+                  color={"red.300"}
+                  bg={"white"}
+                  href={"#"}
+                  _hover={{
+                    bg: "gray.600",
+                  }}
+                >
+                  Tiếp tục mua hàng
+                </Button>
+              </Center>
               </GridItem>
               <GridItem colSpan={1}>
                 <Button
@@ -125,12 +135,10 @@ export default function GioHang({ id, tenSach }) {
                     router.push("/thanh-toan");
                   }}
                   display={{ base: "none", md: "inline-flex" }}
-                  fontSize={"x-small"}
                   w={"100px"}
                   fontWeight={600}
                   color={"white"}
                   bg={"#66CDAA"}
-                  href={"#"}
                   _hover={{
                     bg: "#276749",
                   }}
