@@ -32,7 +32,7 @@ export default function UI() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("#F687B3", "white")}
+        bg={useColorModeValue("gray.800", "white")}
         color={useColorModeValue("gray.800", "white")}
         minH={"60px"}
         py={{ base: 2 }}
