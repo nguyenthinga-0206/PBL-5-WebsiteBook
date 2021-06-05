@@ -9,6 +9,7 @@ import ThanhTieuDe from "../components/ThanhTieuDe";
 import ThanhTieuDeUI from "../components/ThanhTieuDe/UI";
 import ChanTrang from "../components/ChanTrang";
 import ChanTrangUI from "../components/ChanTrang/UI";
+import { CreateGioHang } from "../components/GioHang/Create/CreateGioHang";
 
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
@@ -16,21 +17,18 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
       <ApolloProvider client={apolloClient}>
-        <CartProvider>
-          <Box bg="#F0F0F0">
-            {/* Đầu trang */}
-            {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
+        <CreateGioHang />
+        <Box bg="#F0F0F0">
+          {/* Đầu trang */}
+          {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
 
-            <Component {...pageProps} />
+          <Component {...pageProps} />
 
-            {/* Chân trang */}
-            {/* <ChanTrang UI={ChanTrangUI} /> */}
-          </Box>
-        </CartProvider>
+          {/* Chân trang */}
+          {/* <ChanTrang UI={ChanTrangUI} /> */}
+        </Box>
       </ApolloProvider>
-
     </ChakraProvider>
-
   );
-};
+}
 export default MyApp;

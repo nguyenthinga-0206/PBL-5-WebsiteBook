@@ -1,22 +1,29 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
-import BaiVietList from "../components/BaiViet/List";
-import ChiTietDonHangList from "../components/ChiTietDonHang/List";
-import DonHangList from "../components/DonHang/List";
-import ImgList from "../components/Img/List";
-import NhapSachList from "../components/PhieuNhapSach/List";
-import NhaCungCapList from "../components/NhaCungCap/List";
-import UserList from "../components/User/List";
-import NextLink from "next/link";
+// import Head from "next/head";
+// import styles from "../styles/Home.module.css";
+// import { useRouter } from "next/router";
+// import BaiVietList from "../components/BaiViet/List";
+// import ChiTietDonHangList from "../components/ChiTietDonHang/List";
+// import DonHangList from "../components/DonHang/List";
+// import ImgList from "../components/Img/List";
+// import NhapSachList from "../components/PhieuNhapSach/List";
+// import NhaCungCapList from "../components/NhaCungCap/List";
+// import UserList from "../components/User/List";
+// import NextLink from "next/link";
 import { Fragment, useState } from "react";
-import PhanLoaiList from "../components/PhanLoaiSach/List";
-import PhanLoaiListUI from "../components/PhanLoaiSach/List/UI";
+import PhanLoaiList from "../components/Phanloaisach/List";
+import PhanLoaiListUI from "../components/Phanloaisach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
 import ThanhTieuDe from "../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../components/ChanTrang/UI";
-import { SimpleGrid, Grid, GridItem, Flex, Box, Center } from "@chakra-ui/layout";
+import {
+  SimpleGrid,
+  Grid,
+  GridItem,
+  Flex,
+  Box,
+  Center,
+} from "@chakra-ui/layout";
 import { Button, Container } from "@chakra-ui/react";
 
 export default function Home() {
@@ -28,7 +35,6 @@ export default function Home() {
   };
   console.log(keyword);
 
-
   const [where, setWhere] = useState({});
 
   const clickPhanLoai = (phanloai) => {
@@ -37,25 +43,20 @@ export default function Home() {
 
   return (
     <Fragment>
-      <ThanhTieuDe change={change}/>
-      <Container maxW="container.xl" >
-        <Grid
-          templateColumns="repeat(8, 1fr)"
-          gap={4}
-          margin={10}
-        >
-          <GridItem colSpan={2} bg="white" >
-            <Button
-              bg="#67BF7F"
-              w={280}
-            >
-              <Center>
-                DANH MỤC SÁCH
-              </Center>
+      <ThanhTieuDe change={change} />
+      <Container maxW="container.xl">
+        <Grid templateColumns="repeat(8, 1fr)" gap={4} margin={10}>
+          <GridItem colSpan={2} bg="white">
+            <Button bg="#67BF7F" w={280}>
+              <Center>DANH MỤC SÁCH</Center>
             </Button>
-            <PhanLoaiList UI={PhanLoaiListUI} clickPhanLoai={clickPhanLoai} margin={20} />
+            <PhanLoaiList
+              UI={PhanLoaiListUI}
+              clickPhanLoai={clickPhanLoai}
+              margin={20}
+            />
           </GridItem>
-          <GridItem colSpan={6} bg="white"  >
+          <GridItem colSpan={6} bg="white">
             <SimpleGrid columns={3} spacingX="2px">
               <SachList
                 first={30}
@@ -66,7 +67,7 @@ export default function Home() {
           </GridItem>
         </Grid>
       </Container>
-      <ChanTrangUI/>
+      <ChanTrangUI />
     </Fragment>
   );
 }
