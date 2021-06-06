@@ -66,7 +66,7 @@ export default function GioHang({ id, tenSach }) {
             <br />
             <hr></hr>
             <Box borderWidth={1} bg={"gray.50"}>
-            <br></br>
+              <br></br>
               <Grid
                 h="50px"
                 templateRows="repeat(1, 1fr)"
@@ -108,26 +108,26 @@ export default function GioHang({ id, tenSach }) {
               <p> Miễn Phí Vận Chuyển cho đơn hàng từ ₫300.000 </p>
             </Center>
             <br />
-            <br/>
+            <br />
             <Grid h="50px" templateColumns="repeat(2, 1fr)" gap={4}>
               <GridItem colSpan={1}>
-              <Center>
-                <Button
-                  onClick={(e) => {
-                    router.push("/");
-                  }}
-                  display={{ base: "none", md: "inline-flex" }}
-                  fontWeight={50}
-                  color={"red.300"}
-                  bg={"white"}
-                  href={"#"}
-                  _hover={{
-                    bg: "gray.600",
-                  }}
-                >
-                  Tiếp tục mua hàng
+                <Center>
+                  <Button
+                    onClick={(e) => {
+                      router.push("/");
+                    }}
+                    display={{ base: "none", md: "inline-flex" }}
+                    fontWeight={50}
+                    color={"red.300"}
+                    bg={"white"}
+                    href={"#"}
+                    _hover={{
+                      bg: "gray.600",
+                    }}
+                  >
+                    Tiếp tục mua hàng
                 </Button>
-              </Center>
+                </Center>
               </GridItem>
               <GridItem colSpan={1}>
                 <Button

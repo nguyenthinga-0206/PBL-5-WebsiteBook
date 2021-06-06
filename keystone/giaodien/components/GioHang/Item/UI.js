@@ -1,14 +1,20 @@
-import { Fragment, useState } from "react";
-import ChiTietDonHangChiTietDonHangUI from "../../ChiTietDonHang/Update/UIChiTietDonHang";
+import { Fragment } from "react";
+import ChiTietDonHangUpdateUI from "../../ChiTietDonHang/Update/UIChiTietDonHang";
+
 
 export default function UI({ gioHang, check }) {
-
   return (
     <Fragment>
       {gioHang?.chiTietDonHang.map((chiTietDonHang) => {
-        return <ChiTietDonHangChiTietDonHangUI chiTietDonHang={chiTietDonHang} check={check} />;
+        return (
+          <ChiTietDonHangUpdateUI
+            chiTietDonHang={chiTietDonHang}
+            check={check}
+          />
+        )
       })}
-
     </Fragment>
+
+
   );
 }

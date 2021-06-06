@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import ChiTietDonHangDelete from "../Delete";
 import ChiTietDonHangUpdate from ".";
 import ChiTietDonHangUpdateUI from "./UI";
+import DonHangCreate from "../../DonHang/Create";
 
 export default function UIChiTietDonHang({ chiTietDonHang, handleChange, onUpdate, check }) {
   const router = useRouter();
@@ -85,10 +86,10 @@ export default function UIChiTietDonHang({ chiTietDonHang, handleChange, onUpdat
             </Center>
           </GridItem>
           <GridItem rowSpan={1} colSpan={2}>
-          <Center>
-            {new Intl.NumberFormat().format(chiTietDonHang.tien)}đ
-          </Center>
-        </GridItem>
+            <Center>
+              {new Intl.NumberFormat().format(chiTietDonHang.tien)}đ
+            </Center>
+          </GridItem>
         </Fragment>
         }
       </Grid>

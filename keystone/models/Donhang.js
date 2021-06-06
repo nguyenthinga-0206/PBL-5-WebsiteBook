@@ -37,7 +37,7 @@ module.exports = {
     },
     tinhTrangGiao: {
       type: Select, options: [
-        { value: 'choxacnhan', label: "CHờ xác nhận" },
+        { value: 'choxacnhan', label: "Chờ xác nhận" },
         { value: 'cholayhang', label: "Chờ lấy hàng" },
         { value: 'danggiao', label: "Đang giao" },
         { value: 'dagiao', label: "Đã giao" },
@@ -69,61 +69,61 @@ module.exports = {
     chiTietDonHang: {
       type: Relationship, ref: 'Chitietdonhang.donHang', many: true,
       label: 'Chi tiết đơn hàng'
-    }
-  },
-
-  hooks: {
-    resolveInput: async ({
-      operation,
-      existingItem,
-      resolvedData,
-      context,
-    }) => {
-      // console.log(operation, existingItem, resolvedData);
-      // if (operation === "update") {
-      //   const { data } = await context.executeGraphQL({
-      //     query: gql`
-      //       query($id: ID!) {
-      //         Chitietdonhang(where: { id: $id }) {
-      //           sach {
-      //             id
-      //           }
-      //         }
-      //       }
-      //     `,
-      //     variables: { id: existingItem.id },
-      //   });
-      //   if (!data || !data.Chitietdonhang || !data.Chitietdonhang.sach)
-      //     throw new Error("Chi tiet don hang khong co sach");
-      //   resolvedData.sach = data.Chitietdonhang.sach.id;
-      //   console.log(resolvedData);
-      // }
-      const { data } = await context.executeGraphQL({
-        query: gql`
-          query($id: ID!) {
-            Giohang(where: { id: $id }) {
-              chiTietDonHang {
-                soLuong
-                tien
-                sach {
-                  soLuong
-                  gia
-                }
-              }
-            }
-          }
-        `,
-        variables: { id: resolvedData.Giohang },
-      });
-
-      resolvedData.tongtien += data.Giohang.chiTietDonHang.tien;
-      if (resolvedData.tongtien > 300) {
-        resolvedData.phiShip = 0;
-      }
-      resolvedData.phiShip = 30000;
-      resolvedData.tongthanhtoan = resolvedData.tongtien + resolvedData.phiShip;
-      console.log(resolvedData);
-      return resolvedData;
     },
   },
-}
+// hooks: {
+//   resolveInput: async ({
+//     operation,
+//     existingItem,
+//     resolvedData,
+//     context,
+//   }) => {
+    // console.log(operation, existingItem, resolvedData);
+    // if (operation === "update") {
+    //   const { data } = await context.executeGraphQL({
+    //     query: gql`
+    //       query($id: ID!) {
+    //         Donhang(where: { id: $id }) {
+    //           chiTietDonHang {
+    //             id
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     variables: { id: existingItem.id },
+    //   });
+    //   if (!data || !data.Donhang || !data.Donhang.chiTietDonHang)
+    //     throw new Error("Don hang khong co chi tiet don hang");
+    //   resolvedData.chiTietDonHang = data.Donhang.chiTietDonHang.id;
+    // console.log(resolvedData);
+    // }
+  //   const { data } = await context.executeGraphQL({
+  //     query: gql`
+  //       query ($id: ID!) {
+  //         Chitietdonhang(id: $id) {
+  //           id
+  //           tien
+  //         }
+  //       }     
+  //       `,
+  //     variables: {id: resolvedData.chiTietDonHang },
+  //   });
+
+  //   // if (!data || !data.Chitietdonhang)
+  //   //   throw new Error("Don hang khong co chi tiet don hang");
+  //   console.log(resolvedData.chiTietDonHang);
+  //   console.log(data.Chitietdonhang);
+
+  //   // resolvedData.tongtien = data.Chitietdonhang?.tien;
+  //   if (resolvedData.tongtien > 300000) {
+  //     resolvedData.phiShip = 0;
+  //   }
+  //   else {
+  //     resolvedData.phiShip = 30000;
+  //   }
+  //   resolvedData.tongthanhtoan = resolvedData.tongtien + resolvedData.phiShip;
+  //   // console.log(resolvedData);
+  //   return resolvedData;
+  // },
+  // },
+};

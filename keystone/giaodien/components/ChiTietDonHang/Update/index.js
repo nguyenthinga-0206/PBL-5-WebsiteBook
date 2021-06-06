@@ -14,35 +14,20 @@ export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
               }
         ) {
             id
-            chiTietDonHang {
-                id
-                soLuong
-                tien
-                sach {
-                    tenSach
-                    soLuong
-                    gia
-                }
-            }
+            soLuong
         }
     }
   `);
-    const [values, setValues] = useState({
-        soLuong: chiTietDonHang.soLuong,
-    });
+    const [value, setValue] = useState(chiTietDonHang.soLuong);
     /**
      * @param {String} name
      */
-    // console.log(values.id,values.soLuong);
-
-    const handleChange = (name) => (event) => {
-        setValues({ ...values, [name]: event.target.value });
-    };
+    Array(chiTietDonHang.id,value);
     const onUpdate = (e) => {
         onUpdateChiTietDonHang({
             variables: {
-                id: values.id,
-                soLuong: values.soLuong,
+                id: chiTietDonHang.id,
+                soLuong: value,
             },
         })
             .then((data) => {
@@ -56,7 +41,7 @@ export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
     if (resultUpdateChiTietDonHang.loading) return "Loading...";
     return (
         <UI
-            handleChange={handleChange}
+            handleChange={setValue}
             onUpdate={onUpdate}
             chiTietDonHang={chiTietDonHang}
         />
