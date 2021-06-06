@@ -23,7 +23,6 @@ const PhanloaisachSchema = require("./models/Phanloaisach");
 const PhieunhapsachSchema = require("./models/Phieunhapsach");
 const SachSchema = require("./models/Sach");
 
-
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== "true" && initialiseData,
@@ -63,9 +62,12 @@ module.exports = {
       enableDefaultRoute: false,
       authStrategy,
     }),
-    new NextApp({ dir: "giaodien" }),
+    ...(process.env.UI === "true" ? [new NextApp({ dir: "giaodien" })] : []),
   ],
   configureExpress: (app) => {
     app.use(express.static(path.join(path.resolve(), "file")));
   },
 };
+require("dns").lookup(require("os").hostname(), function (err, add, fam) {
+  console.log(add + ":" + process.env.PORT + "/admin");
+});

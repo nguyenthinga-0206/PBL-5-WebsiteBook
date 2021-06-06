@@ -1,8 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import UI from "./UI";
 import { refetchUserList } from "../List";
-export default function UserUpdate({ user }) {
+export default function UserUpdate({UI, user }) {
   const [onUpdateUser, resultUpdateUser] = useMutation(gql`
     mutation($id: ID!, $data: UserUpdateInput) {
       updateUsers(data: { id: $id, data: $data }) {
@@ -13,7 +12,7 @@ export default function UserUpdate({ user }) {
       }
     }
   `);
-  //   Dữ liệu vào
+  
   const [values, setValues] = useState({
     name: null,
     email: null,
@@ -23,23 +22,19 @@ export default function UserUpdate({ user }) {
    * @param {String} name
    */
 
-  // Xét dữ liệu vào cho values
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
   const onUpdate = (e) => {
     onUpdateUser({
-      //  Truyền dữ liệu vào câu truy vấn
       variables: {
         id: user.id,
         data: values,
       },
     })
-      //  Tải lại trang
       .then((data) => {
         refetchUserList()();
       })
-      //  Báo lỗi
       .catch((e) => {
         console.log(e);
       });

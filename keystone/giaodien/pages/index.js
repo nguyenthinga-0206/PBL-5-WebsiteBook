@@ -1,64 +1,73 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
-import BaiVietList from "../components/BaiViet/List";
-import ChiTietDonHangList from "../components/ChiTietDonHang/List";
-import DonHangList from "../components/DonHang/List";
-import ImgList from "../components/Img/List";
-import NhapsachList from "../components/Phieunhapsach/List";
-import NhaCungCapList from "../components/Nhacungcap/List";
-import UserList from "../components/User/List";
-import NextLink from "next/link";
+// import Head from "next/head";
+// import styles from "../styles/Home.module.css";
+// import { useRouter } from "next/router";
+// import BaiVietList from "../components/BaiViet/List";
+// import ChiTietDonHangList from "../components/ChiTietDonHang/List";
+// import DonHangList from "../components/DonHang/List";
+// import ImgList from "../components/Img/List";
+// import NhapSachList from "../components/PhieuNhapSach/List";
+// import NhaCungCapList from "../components/NhaCungCap/List";
+// import UserList from "../components/User/List";
+// import NextLink from "next/link";
 import { Fragment, useState } from "react";
-import PhanloaiList from "../components/Phanloaisach/List";
-import PhanloaiListUI from "../components/Phanloaisach/List/UI";
+import PhanLoaiList from "../components/Phanloaisach/List";
+import PhanLoaiListUI from "../components/Phanloaisach/List/UI";
 import SachList from "../components/Sach/List";
 import SachListUI from "../components/Sach/List/UI";
-import { SimpleGrid } from "@chakra-ui/layout";
-import { Grid } from "@chakra-ui/layout";
-import { GridItem } from "@chakra-ui/layout";
+import ThanhTieuDe from "../components/ThanhTieuDe/UI";
+import ChanTrangUI from "../components/ChanTrang/UI";
+import {
+  SimpleGrid,
+  Grid,
+  GridItem,
+  Flex,
+  Box,
+  Center,
+} from "@chakra-ui/layout";
+import { Button, Container, position } from "@chakra-ui/react";
+
 export default function Home() {
-  const [where, setWhere] = useState({});
+  // Tim kiem
   const [keyword, setKeyword] = useState();
   const change = (e) => {
     const { value } = e.target;
-    if (value.length > 2) setKeyword(value);
+    if (value.length > 0) setKeyword(value);
   };
+  console.log(keyword);
+
+  const [where, setWhere] = useState({});
+
   const clickPhanLoai = (phanloai) => {
     setWhere({ phanLoaiSach: { id: phanloai.id } });
   };
+
   return (
     <Fragment>
-      <img
-        width={100}
-        src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=500&height=500"
-      />
-      <input placeholder="search" onChange={change} />
-      <NextLink href="/gio-hang">
-        <a>gio hang</a>
-      </NextLink>
-      <NextLink href="/dang-nhap">
-        <a>dang nhap</a>
-      </NextLink>
-      <NextLink href="/dang-ky">
-        <a>dang ky</a>
-      </NextLink>
-      <SimpleGrid columns={2}>
-        <GridItem>
-          <PhanloaiList
-            first={7}
-            UI={PhanloaiListUI}
-            clickPhanLoai={clickPhanLoai}
-          />
-        </GridItem>
-        <GridItem>
-          <SachList
-            first={10}
-            UI={SachListUI}
-            where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
-          />
-        </GridItem>
-      </SimpleGrid>
+      <ThanhTieuDe change={change}  />
+      <Container maxW="container.xl" >
+        <Grid templateColumns="repeat(8, 1fr)" gap={4} margin={10}>
+          <GridItem colSpan={2} bg="white">
+            <Button bg="#66CDAA" w={280}>
+              <Center>DANH MỤC SÁCH</Center>
+            </Button>
+            <PhanLoaiList
+              UI={PhanLoaiListUI}
+              clickPhanLoai={clickPhanLoai}
+              margin={20}
+            />
+          </GridItem>
+          <GridItem colSpan={6} bg="white">
+            <SimpleGrid columns={3} spacingX="2px">
+              <SachList
+                first={30}
+                UI={SachListUI}
+                where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+              />
+            </SimpleGrid>
+          </GridItem>
+        </Grid>
+      </Container>
+      <ChanTrangUI />
     </Fragment>
   );
 }

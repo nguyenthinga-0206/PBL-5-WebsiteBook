@@ -21,7 +21,6 @@ module.exports = {
     ngayNhap: {
       type: CalendarDay,
       dateFrom: '2001-01-16',
-      
       label: 'Ngày nhập'
     },
     nhaCungCap: {

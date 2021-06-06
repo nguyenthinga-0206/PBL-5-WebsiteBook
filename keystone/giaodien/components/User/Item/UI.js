@@ -1,14 +1,11 @@
 import { Fragment } from "react";
-import HTML from "../../HTML";
-import UserDelete from "../Delete";
 import UserUpdate from "../Update";
+import UserUpdateUI from "../Update/UI";
 
 export default function UI({ user }) {
   return (
     <Fragment>
-      {HTML.generation(user)} 
-      <UserDelete userID = {user.id}/>
-      <UserUpdate user={user} />
+      <UserUpdate UI={UserUpdateUI} user={user} />
     </Fragment>
   );
 }

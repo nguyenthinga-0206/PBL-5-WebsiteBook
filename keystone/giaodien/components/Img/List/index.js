@@ -1,6 +1,6 @@
-import UI from "./UI";
+
 import { useQuery, gql } from "@apollo/client";
-export default function ImgList({first, skip = 0, sortBy, where }) {
+export default function ImgList({UI, first, skip = 0, sortBy, where }) {
   const { loading, error, data } = useQuery(gql`
     query (
       $first: Int
@@ -23,9 +23,10 @@ export default function ImgList({first, skip = 0, sortBy, where }) {
   `,
   {variables: { first, skip, sortBy, where }}
   );
+  console.log(data);
   if (loading || error) {
     return "Loading...";
   }
 
-  return <UI data={data} />;
+  return <UI data={data}  />;
 }

@@ -1,20 +1,3 @@
-// export default function UI({ sach }) {
-//   return (
-//     <div>
-//       <br></br>
-//       <b>TEN SACH: </b>
-//       <p>{sach.tenSach}</p>
-//       <p>{sach.soLuong}</p>
-//       <p>{sach.gia}</p>
-//       <p>{sach.tenNhaXuatBan}</p>
-//       <p>{sach.tenTacGia}</p>
-//       <p>{sach.soTrang}</p>
-//       <p>{sach.ngayXuatBan}</p>
-//       <p>{sach.phanLoaiSach?.loai}</p>
-//     </div>
-//   );
-// }
-
 import {
   Flex,
   Circle,
@@ -25,9 +8,12 @@ import {
   Icon,
   chakra,
   Tooltip,
+  Link,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
-import { FiShoppingCart } from "react-icons/fi";
+import { useRouter } from "next/router";
+import { Grid, GridItem } from "@chakra-ui/react";
+import ChiTietDonHangCreate from "../../ChiTietDonHang/Create";
 
 const data = {
   isNew: true,
@@ -64,27 +50,22 @@ function Rating({ rating, numReviews }) {
   );
 }
 
-// bg={"green.300"}
-// href={"#"}
-// _hover={{
-//   bg: "green.200",
-// }}
-
 function UI({ sach }) {
-  console.log(sach?.IMG[0]?.anh);
+
+  const router = useRouter();
+
   return (
     <Flex p={50} w="full" alignItems="center" justifyContent="center">
       <Box
         bg={useColorModeValue("white", "#F687B3")}
         maxW="250px"
-        borderColor ="white"
+        borderColor="white"
         borderWidth="1px"
-         rounded="lg"
+        rounded="lg"
         shadow="lg"
         position="relative"
-        href={"#"}
         _hover={{
-          borderColor : "#F687B3",
+          borderColor: "#22543D",
           borderWidth: "1px",
         }}
       >
@@ -94,57 +75,75 @@ function UI({ sach }) {
             position="absolute"
             top={2}
             right={2}
-            bg="red.200"
+            bg="#22543D"
           />
         )}
-
-        <Image
-          src={sach?.IMG[0]?.anh?.publicUrl}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
+        <Link
+          onClick={(e) => {
+            router.push({
+              pathname: '/chi-tiet-sach/[id]',
+              query: {
+                id: sach.id,
+              },
+            })
+          }}
+        >
+          <Image
+            w={'250px'}
+            h={'250px'}
+            src={sach?.IMG[0]?.anh?.publicUrl}
+            alt={`Picture of ${data.name}`}
+            roundedTop="lg"
+          />
+        </Link>
 
         <Box p="6">
           <Box d="flex" alignItems="baseline">
-            <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="green">
+            <Badge
+              rounded="full"
+              px="2"
+              text-overflow="ellipsis"
+              fontSize="xx-small"
+              colorScheme="green">
               {sach.tenTacGia}
             </Badge>
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
+            <Link
+              onClick={(e) => {
+                router.push({
+                  pathname: '/chi-tiet-sach/[id]',
+                  query: {
+                    id: sach.id,
+                  },
+                })
+              }}
             >
-              {sach.tenSach}
-            </Box>
-            <Tooltip
-              label="Thêm vào giỏ"
-              bg="white"
-              placement={"top"}
-              color={"gray.800"}
-              fontSize={"1.2em"}
-            >
-              <chakra.a href={"#"} display={"flex"}>
-                <Icon
-                  as={FiShoppingCart}
-                  h={7}
-                  w={7}
-                  color={"#D53F8C"}
-                  alignSelf={"center"}
-                />
-              </chakra.a>
-            </Tooltip>
+              <Box
+                fontSize="small"
+                fontWeight="semibold"
+                text-overflow="ellipsis"
+                w="150px"
+                as="h4"
+                lineHeight="tight"
+                isTruncated
+              >
+                {sach.tenSach}
+              </Box>
+            </Link>
+            <ChiTietDonHangCreate
+              sachId={sach.id} 
+              soLuong={1} 
+              check={true} 
+            />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">
             <Box as="span" ml="2" color="#ECC94B">
               <Rating rating={data.rating} />
             </Box>
-            <Box fontSize="2xl" color={useColorModeValue("#ED64A6", "white")}>
-              <Box as="span" color={"#ED64A6"} fontSize="lg">
+            <Box fontSize="2xl" color={useColorModeValue("#22543D", "white")}>
+              <Box as="span" color={"#22543D"} fontSize="lg">
                 ₫
               </Box>
               {new Intl.NumberFormat().format(sach.gia)}

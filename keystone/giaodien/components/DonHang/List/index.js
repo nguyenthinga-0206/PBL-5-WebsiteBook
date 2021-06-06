@@ -1,6 +1,6 @@
-import UI from './UI'
+
 import {useQuery, gql} from '@apollo/client'
-export default function DonHangList({ first, skip = 0, sortBy, where }){
+export default function DonHangList({UI, first, skip = 0, sortBy, where }){
     const {
         loading, error, data
     } = useQuery (gql `
@@ -17,7 +17,9 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             where: $where
           ) {
             id
+            hoten
             sdt
+            diachi
             tongtien
             tinhTrangThanhToan
             tinhTrangGiao
@@ -25,7 +27,10 @@ export default function DonHangList({ first, skip = 0, sortBy, where }){
             cachThucGiaoHang
             ngayDat
             ngayGiao
-            soLuong
+            chiTietDonHang {
+              soLuong
+              tien
+            }
           }
         }    
       `,

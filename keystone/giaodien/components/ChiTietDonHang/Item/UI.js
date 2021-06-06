@@ -1,8 +1,13 @@
-
+import {
+    Box,
+    Grid,
+    GridItem,
+    Center,
+} from "@chakra-ui/react";
 export default function UI({chiTietDH}){
-    return<div>
-        <p>{chiTietDH.soLuong}</p>
-        <p>{chiTietDH.tien}</p>
+    return(
+        <div>
+            <p>{chiTietDH.id}</p>
         </div>
-
+    )
 }

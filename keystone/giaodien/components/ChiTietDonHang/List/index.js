@@ -1,6 +1,6 @@
-import UI from './UI'
+
 import {useQuery, gql} from '@apollo/client'
-export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
+export default function ChiTietDonHangList({UI, first, skip = 0, sortBy, where }){
     const {
         loading, error, data
     } = useQuery (gql `
@@ -18,7 +18,11 @@ export default function ChiTietDonHangList({ first, skip = 0, sortBy, where }){
         ) {
             id
             soLuong
-            tien
+            sach {
+                id
+                tenSach
+                gia
+            }
           }
         }
      `,

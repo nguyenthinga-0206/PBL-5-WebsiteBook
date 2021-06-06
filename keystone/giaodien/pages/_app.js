@@ -1,61 +1,34 @@
 import { ApolloProvider, useApolloClient } from "@apollo/client";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import { useApollo } from "../apollo";
 import { CartProvider } from "../CartProvider";
 import { useRouter } from "next/router";
 import "./_app.css";
-import{
-  Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Image,
-  Input,
-  Link,
-  Popover,
-  PopoverTrigger,
-  Container,
-  SimpleGrid,
-  PopoverContent,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/react";
 import ThanhTieuDe from "../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../components/ThanhTieuDe/UI";
 import ChanTrang from "../components/ChanTrang";
-// import ThanhTieuDe from "../../chiagiaodien/ThanhTieuDe";
+import ChanTrangUI from "../components/ChanTrang/UI";
+import { CreateGioHang } from "../components/GioHang/Create/CreateGioHang";
 
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
-  
-  const ListHeader = () => {
-    return <Text fontWeight={"500"} fontSize={"lg"} mb={2}></Text>;
-  };
-  const router = useRouter();
-  
+
   return (
-    <ApolloProvider client={apolloClient}>
-      <CartProvider>
-        <ChakraProvider>
-            {/* Đầu trang */}
-            <ThanhTieuDe/>
+    <ChakraProvider>
+      <ApolloProvider client={apolloClient}>
+        <CreateGioHang />
+        <Box bg="#F0F0F0">
+          {/* Đầu trang */}
+          {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
 
           <Component {...pageProps} />
 
           {/* Chân trang */}
-          <ChanTrang/>
-        </ChakraProvider>
-      </CartProvider>
-    </ApolloProvider>
+          {/* <ChanTrang UI={ChanTrangUI} /> */}
+        </Box>
+      </ApolloProvider>
+    </ChakraProvider>
   );
-};
+}
 export default MyApp;

@@ -1,6 +1,6 @@
-import UI from "./UI";
+
 import { useQuery, gql } from "@apollo/client";
-export default function SachList({ first = 3, skip = 0, sortBy, where }) {
+export default function SachList({ UI,  first = 3, skip = 0, sortBy, where }) {
   const { loading, error, data } = useQuery(
     gql`
       query(
@@ -10,11 +10,6 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
         $where: SachWhereInput
       ) {
         allSaches(first: $first, skip: $skip, sortBy: $sortBy, where: $where) {
-          IMG {
-            anh {
-              publicUrl
-            }
-          }
           id
           tenSach
           soLuong
@@ -23,11 +18,21 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
           tenTacGia
           soTrang
           ngayXuatBan
+          IMG {
+            id
+            anh {
+              publicUrl
+            }
+          }
           phanLoaiSach {
             loai
           }
+          baiViet{
+            tieude
+            baiViet
+          }
         }
-      } # Write your query or mutation here
+      } 
     `,
     { variables: { first, skip, sortBy, where } }
   );
@@ -35,5 +40,5 @@ export default function SachList({ first = 3, skip = 0, sortBy, where }) {
     return "Loading...";
   }
 
-  return <UI data={data} />;
+  return <UI data={data}/>;
 }
