@@ -10,7 +10,9 @@ import ThanhTieuDeUI from "../components/ThanhTieuDe/UI";
 import ChanTrang from "../components/ChanTrang";
 import ChanTrangUI from "../components/ChanTrang/UI";
 import { CreateGioHang } from "../components/GioHang/Create/CreateGioHang";
-
+import { ChatProvider } from "../Chat";
+import RoomItem from "../components/Room/Item";
+import RoomItemUI from "../components/Room/Item/UI";
 function MyApp({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
 
@@ -21,9 +23,10 @@ function MyApp({ Component, pageProps }) {
         <Box bg="#F0F0F0">
           {/* Đầu trang */}
           {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
-
-          <Component {...pageProps} />
-
+          <ChatProvider>
+            <Component {...pageProps} />
+            <RoomItem UI={RoomItemUI} />
+          </ChatProvider>
           {/* Chân trang */}
           {/* <ChanTrang UI={ChanTrangUI} /> */}
         </Box>

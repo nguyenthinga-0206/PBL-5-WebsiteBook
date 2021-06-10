@@ -4,7 +4,6 @@ const { NextApp } = require("@keystonejs/app-next");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
-const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const express = require("express");
 const path = require("path");
@@ -52,7 +51,12 @@ const authStrategy = keystone.createAuthStrategy({
   list: "User",
   config: { protectIdentities: process.env.NODE_ENV === "production" },
 });
-
+/**
+ *
+ */
+var cors = require("cors");
+const http = require("http");
+const { Server } = require("socket.io");
 module.exports = {
   keystone,
   apps: [
@@ -66,6 +70,46 @@ module.exports = {
   ],
   configureExpress: (app) => {
     app.use(express.static(path.join(path.resolve(), "file")));
+    app.use(cors());
+    app.get("/rooms", (req, res) => {
+      const ids = [];
+      for (var id in rooms) {
+        ids.push(id);
+      }
+      res.json({ rooms: ids });
+    });
+    app.get("/rooms/:id", (req, res) => {
+      const { id } = req.params;
+      if (id) {
+        if (!rooms[id]) rooms[id] = [{ text: "hi" }];
+        res.json({ id, room: rooms[id] });
+      } else res.status(400).json({ error: "in valid id" });
+    });
+    //
+    const server = http.createServer(app);
+    const io = new Server(server, {
+      cors: { credentials: true },
+    });
+    var rooms = {};
+    io.on("connection", (socket) => {
+      const {
+        id,
+        handshake: {
+          query: { room },
+          headers: { referer },
+        },
+      } = socket;
+      if (!room) return;
+      if (!rooms[room]) rooms[room] = [{ text: "hi" }];
+      socket.join(room);
+      socket.on(room, (message) => {
+        rooms[room].push(message);
+        io.emit(room, message);
+      });
+    });
+    server.listen(3030, () => {
+      console.log("listening socket server on PORT 3030");
+    });
   },
 };
 require("dns").lookup(require("os").hostname(), function (err, add, fam) {
