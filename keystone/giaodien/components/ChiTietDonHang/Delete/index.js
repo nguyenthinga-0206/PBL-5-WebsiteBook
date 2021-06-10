@@ -1,29 +1,19 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-// import { refetchGioHangList } from "../List";
+import UI from "./UI";
 
-export default function ChiTietDonHangDelete({ UI, GioHang }) {
-  const [onDeleteChiTietDonHang, resultDeleteChiTietDonHang ] = useMutation(gql`
+export default function ChiTietDonHangDelete({ ChiTietID }) {
+  const [onDeleteChiTietDonHang, resultDeleteChiTietDonHang] = useMutation(gql`
     mutation ($id: ID!) {
-        deleteChitietdonhang (
-            id: $id
-        ) {
-            id
-            sach {
-                id
-                tenSach
-                gia
-            }
-            soLuong
-            tien
-        }  
+      deleteChitietdonhang ( id: $id )  {   
+        id      
+      } 
     }
   `);
-  console.log(GioHang);
   const onDelete = (e) => {
     onDeleteChiTietDonHang({
       variables: {
-        id: ChiTietDHID,
+        id: ChiTietID,
       },
     })
       .then((data) => {

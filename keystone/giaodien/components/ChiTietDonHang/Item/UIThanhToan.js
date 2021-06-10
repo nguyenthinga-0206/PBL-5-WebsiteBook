@@ -6,7 +6,6 @@ import {
     Input,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
-// import SachItem from "../../Sach/Item";
 
 export default function UIThanhToan({}){
     return(

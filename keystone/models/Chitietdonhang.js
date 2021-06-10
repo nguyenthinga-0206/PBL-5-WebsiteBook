@@ -12,6 +12,7 @@ const {
   File,
 } = require("@keystonejs/fields");
 const { gql } = require("@apollo/client");
+
 module.exports = {
   fields: {
     soLuong: {
@@ -27,6 +28,14 @@ module.exports = {
       ref: "Sach.chiTietDonHang",
       many: false,
       label: "Sách",
+    },
+    thanhToan: {
+      type: Select, options: [
+        { value: 'datinh', label: "Đơn đã được tính" },
+        { value: 'chuatinh', label: "Đơn chưa được tính" },
+      ]
+      ,
+      label: 'Tinh đơn hàng'
     },
     gioHang: {
       type: Relationship,
