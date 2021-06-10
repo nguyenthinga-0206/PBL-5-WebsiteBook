@@ -13,8 +13,7 @@ import {
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { Grid, GridItem } from "@chakra-ui/react";
-import GioHangCreate from "../../GioHang/Create";
-import GioHangCreateUI from "../../GioHang/Create/UI";
+import ChiTietDonHangCreate from "../../ChiTietDonHang/Create";
 
 const data = {
   isNew: true,
@@ -133,7 +132,11 @@ function UI({ sach }) {
                 {sach.tenSach}
               </Box>
             </Link>
-            <GioHangCreateUI  sach={sach} />
+            <ChiTietDonHangCreate
+              sachId={sach.id} 
+              soLuong={1} 
+              check={true} 
+            />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">

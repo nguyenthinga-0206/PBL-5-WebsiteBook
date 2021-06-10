@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { refetchGioHangList } from "../List";
-export default function GioHangUpdate({ UI, user }) {
+export default function GioHangUpdate({ UI }) {
     const [onUpdateGioHang, resultUpdateGioHang] = useMutation(gql`
     mutation($id: ID!, $data: GiohangUpdateInput) {
         updateGiohangs(data: { id: $id, data: $data }) {

@@ -1,9 +1,11 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
+import UI from "./UI";
 
 // import { refetchDonHangList } from "../List";
 
-export default function DonHangCreate({UI}) {
+export default function DonHangCreate({ chiTietDonHang}) {
+  // console.log(chiTietDonHang);
   const [onCreateDonHang, resultCreateDonHang] = useMutation(gql`
    mutation($data: DonhangCreateInput) {
       createDonhang(data: $data) {
@@ -28,14 +30,17 @@ export default function DonHangCreate({UI}) {
     sdt: null,
     diachi: null,
     tongtien:0,
-    tinhTrangThanhToan: tienmat,
-    tinhtrangGiao: choxacnhan,
+    phiShip: 0,
+    tongthanhtoan: 0,
+    tinhTrangThanhToan: 'tienmat',
+    tinhtrangGiao: 'choxacnhan',
     duyetBoiTaiKhoan: null,
-    cachThucGiaoHang: giohanhchinh,
+    cachThucGiaoHang: 'giohanhchinh',
     ngayDat: null,
     ngayGiao: null,
     chiTietDonHang: {connect: {id: null}}
   });
+  console.log(values);
   /**
    * @param {String} name
    */
@@ -48,12 +53,12 @@ export default function DonHangCreate({UI}) {
         data: values,
       },
     })
-      .then((data) => {
-        // refetchDonHangList()();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+      // .then((data) => {
+      //   // refetchDonHangList()();
+      // })
+      // .catch((e) => {
+      //   console.log(e);
+      // });
   };
 
   if (resultCreateDonHang.loading) return "Loading...";

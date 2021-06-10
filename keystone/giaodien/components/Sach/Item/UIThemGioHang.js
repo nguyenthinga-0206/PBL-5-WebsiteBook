@@ -22,11 +22,6 @@ export default function UIThemGioHang({ sach }) {
   const [value, setValue] = useState("1");
   const router = useRouter();
 
-  const toast = useToast();
-  const toastIdRef = useRef();
-  function addToast() {
-    toastIdRef.current = toast({ description: "Thêm vào giỏ hàng thành công" });
-  }
   // Thay đôi so luong mua hang
   const {
     getInputProps,
@@ -114,6 +109,7 @@ export default function UIThemGioHang({ sach }) {
             <ChiTietDonHangCreate
               sachId={sach.id}
               soLuong={parseInt(input.value)}
+              check={false}
             />
           </Box>
         </GridItem>
