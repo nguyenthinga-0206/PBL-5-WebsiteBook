@@ -26,7 +26,7 @@ import { useRouter } from "next/router";
 import { Fragment } from "react";
 import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
-// import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import ImgList from "../../components/Img/List" ;
 
@@ -34,7 +34,7 @@ export default function ChiTietSach({ sach }) {
   const router = useRouter();
   return (
     <Fragment>
-      {/* <ThanhTieuDeDangXuatUI /> */}
+      <ThanhTieuDeDangXuatUI />
       <Box bg={"gray.50"}>
         <Container maxW={"container.xl"} py={8}>
           <Grid
