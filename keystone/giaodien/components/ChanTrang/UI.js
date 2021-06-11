@@ -10,6 +10,7 @@ import {
   Tag,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 
 
@@ -22,6 +23,7 @@ const ListHeader = ({ children }) => {
 };
 
 export default function UI() {
+  const router = useRouter();
   return (
     <Box
       bg={useColorModeValue('#b8ddd1', 'gray.900')}
@@ -38,8 +40,8 @@ export default function UI() {
           <Stack align={'flex-start'}>
             <ListHeader>Hỗ Trợ Khách Hàng</ListHeader>
             <Link href={'#'}>----------------</Link>
-            <Link href={'#'}>Điều khoản sử dùng</Link>
-            <Link href={'#'}>Hướng dẫn mua hàng</Link>
+            <Link href={'http://localhost:3000/dieu-khoan-su-dung'}>Điều khoản sử dùng</Link>
+            <Link href={'http://localhost:3000/huong-dan-mua-hang'}>Hướng dẫn mua hàng</Link>
             <Link href={'#'}>Phương thức thanh toán</Link>
             <Link href={'#'}>Phương thức giao hàng </Link>
             <Link href={'#'}>Chính sách đổi trả</Link>

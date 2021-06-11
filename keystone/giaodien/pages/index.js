@@ -24,7 +24,7 @@ import {
   Box,
   Center,
 } from "@chakra-ui/layout";
-import { Button, Container } from "@chakra-ui/react";
+import { Button, Container, position } from "@chakra-ui/react";
 
 export default function Home() {
   // Tim kiem
@@ -43,11 +43,11 @@ export default function Home() {
 
   return (
     <Fragment>
-      <ThanhTieuDe change={change} />
-      <Container maxW="container.xl">
+      <ThanhTieuDe change={change}  />
+      <Container maxW="container.xl" >
         <Grid templateColumns="repeat(8, 1fr)" gap={4} margin={10}>
           <GridItem colSpan={2} bg="white">
-            <Button bg="#67BF7F" w={280}>
+            <Button bg="#66CDAA" w={280}>
               <Center>DANH MỤC SÁCH</Center>
             </Button>
             <PhanLoaiList

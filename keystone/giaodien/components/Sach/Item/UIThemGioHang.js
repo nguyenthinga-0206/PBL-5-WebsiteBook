@@ -54,7 +54,7 @@ export default function UIThemGioHang({ sach }) {
                     <b name="gia">Giá:</b>{" "}
                     <Text fontSize="xl" ml={30} color={"green.600"}>
                       {" "}
-                      {new Intl.NumberFormat().format(sach.gia)}đ
+                      {new Intl.NumberFormat().format(sach.gia)}₫
                     </Text>{" "}
                   </p>
                   <br />
@@ -114,23 +114,7 @@ export default function UIThemGioHang({ sach }) {
           </Box>
         </GridItem>
       </GridItem>
-      <GridItem rowSpan={2} colSpan={5} bg="white">
-        <Box ml={14}>
-          <br></br>
-          <b>Dịch vụ + Khuyến mãi</b>
-          <br />
-          <br />
-          <p>
-            {" "}
-            <Icon as={CheckCircleIcon} /> Tặng móc khoá cho đơn hàng 200k
-          </p>
-          <p>
-            {" "}
-            <Icon as={CheckCircleIcon} />
-            Tăng sổ tay + Freeship cho đơn hàng 300K.
-          </p>
-        </Box>
-      </GridItem>
+    
     </GridItem>
   );
 }

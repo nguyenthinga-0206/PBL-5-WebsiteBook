@@ -18,6 +18,7 @@ const Sach = () => {
           soTrang
           ngayXuatBan
           IMG {
+            id
             anh {
               publicUrl
             }

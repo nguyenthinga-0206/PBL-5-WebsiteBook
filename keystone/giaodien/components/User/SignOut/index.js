@@ -22,7 +22,7 @@ export default function UserSignOut({UI}) {
     localStorage.removeItem("user");
     onSignOutUser()
     .then(() => {
-      router.push({ pathname: "/dang-ky" }).then(() => {
+      router.push("/dang-ky" ).then(() => {
         reloadApolloState();
       });
     })
@@ -38,10 +38,8 @@ export default function UserSignOut({UI}) {
 
   if (resultSignOutUser.loading) return "Loading...";
   return (
-    <Fragment>
       <DangXuat
         onSignOut={onSignOut}
       />
-    </Fragment>
   );
 }

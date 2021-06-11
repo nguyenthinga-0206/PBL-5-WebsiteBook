@@ -28,9 +28,10 @@ import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
+import ImgList from "../../components/Img/List" ;
+
 export default function ChiTietSach({ sach }) {
   const router = useRouter();
-  
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
@@ -66,7 +67,7 @@ export default function ChiTietSach({ sach }) {
                     <i> {sach.id}</i>
                   </p>
                   <br />
-                  <b>Tác giả: </b>
+                  <b>Tác giả1: </b>
                   {sach.tenTacGia}
                   <br />
                   <b>NXB: </b>
@@ -91,6 +92,7 @@ export default function ChiTietSach({ sach }) {
                 templateColumns="repeat(5, 1fr)"
                 gap={4}
               >
+                {/* <ImgList where={{id: sach.IMG[1]?.id}} /> */}
                 <GridItem rowSpan={1} colSpan={1} bg="white">
                   <Image
                     src={sach.IMG[1]?.anh?.publicUrl}
@@ -175,7 +177,7 @@ export default function ChiTietSach({ sach }) {
                   </p>
                 </TabPanel>
                 <TabPanel>
-                  <Textarea placeholder="Thích thì bình luận  ---- Không thích thì cũng bình luận" />
+                  <Textarea placeholder="Bình luận" />
                 </TabPanel>
               </TabPanels>
             </Tabs>
