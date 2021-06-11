@@ -12,7 +12,7 @@ import {
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 
-export default function UI({ chiTietDonHang, onUpdate }) {
+export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
     const router = useRouter();
     // Thay đôi so luong mua hang
     const {
@@ -33,12 +33,22 @@ export default function UI({ chiTietDonHang, onUpdate }) {
     return (
         <HStack maxW="180px">
             <Button
-                {...inc}>
+                {...inc}
+                onClick={ (e) => {
+                    handleChange(parseInt(input.value));
+                    onUpdate();
+                }}
+            >
                 +
             </Button>
             <Input {...input} name='soLuong' />
             <Button
-                {...dec}>
+                {...dec}
+                onClick={ (e) => {
+                    handleChange(parseInt(input.value));
+                    onUpdate();
+                }}
+            >
                 -
             </Button>
         </HStack>

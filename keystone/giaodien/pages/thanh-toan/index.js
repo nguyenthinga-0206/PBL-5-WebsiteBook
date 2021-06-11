@@ -32,7 +32,7 @@ import { useRouter } from "next/router";
 import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
 import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
 import DonHangCreateUI from "../../components/DonHang/Create/UI";
-import DonHangCreate from "../../components/DonHang/Create/UI";
+import DonHangCreate from "../../components/DonHang/Create";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import GioHangItem from "../../components/GioHang/Item";
@@ -92,7 +92,7 @@ export default function ThanhToan() {
 
             <br />
             <br />
-            <DonHangCreate />
+            <DonHangCreate UI={DonHangCreateUI} />
           </Container>
         </Box>
       </Box>

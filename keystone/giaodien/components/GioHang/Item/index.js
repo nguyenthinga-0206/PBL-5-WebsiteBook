@@ -1,5 +1,6 @@
 import { gql, useLazyQuery } from "@apollo/client";
 import { gioHang as gioHangId } from "../../GioHang/Create/CreateGioHang";
+
 export default function GioHangItem({ UI, gioHang, check }) {
   const [queryGioHang, { loading, error, data, called }] = useLazyQuery(gql`
     query($id: ID!) {
@@ -30,6 +31,8 @@ export default function GioHangItem({ UI, gioHang, check }) {
     queryGioHang({ variables: { id } });
   }
   if (!loading && !error && data) gioHang = data.Giohang;
-  console.log(data);
-  return <UI gioHang={gioHang} check={check} />;
+  // console.log(data);
+  return (
+    <UI gioHang={gioHang} check={check} />
+  );
 }
