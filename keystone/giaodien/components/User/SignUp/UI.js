@@ -60,7 +60,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
                 color: 'gray.500',
               }}
             />
-            <InputRightElement
+            {/* <InputRightElement
               children={
                 <Link
                   color="blue.500"
@@ -70,9 +70,9 @@ export default function UI({ handleChange, onSignUp, notification }) {
                   }}
                 />
               }
-            />
+            /> */}
           </InputGroup>
-          <b>Mã xác nhận:</b>
+          {/* <b>Mã xác nhận:</b>
           <Center>
             <HStack otp >
               <PinInput size="md">
@@ -82,7 +82,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
                 <PinInputField />
               </PinInput>
             </HStack>
-          </Center>
+          </Center> */}
           <b>Tên Đăng Nhập:</b>
           <Input
             placeholder="Tên Đăng Nhập"
@@ -110,6 +110,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
         </Stack>
         <p
           style={{
+           
             padding: 5,
             backgroundColor: notification.color,
             textAlign: "center",

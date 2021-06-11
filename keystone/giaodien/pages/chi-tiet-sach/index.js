@@ -93,44 +93,44 @@ export default function ChiTietSach({ sach }) {
                 gap={4}
               >
                 {/* <ImgList where={{id: sach.IMG[1]?.id}} /> */}
-                <GridItem rowSpan={1} colSpan={1} bg="white">
+                <GridItem rowSpan={1} colSpan={1} >
                   <Image
                     src={sach.IMG[1]?.anh?.publicUrl}
                     alt="Segun Adebayo"
-                    w="100%"
-                    h="100%"
+                    w="130px"
+                    h="145px"
                   />
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={1} bg="blue">
+                <GridItem rowSpan={2} colSpan={1}>
                   <Image
-                    src={sach.IMG[1]?.anh?.publicUrl}
+                    src={sach.IMG[2]?.anh?.publicUrl}
                     alt="Segun Adebayo"
-                    w="100%"
-                    h="100%"
+                    w="130px"
+                    h="145px"
                   />
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={1} bg="blue">
+                <GridItem rowSpan={1} colSpan={1}>
                   <Image
                     src={sach.IMG[3]?.anh?.publicUrl}
                     alt="Segun Adebayo"
-                    w="100%"
-                    h="100%"
+                    w="130px"
+                    h="145px"
                   />
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={1} bg="blue">
+                <GridItem rowSpan={1} colSpan={1} >
                   <Image
                     src={sach.IMG[4]?.anh?.publicUrl}
                     alt="Segun Adebayo"
-                    w="100%"
-                    h="100%"
+                    w="130px"
+                    h="145px"
                   />
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={1} bg="blue">
+                <GridItem rowSpan={1} colSpan={1} >
                   <Image
                     src={sach.IMG[5]?.anh?.publicUrl}
                     alt="Segun Adebayo"
-                    w="100%"
-                    h="100%"
+                    w="130px"
+                    h="145px"
                   />
                 </GridItem>
               </Grid>
