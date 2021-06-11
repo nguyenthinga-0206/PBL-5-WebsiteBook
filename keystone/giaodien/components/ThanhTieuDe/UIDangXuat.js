@@ -26,8 +26,9 @@ import {
 } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import SignOutUI from "../User/SignOut/UI";
 
-export default function UI({ onSignOut }) {
+export default function UIDangXuat() {
   const router = useRouter();
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
@@ -91,21 +92,7 @@ export default function UI({ onSignOut }) {
               <Image w={"440px"} src="img/gio1.png" alt="Segun Adebayo" />
             </Text>
           </Link>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"x-small"}
-            w={"100%"}
-            fontWeight={600}
-            onClick={onSignOut}
-            color={"white"}
-            bg={"green.300"}
-            href={"#"}
-            _hover={{
-              bg: "#1C4532",
-            }}
-          >
-            Đăng Xuất
-          </Button>
+          <SignOutUI/>
         </Stack>
       </Flex>
     </Box>
