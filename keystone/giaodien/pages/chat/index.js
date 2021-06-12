@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { io } from "socket.io-client";
-
+import {
+  Box,
+  Image,
+} from "@chakra-ui/react";
 export default function chat() {
   const socket = io("http://192.168.43.146:8080");
 
@@ -15,7 +18,6 @@ export default function chat() {
       >
         <input name="message" id="input" />
         <button type="submit">send</button>
-        
       </form>
     </div>
   );

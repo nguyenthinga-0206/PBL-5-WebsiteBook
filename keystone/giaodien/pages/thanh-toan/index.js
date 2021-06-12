@@ -38,7 +38,9 @@ import ChanTrangUI from "../../components/ChanTrang/UI";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
-
+import RoomItem from "../../components/Room/Item";
+import RoomItemUI from "../../components/Room/Item/UI";
+import { ChatProvider } from "../../Chat";
 export default function ThanhToan() {
 
   const { isOpen, onToggle } = useDisclosure();
@@ -48,8 +50,9 @@ export default function ThanhToan() {
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
-      <Box bg={"gray.50"}>
-        <Box bg={"gray.50"} color={"black"}>
+      <ChatProvider>
+      <Box bg={"#F0F0F0"}>
+        <Box bg={"#F0F0F0"} color={"black"}>
           <Container maxW={"container.xl"} bg="white" py={10}>
             <Heading size="lg" ml={14}>
               <i>Thanh Toán</i>
@@ -96,6 +99,8 @@ export default function ThanhToan() {
           </Container>
         </Box>
       </Box>
+      <RoomItem UI={RoomItemUI} />
+      </ChatProvider>
       <ChanTrangUI />
     </Fragment>
   );

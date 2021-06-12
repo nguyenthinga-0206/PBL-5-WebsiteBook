@@ -110,7 +110,6 @@ export default function UI({ handleChange, onSignUp, notification }) {
         </Stack>
         <p
           style={{
-           
             padding: 5,
             backgroundColor: notification.color,
             textAlign: "center",
@@ -128,9 +127,24 @@ export default function UI({ handleChange, onSignUp, notification }) {
           _hover={{
             bgGradient: 'linear(to-r, green.500,green.200)',
             boxShadow: 'xl',
-          }}>
+          }}
+          >
           Đăng Ký
           </Button>
+          <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              align={'end'}
+              justify={'end'}>
+              <Link 
+                color={'blue.500'} 
+                textAlign={'end'} ml={'auto'}
+                onClick = { (e) => {
+                  router.push("/dang-nhap")
+                }}
+              >
+                Đến trang đăng nhập 
+              </Link>
+            </Stack>
       </Box>
       form
     </Stack>

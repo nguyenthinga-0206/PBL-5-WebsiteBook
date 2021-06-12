@@ -25,7 +25,9 @@ import {
   Center,
 } from "@chakra-ui/layout";
 import { Button, Container, position } from "@chakra-ui/react";
-
+import RoomItem from "../components/Room/Item";
+import RoomItemUI from "../components/Room/Item/UI";
+import { ChatProvider } from "../Chat";
 export default function Home() {
   // Tim kiem
   const [keyword, setKeyword] = useState();
@@ -44,6 +46,7 @@ export default function Home() {
   return (
     <Fragment>
       <ThanhTieuDe change={change}  />
+      <ChatProvider>
       <Container maxW="container.xl" >
         <Grid templateColumns="repeat(8, 1fr)" gap={4} margin={10}>
           <GridItem colSpan={2} bg="white">
@@ -67,6 +70,8 @@ export default function Home() {
           </GridItem>
         </Grid>
       </Container>
+      <RoomItem UI={RoomItemUI} /> 
+      </ChatProvider>
       <ChanTrangUI />
     </Fragment>
   );

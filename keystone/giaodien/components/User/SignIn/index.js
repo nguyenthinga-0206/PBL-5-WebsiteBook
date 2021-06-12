@@ -69,7 +69,7 @@ export default function UserSignIn({ UI }) {
         case `Error: [passwordAuth:identity:notFound] The email provided didn't identify any undefined`:
           return setNoti({
             color: "var(--color-bg-warning)",
-            content: "Sai tên đăng nhập hoặc mật khẩu.",
+            content: "Sai email hoặc mật khẩu.",
           });
       }
     }

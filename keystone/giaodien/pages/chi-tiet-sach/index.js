@@ -21,6 +21,7 @@ import {
   Button,
   Center,
   useToast,
+  Img,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
@@ -29,13 +30,17 @@ import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import ImgList from "../../components/Img/List" ;
+import RoomItem from "../../components/Room/Item";
+import RoomItemUI from "../../components/Room/Item/UI";
+import { ChatProvider } from "../../Chat";
 
 export default function ChiTietSach({ sach }) {
   const router = useRouter();
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
-      <Box bg={"gray.50"}>
+      <ChatProvider>
+      <Box bg={"#F0F0F0"}>
         <Container maxW={"container.xl"} py={8}>
           <Grid
             h="800px"
@@ -183,7 +188,10 @@ export default function ChiTietSach({ sach }) {
             </Tabs>
           </GridItem>
         </Container>
+        <RoomItem UI={RoomItemUI} />
       </Box>
+      <RoomItem UI={RoomItemUI} />
+          </ChatProvider>
       <ChanTrangUI />
     </Fragment>
   );

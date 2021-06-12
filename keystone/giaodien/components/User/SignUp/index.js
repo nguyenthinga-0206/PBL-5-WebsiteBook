@@ -51,7 +51,6 @@ export default function UserSignUp({ UI }) {
           elements: { email: { value: values.email }, password: { value: values.password } },
         },
       });
-      await router.push({ pathname: redirect ? redirect : "/dang-nhap" });
     } catch (error) {
       console.log(error.toString());
       switch (error.toString()) {

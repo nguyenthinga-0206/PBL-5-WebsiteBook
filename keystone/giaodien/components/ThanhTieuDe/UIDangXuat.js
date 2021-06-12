@@ -56,7 +56,7 @@ export default function UI({ onSignOut }) {
                 w={"50%"}
                 h={"50%"}
                 src="img/logo.png"
-                alt="Segun Adebayo"
+                alt="về trang chủ"
               />
             </Text>
           </Link>
@@ -88,7 +88,7 @@ export default function UI({ onSignOut }) {
               fontFamily={"heading"}
               color={useColorModeValue("gray.50", "white")}
             >
-              <Image w={"440px"} src="img/gio1.png" alt="Segun Adebayo" />
+              <Image w={"440px"} src="img/gio1.png" alt="Đến giỏ hàng" />
             </Text>
           </Link>
           <Button
@@ -103,6 +103,7 @@ export default function UI({ onSignOut }) {
             _hover={{
               bg: "#1C4532",
             }}
+
           >
             Đăng Xuất
           </Button>

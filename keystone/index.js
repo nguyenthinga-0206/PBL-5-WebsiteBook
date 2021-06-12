@@ -7,7 +7,7 @@ const initialiseData = require("./initial-data");
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const express = require("express");
 const path = require("path");
-const PROJECT_NAME = "first-app";
+const PROJECT_NAME = "HAYAKU BOOKS";
 const adapterConfig = {
   mongoUri: "mongodb://cnw:concobebe123@db.itoa.vn:27017/cnw",
 };

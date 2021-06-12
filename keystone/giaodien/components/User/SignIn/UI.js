@@ -48,7 +48,7 @@ import {
               direction={{ base: 'column', sm: 'row' }}
               align={'end'}
               justify={'end'}>
-              <Link 
+              {/* <Link 
                 color={'blue.500'} 
                 textAlign={'end'} ml={'auto'}
                 onClick = { (e) => {
@@ -56,7 +56,7 @@ import {
                 }}
               >
                 Quên mật khẩu 
-              </Link>
+              </Link> */}
             </Stack>
             <p
               style={{
