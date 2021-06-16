@@ -1,3 +1,4 @@
+import React from "react";
 import { Input } from "@chakra-ui/input";
 
 export default function MessageCreateUI({ submitCreate }) {
