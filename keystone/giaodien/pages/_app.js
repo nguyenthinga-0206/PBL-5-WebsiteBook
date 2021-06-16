@@ -23,10 +23,8 @@ function MyApp({ Component, pageProps }) {
         <Box bg="#F0F0F0">
           {/* Đầu trang */}
           {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
-          <ChatProvider>
-            <Component {...pageProps} />
-            <RoomItem UI={RoomItemUI} />
-          </ChatProvider>
+          <Component {...pageProps} />
+          <RoomItem UI={RoomItemUI} />
           {/* Chân trang */}
           {/* <ChanTrang UI={ChanTrangUI} /> */}
         </Box>
