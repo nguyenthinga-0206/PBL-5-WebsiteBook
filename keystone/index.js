@@ -80,7 +80,7 @@ module.exports = {
     });
     app.get("/rooms/:id", (req, res) => {
       const { id } = req.params;
-      if (id) {
+      if (id || id === "undefined") {
         if (!rooms[id]) rooms[id] = [{ text: "hi" }];
         res.json({ id, room: rooms[id] });
       } else res.status(400).json({ error: "in valid id" });
@@ -99,7 +99,7 @@ module.exports = {
           headers: { referer },
         },
       } = socket;
-      if (!room) return;
+      if (!room || room === "undefined") return;
       if (!rooms[room]) rooms[room] = [{ text: "hi" }];
       socket.join(room);
       socket.on(room, (message) => {
