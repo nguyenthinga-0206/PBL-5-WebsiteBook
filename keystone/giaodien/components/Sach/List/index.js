@@ -19,6 +19,7 @@ export default function SachList({ UI,  first = 3, skip = 0, sortBy, where }) {
           soTrang
           ngayXuatBan
           IMG {
+            id
             anh {
               publicUrl
             }

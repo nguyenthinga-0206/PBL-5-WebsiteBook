@@ -52,7 +52,6 @@ function Rating({ rating, numReviews }) {
 
 function UI({ sach }) {
 
-
   const router = useRouter();
 
   return (
@@ -90,8 +89,8 @@ function UI({ sach }) {
           }}
         >
           <Image
-            w={'100%'}
-            h={'100%'}
+            w={'250px'}
+            h={'250px'}
             src={sach?.IMG[0]?.anh?.publicUrl}
             alt={`Picture of ${data.name}`}
             roundedTop="lg"

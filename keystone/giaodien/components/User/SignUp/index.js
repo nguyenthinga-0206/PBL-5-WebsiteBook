@@ -1,14 +1,14 @@
-import { useApolloClient, useMutation, gql, useSubscription } from "@apollo/client";
+import { useApolloClient, useMutation, useSubscription } from "@apollo/client";
+import gql from "graphql-tag";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
+
 export default function UserSignUp({ UI }) {
   const [onSignUpUser, resultSignUpUser] = useMutation(gql`
     mutation($data: UserCreateInput) {
       createUser(data: $data) {
         id
-        name
         email
-        password_is_set
       }
     }
   `
@@ -51,7 +51,6 @@ export default function UserSignUp({ UI }) {
           elements: { email: { value: values.email }, password: { value: values.password } },
         },
       });
-      await router.push({ pathname: redirect ? redirect : "/dang-nhap" });
     } catch (error) {
       console.log(error.toString());
       switch (error.toString()) {
@@ -70,13 +69,5 @@ export default function UserSignUp({ UI }) {
   };
 
   if (resultSignUpUser.loading) return "Loading...";
-  return (
-    <Fragment>
-      <UI
-        onSignUp={onSignUp}
-        handleChange={handleChange}
-        notification={notification}
-      />
-    </Fragment>
-  );
+  return <UI onSignUp={onSignUp} handleChange={handleChange} notification={notification} />
 }

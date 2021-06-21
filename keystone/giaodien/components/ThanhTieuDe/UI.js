@@ -27,27 +27,25 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function UI({change}) {
-
+export default function UI({ change }) {
   const router = useRouter();
-  const { isOpen, onOpen, onClose ,onToggle} = useDisclosure()
-  
-  return (
-    <Box>
-      <Flex
-        bg={useColorModeValue("#b8ddd1", "white")}
-        color={useColorModeValue("gray.800", "white")}
-        minH={"60px"}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
+  return (
+    <Box  >
+      <Flex
+         bg={useColorModeValue("#b8ddd1", "white")}
+         color={useColorModeValue("gray.800", "white")}
+         minH={"60px"}
+         px={{ base: 4 }}
+        // borderBottom={1}
+         borderStyle={"solid"}
+        // borderColor={useColorModeValue("gray.200", "gray.900")}
+         align={"center"}
+      >
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Link
-            onClick = { (e) => {
+            onClick={(e) => {
               router.push("/");
             }}
           >
@@ -56,34 +54,36 @@ export default function UI({change}) {
               fontFamily={"heading"}
               color={useColorModeValue("gray.50", "white")}
             >
-               <Image 
-               w={'50%'}
-               h={'50%'}
-                src="img/logo.png"     
-                           alt="Segun Adebayo"
+              <Image
+                w={"50%"}
+                h={"50%"}
+                src="img/logo.png"
+                alt="Segun Adebayo"
               />
             </Text>
           </Link>
         </Flex>
         <Input
-            ml={10}
-            mg = {200}
-            md=  {200}
-            mr ="20px"
-            w={"50%"} 
-            bg ="white"
-            onChange ={change}
-            placeholder="Tìm kiếm"
+          //  ml={100}
+          //  mg={200}
+            // md={200}
+           mr="80px"
+           w={"50%"}
+           bg="white"
+           mr="30px"
+          onChange={change}
+          placeholder="Tìm kiếm"
         />
-       
+
         <Stack
           flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={35}
+          // justify={"flex-end"}
+           direction={"row"}
+           spacing={35}
+          mr="30px"
         >
-           <Link
-            onClick = { (e) => {
+          <Link
+            onClick={(e) => {
               router.push("/gio-hang");
             }}
           >
@@ -92,51 +92,52 @@ export default function UI({change}) {
               fontFamily={"heading"}
               color={useColorModeValue("gray.50", "white")}
             >
-               <Image 
-               w={'80%'}
-               h={'80%'}
-                src="img/gio5.png"     
-                           alt="Segun Adebayo"
+              <Image
+                w={"440px"}
+                //  h={'20px'}
+                src="img/gio1.png"
+                alt="Segun Adebayo"
               />
             </Text>
           </Link>
           <Button
             onClick={(e) => {
-            router.push("/dang-nhap");
+              router.push("/dang-nhap");
             }}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"x-small"}
-            w={'100%'}
+            w={"100%"}
             fontWeight={600}
             color={"white"}
-            bg={"#66CDAA"}
+            bg={"#48D1CC"}
             href={"#"}
             _hover={{
-            bg: "#276749",
+              bg: "#276749",
             }}
-        >
+          >
             Đăng Nhập
-        </Button>
+          </Button>
 
-        <Button
+          <Button
             onClick={(e) => {
-            router.push("/dang-ky");
+              router.push("/dang-ky");
             }}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"x-small"}
-            w={'100%'}
+            w={"100%"}
             fontWeight={600}
             color={"white"}
             bg={"green.300"}
             href={"#"}
             _hover={{
-            bg: "#1C4532",
+              bg: "#1C4532",
             }}
-        >
+          >
             Đăng Ký
-        </Button>
+          </Button>
         </Stack>
       </Flex>
     </Box>
-  );
+ 
+ );
 }

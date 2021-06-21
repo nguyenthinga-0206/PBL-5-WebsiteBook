@@ -23,9 +23,10 @@ export default function ImgList({UI, first, skip = 0, sortBy, where }) {
   `,
   {variables: { first, skip, sortBy, where }}
   );
+  console.log(data);
   if (loading || error) {
     return "Loading...";
   }
 
-  return <UI data={data} />;
+  return <UI data={data}  />;
 }

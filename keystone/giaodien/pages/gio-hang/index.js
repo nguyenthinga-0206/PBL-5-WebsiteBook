@@ -52,7 +52,6 @@ import GioHangItemUI from "../../components/GioHang/Item/UI";
 export default function GioHang({ id, tenSach }) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
-
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
