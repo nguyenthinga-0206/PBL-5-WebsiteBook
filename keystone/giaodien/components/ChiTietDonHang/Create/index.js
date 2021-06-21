@@ -4,7 +4,6 @@ import { Fragment } from "react";
 import { gioHang } from "../../GioHang/Create/CreateGioHang";
 import UI from "./UI";
 import UIThemNhanh from "./UIThemNhanh";
-// import { refetchChiTietDonhHangList } from "../List";
 
 export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
   const gioHangId = gioHang();

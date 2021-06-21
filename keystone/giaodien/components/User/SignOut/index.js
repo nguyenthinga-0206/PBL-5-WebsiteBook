@@ -22,7 +22,9 @@ export default function UserSignOut({ UI }) {
     localStorage.removeItem("user");
     onSignOutUser()
       .then(() => {
+        router.push({ pathname: "/Signin" }).then(() => {
           reloadApolloState();
+        });
       })
       .catch(() => {
         router.push("/");
