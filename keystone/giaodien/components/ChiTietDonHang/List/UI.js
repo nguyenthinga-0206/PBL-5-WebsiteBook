@@ -1,4 +1,4 @@
-import ChiTietDonHangItem from '../Item';
+import DonHangCreate from '../../DonHang/';
 import ChiTietDonHangItemUI from '../Item/UI';
 
 export default function UI({data}){

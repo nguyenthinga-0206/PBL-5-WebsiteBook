@@ -39,7 +39,7 @@ import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
 
-export default function ThanhToan() {
+export default function ThanhToan({ chiTietDH }) {
 
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -92,7 +92,7 @@ export default function ThanhToan() {
 
             <br />
             <br />
-            <DonHangCreate UI={DonHangCreateUI} />
+            <DonHangCreate chiTietDH={chiTietDH} />
           </Container>
         </Box>
       </Box>

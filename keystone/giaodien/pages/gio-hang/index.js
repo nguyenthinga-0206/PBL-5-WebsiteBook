@@ -48,6 +48,7 @@ import { Fragment } from "react";
 import { gioHang } from "../../components/GioHang/Create/CreateGioHang";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
+import DonHangMuaHangUI from "../../components/DonHang/Create/UIMuaHang";
 
 export default function GioHang({ id, tenSach }) {
   const { isOpen, onToggle } = useDisclosure();
@@ -129,7 +130,7 @@ export default function GioHang({ id, tenSach }) {
                 </Center>
               </GridItem>
               <GridItem colSpan={1}>
-                <Button
+                {/* <Button
                   onClick={(e) => {
                     router.push("/thanh-toan");
                   }}
@@ -143,7 +144,8 @@ export default function GioHang({ id, tenSach }) {
                   }}
                 >
                   Mua hàng
-                </Button>
+                </Button> */}
+                <DonHangMuaHangUI />
               </GridItem>
             </Grid>
           </Container>
