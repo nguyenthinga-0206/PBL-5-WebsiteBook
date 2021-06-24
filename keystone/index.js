@@ -2,7 +2,7 @@ const { Keystone } = require("@keystonejs/keystone");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
 const { NextApp } = require("@keystonejs/app-next");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
-const { AdminUIApp } = require("@keystonejs/app-admin-ui");
+const { AdminUIApp } = require("@itoa/app-admin-ui");
 const initialiseData = require("./initial-data");
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const express = require("express");
@@ -10,7 +10,7 @@ const path = require("path");
 const PROJECT_NAME = "HAYAKU BOOKS";
 const adapterConfig = {
   mongoUri: "mongodb://cnw:concobebe123@db.itoa.vn:27017/cnw",
-};
+}; 
 const UserSchema = require("./models/Users");
 const BaivietSchema = require("./models/Baiviet");
 const ChitietdonhangSchema = require("./models/Chitietdonhang");
@@ -80,7 +80,7 @@ module.exports = {
     });
     app.get("/rooms/:id", (req, res) => {
       const { id } = req.params;
-      if (id) {
+      if (id || id === "undefined") {
         if (!rooms[id]) rooms[id] = [{ text: "hi" }];
         res.json({ id, room: rooms[id] });
       } else res.status(400).json({ error: "in valid id" });
@@ -99,7 +99,7 @@ module.exports = {
           headers: { referer },
         },
       } = socket;
-      if (!room) return;
+      if (!room || room === "undefined") return;
       if (!rooms[room]) rooms[room] = [{ text: "hi" }];
       socket.join(room);
       socket.on(room, (message) => {

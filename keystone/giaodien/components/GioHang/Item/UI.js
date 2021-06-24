@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import ChiTietDonHangUpdateUI from "../../ChiTietDonHang/Update/UIChiTietDonHang";
 
-
 export default function UI({ gioHang, check }) {
   return (
     <Fragment>

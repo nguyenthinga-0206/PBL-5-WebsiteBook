@@ -25,8 +25,10 @@ function MyApp({ Component, pageProps }) {
           {/* <ThanhTieuDe UI={ThanhTieuDeUI} /> */}
           {/* <ChatProvider> */}
             <Component {...pageProps} />
-            {/* <RoomItem UI={RoomItemUI} /> */}
+            <RoomItem UI={RoomItemUI} />
           {/* </ChatProvider> */}
+          {/* <Component {...pageProps} />
+          <RoomItem UI={RoomItemUI} /> */}
           {/* Chân trang */}
           {/* <ChanTrang UI={ChanTrangUI} /> */}
         </Box>

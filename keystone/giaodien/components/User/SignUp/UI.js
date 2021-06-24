@@ -64,7 +64,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
               children={
                 <Link
                   color="blue.500"
-                  children="Gửi OTP"
+                  children="Gửi OTP
                   onClick={(e) => {
                     // router.push("/gui-email-xac-nhan")
                   }}
@@ -110,6 +110,10 @@ export default function UI({ handleChange, onSignUp, notification }) {
         </Stack>
         <p
           style={{
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8b250215df0136ce0dac60389c7a35f9c380413
             padding: 5,
             backgroundColor: notification.color,
             textAlign: "center",

@@ -26,8 +26,9 @@ import {
 } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import SignOutUI from "../User/SignOut/UI";
 
-export default function UI({ onSignOut }) {
+export default function UIDangXuat() {
   const router = useRouter();
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
@@ -103,10 +104,10 @@ export default function UI({ onSignOut }) {
             _hover={{
               bg: "#1C4532",
             }}
-
           >
             Đăng Xuất
           </Button>
+          <SignOutUI/>
         </Stack>
       </Flex>
     </Box>

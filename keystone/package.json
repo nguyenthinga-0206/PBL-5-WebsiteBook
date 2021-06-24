@@ -11,13 +11,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development PORT=3000 UI=true DISABLE_LOGGING=true keystone dev",
     "be": "cross-env NODE_ENV=development cross-env PORT=3000 cross-env UI=false DISABLE_LOGGING=true keystone dev",
-    "share": "cross-env NODE_ENV=development PORT=8080 DISABLE_LOGGING=true keystone dev",
-    "build": "cross-env NODE_ENV=production keystone build",
-    "start": "cross-env NODE_ENV=production keystone start",
-    "create-tables": "cross-env CREATE_TABLES=true keystone create-tables",
-    "next": "next dev -p 8080"
+    "fe": "next dev -p 8080 giaodien"
   },
   "dependencies": {
     "@apollo/client": "^3.3.17",
@@ -25,8 +20,8 @@
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "@itoa/app-admin-ui": "^1.0.2",
     "@keystonejs/adapter-mongoose": "^11.2.1",
-    "@keystonejs/app-admin-ui": "^7.5.1",
     "@keystonejs/app-graphql": "^6.3.1",
     "@keystonejs/app-next": "^6.1.1",
     "@keystonejs/app-static": "^5.2.1",

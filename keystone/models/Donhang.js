@@ -71,4 +71,4 @@ module.exports = {
       label: 'Chi tiết đơn hàng'
     },
   },
-}
+};
