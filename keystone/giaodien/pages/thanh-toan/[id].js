@@ -25,7 +25,7 @@ const donhang = () => {
     if (loading || error) return 'Loading...';
     const { allChitietdonhangs } = data;
     return (
-        <ThanhToan chiTietDH={allChitietdonhangs} />
+        <ThanhToan chiTietDH={allChitietdonhangs} id={id} />
     );
 };
 export default donhang;

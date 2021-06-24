@@ -50,10 +50,9 @@ module.exports = {
       label: 'Bài viết'
     },
     chiTietDonHang: {
-      type: Relationship, ref: 'Chitietdonhang.sach', many: false,
+      type: Relationship, ref: 'Chitietdonhang.sach', many: true,
       label:'Chi tiết đơn hàng'
     },
-
   },
   labelField: 'tenSach'
 }

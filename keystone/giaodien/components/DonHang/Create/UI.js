@@ -10,9 +10,12 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import GioHangUpdate from "../../GioHang/Update";
+import GioHangUpdateUI from "../../GioHang/Update/UI";
 
-export default function UI({ handleChange, onCreate, tongtien, phiShip, tongthanhtoan, resultCreateDonHang }) {
+export default function UI({ id, handleChange, onCreate, tongtien, phiShip, tongthanhtoan, resultCreateDonHang }) {
   const router = useRouter();
+
   return (
     <Box>
       <Grid
@@ -111,10 +114,12 @@ export default function UI({ handleChange, onCreate, tongtien, phiShip, tongthan
               Quay Lại Giỏ Hàng
             </Button>
           </Box>
-          <GridItem colSpan={1} bg="white" ml={280}>
+          {/* <GridItem colSpan={1} bg="white" ml={280}>
             <Box>
               <Button
-                onClick={onCreate}
+                onClick={(e) => {
+                  onCreate();
+                }}
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"sm"}
                 fontWeight={50}
@@ -128,7 +133,8 @@ export default function UI({ handleChange, onCreate, tongtien, phiShip, tongthan
                 Đặt hàng
               </Button>
             </Box>
-          </GridItem>
+          </GridItem> */}
+          <GioHangUpdate UI={GioHangUpdateUI} id={id} onCreate={onCreate} />
         </GridItem>
       </Grid>
     </Box>

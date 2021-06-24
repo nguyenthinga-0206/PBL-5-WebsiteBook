@@ -15,7 +15,7 @@ export default function GioHangDelete({ UI, GioHang }) {
     }
   }
   `);
-  
+
   const onDeleteCart = (e) => {
     onDeleteGioHang({
       variables: {

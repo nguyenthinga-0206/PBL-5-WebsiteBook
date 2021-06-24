@@ -2,7 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import UI from "./UI";
 
-export default function DonHangCreate({ chiTietDH }) {
+export default function DonHangCreate({ chiTietDH, id }) {
   var arrayID = (
     chiTietDH.map(chiTiet => {
       return { id: chiTiet.id }
@@ -63,7 +63,7 @@ export default function DonHangCreate({ chiTietDH }) {
       connect: arrayID
     }
   });
-  console.log(values);
+  
   /**
    * @param {String} name
    */
@@ -88,6 +88,7 @@ export default function DonHangCreate({ chiTietDH }) {
 
   return (
     <UI
+      id={id}
       handleChange={handleChange}
       onCreate={onCreate}
       tongtien={tongtien}
