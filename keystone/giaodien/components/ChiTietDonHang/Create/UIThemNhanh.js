@@ -16,7 +16,11 @@ export default function UI({ clickMuaHang }) {
     const toast = useToast();
     const toastIdRef = useRef();
     function addToast() {
-        toastIdRef.current = toast({ description: "Thêm vào giỏ hàng thành công" });
+        toastIdRef.current = toast({
+            status: "success",
+            position: "top",
+            description: "Thêm vào giỏ hàng thành công"
+        });
     }
 
     return (

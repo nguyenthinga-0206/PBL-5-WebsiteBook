@@ -3,6 +3,7 @@ import { useState } from "react";
 import UI from "./UI";
 
 export default function DonHangCreate({ chiTietDH, id }) {
+  console.log(chiTietDH);
   var arrayID = (
     chiTietDH.map(chiTiet => {
       return { id: chiTiet.id }
@@ -77,7 +78,7 @@ export default function DonHangCreate({ chiTietDH, id }) {
       },
     })
       .then((data) => {
-        // refetchDonHangList()();
+        // console.log(data);
       })
       .catch((e) => {
         console.log(e);

@@ -130,22 +130,9 @@ export default function GioHang({ id, tenSach }) {
                 </Center>
               </GridItem>
               <GridItem colSpan={1}>
-                {/* <Button
-                  onClick={(e) => {
-                    router.push("/thanh-toan");
-                  }}
-                  display={{ base: "none", md: "inline-flex" }}
-                  w={"100px"}
-                  fontWeight={600}
-                  color={"white"}
-                  bg={"#66CDAA"}
-                  _hover={{
-                    bg: "#276749",
-                  }}
-                >
-                  Mua hàng
-                </Button> */}
+                
                 <DonHangMuaHangUI />
+                
               </GridItem>
             </Grid>
           </Container>

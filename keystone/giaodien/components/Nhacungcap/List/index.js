@@ -1,5 +1,5 @@
-
 import {useQuery, gql} from '@apollo/client'
+
 export default function NhaCungCapList({UI, first = 3, skip = 0, sortBy, where }){
     const {
         loading, error, data

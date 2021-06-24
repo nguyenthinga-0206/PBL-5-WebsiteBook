@@ -114,26 +114,6 @@ export default function UI({ id, handleChange, onCreate, tongtien, phiShip, tong
               Quay Lại Giỏ Hàng
             </Button>
           </Box>
-          {/* <GridItem colSpan={1} bg="white" ml={280}>
-            <Box>
-              <Button
-                onClick={(e) => {
-                  onCreate();
-                }}
-                display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
-                fontWeight={50}
-                color={"white"}
-                bg={"orange.500"}
-                href={"#"}
-                _hover={{
-                  bg: "teal.600",
-                }}
-              >
-                Đặt hàng
-              </Button>
-            </Box>
-          </GridItem> */}
           <GioHangUpdate UI={GioHangUpdateUI} id={id} onCreate={onCreate} />
         </GridItem>
       </Grid>
