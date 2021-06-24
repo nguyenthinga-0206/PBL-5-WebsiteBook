@@ -1,3 +1,4 @@
+import { Center, GridItem, Grid, Button } from "@chakra-ui/react";
 import { Fragment } from "react";
 import ChiTietDonHangUpdateUI from "../../ChiTietDonHang/Update/UIChiTietDonHang";
 
@@ -10,10 +11,8 @@ export default function UI({ gioHang, check }) {
             chiTietDonHang={chiTietDonHang}
             check={check}
           />
-        )
+        );
       })}
     </Fragment>
-
-
   );
 }

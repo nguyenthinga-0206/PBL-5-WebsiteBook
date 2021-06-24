@@ -31,6 +31,7 @@ export default function GioHangItem({ UI, gioHang, check }) {
     queryGioHang({ variables: { id } });
   }
   if (!loading && !error && data) gioHang = data.Giohang;
+
   // console.log(data);
   return (
     <UI gioHang={gioHang} check={check} />

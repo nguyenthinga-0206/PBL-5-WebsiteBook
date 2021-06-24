@@ -32,6 +32,7 @@ import ImgList from "../../components/Img/List" ;
 
 export default function ChiTietSach({ sach }) {
   const router = useRouter();
+  var ngayXuatBan = new Date(sach.ngayXuatBan);
   return (
     <Fragment>
       <ThanhTieuDeDangXuatUI />
@@ -74,7 +75,8 @@ export default function ChiTietSach({ sach }) {
                   {sach.tenNhaXuatBan}
                   <br />
                   <b>Năm xuất bản: </b>
-                  {sach.ngayXuatBan}
+                  {ngayXuatBan.getFullYear()}
+                  {/* {sach.ngayXuatBan} */}
                   <br />
                   <b>Số trang: </b>
                   {sach.soTrang}

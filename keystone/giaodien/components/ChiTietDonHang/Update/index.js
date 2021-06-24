@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-// import { refetchChiTietDonHangList } from "../List";
 
 export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
     const [onUpdateChiTietDonHang, resultUpdateChiTietDonHang] = useMutation(gql`
@@ -31,7 +30,7 @@ export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
             },
         })
             .then((data) => {
-                // refetchChiTietDonHangList()();
+                console.log(data);
             })
             .catch((e) => {
                 console.log(e);
@@ -39,6 +38,7 @@ export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
     };
 
     if (resultUpdateChiTietDonHang.loading) return "Loading...";
+    
     return (
         <UI
             handleChange={setValue}

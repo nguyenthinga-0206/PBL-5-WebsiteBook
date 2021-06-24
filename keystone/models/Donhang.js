@@ -1,5 +1,5 @@
 const { Text, Checkbox, Integer, Relationship, Float, DateTime, Select } = require('@keystonejs/fields');
-const { gql } = require("@apollo/client");
+const { useQuery, gql } = require("@apollo/client");
 
 module.exports = {
   fields: {
@@ -69,6 +69,48 @@ module.exports = {
     chiTietDonHang: {
       type: Relationship, ref: 'Chitietdonhang.donHang', many: true,
       label: 'Chi tiết đơn hàng'
+    },
+  },
+  hooks: {
+    resolveInput: async ({
+      resolvedData,
+      context,
+    }) => {
+      var id = resolvedData.chiTietDonHang.map(chiTietDH => { return { id: chiTietDH } });
+      const { data, errors } = await context.executeGraphQL({
+        query: gql`
+          query($where: DonhangWhereInput) {
+            allChitietdonhangs(where: $where) {
+              id
+              soLuong
+              sach {
+                id
+                tenSach
+                soLuong
+              }
+            }
+          }
+        `,
+        variables: { where: { OR: id } },
+      });
+      const { allChitietdonhangs: [chiTiet] } = data;
+      if (!chiTiet)
+        throw new Error("Don hang khong co chi tiet don hang");
+
+      const { datas, error } = await context.executeGraphQL({
+        query: gql`
+          mutation($data: [SachesUpdateInput]) {
+            updateSaches(data: $data) { 
+              tenSach
+              soLuong
+            }
+          }    
+        `,
+        variables: { data: {id: chiTiet.sach.id, data: {soLuong: chiTiet.sach.soLuong-chiTiet.soLuong}} },
+      });
+      console.log(error)
+      console.log(datas);
+      return resolvedData;
     },
   },
 };

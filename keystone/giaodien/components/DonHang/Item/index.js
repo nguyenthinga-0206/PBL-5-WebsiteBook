@@ -1,6 +1,7 @@
+import UI from "./UI";
 
-export default function DonHangItem({UI, donHang}){
+export default function DonHangItem({ donHang }) {
     return (
-        <UI donHang = {donHang}/>
+        <UI donHang={donHang} />
     )
 }

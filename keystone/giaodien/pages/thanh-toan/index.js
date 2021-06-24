@@ -1,37 +1,13 @@
 import {
   Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
   useDisclosure,
   Container,
-  SimpleGrid,
-  Tag,
-  PopoverContent,
   Grid,
   GridItem,
-  useNumberInput,
-  Input,
   Center,
   Heading
 } from "@chakra-ui/react";
-import {
-  PopoverHeader,
-  PopoverBody,
-  PopoverArrow,
-  PopoverCloseButton,
-} from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
-import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
-import DonHangCreateUI from "../../components/DonHang/Create/UI";
 import DonHangCreate from "../../components/DonHang/Create";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
@@ -39,7 +15,7 @@ import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
 
-export default function ThanhToan() {
+export default function ThanhToan({ chiTietDH, id }) {
 
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -92,7 +68,7 @@ export default function ThanhToan() {
 
             <br />
             <br />
-            <DonHangCreate UI={DonHangCreateUI} />
+            <DonHangCreate chiTietDH={chiTietDH} id={id} />
           </Container>
         </Box>
       </Box>
