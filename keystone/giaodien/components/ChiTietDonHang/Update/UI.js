@@ -24,7 +24,6 @@ export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
         defaultValue: chiTietDonHang.soLuong,
         min: 1,
         max: chiTietDonHang.sach?.soLuong,
-        precision: 2,
     });
     const inc = getIncrementButtonProps();
     const dec = getDecrementButtonProps();
@@ -41,7 +40,7 @@ export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
             >
                 +
             </Button>
-            <Input {...input} name='soLuong' />
+            <Input textAlign="center" {...input} name='soLuong' />
             <Button
                 {...dec}
                 onClick={ (e) => {
