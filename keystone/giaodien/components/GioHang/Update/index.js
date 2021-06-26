@@ -3,7 +3,6 @@ import { useState } from "react";
 // import { refetchGioHangList } from "../List";
 
 export default function GioHangUpdate({ UI, id, onCreate }) {
-  console.log(id);
   const [onUpdateGioHang, resultUpdateGioHang] = useMutation(gql`
     mutation($id: ID!) {
         updateGiohang (

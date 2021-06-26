@@ -1,37 +1,13 @@
 import {
   Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
   useDisclosure,
   Container,
-  SimpleGrid,
-  Tag,
-  PopoverContent,
   Grid,
   GridItem,
-  useNumberInput,
-  Input,
   Center,
   Heading
 } from "@chakra-ui/react";
-import {
-  PopoverHeader,
-  PopoverBody,
-  PopoverArrow,
-  PopoverCloseButton,
-} from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import ChiTietDonHangList from "../../components/ChiTietDonHang/List";
-import ChiTietDonHangThanhToanUI from "../../components/ChiTietDonHang/Item/UIThanhToan";
-import DonHangCreateUI from "../../components/DonHang/Create/UI";
 import DonHangCreate from "../../components/DonHang/Create";
 import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
 import ChanTrangUI from "../../components/ChanTrang/UI";
