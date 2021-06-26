@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 import { Fragment, useState } from "react";
-// import { refetchGioHangList } from "../List";
 
 export default function GioHangDelete({ UI, GioHang }) {
 
@@ -12,23 +11,11 @@ export default function GioHangDelete({ UI, GioHang }) {
         id
         chiTietDonHang {
           id
-          sach {
-              tenSach
-              IMG {
-                anh {
-                  publicUrl
-                }
-              }
-              gia
-              soLuong
-          }       
-          soLuong
-          tien
         }
     }
   }
   `);
-  
+
   const onDeleteCart = (e) => {
     onDeleteGioHang({
       variables: {

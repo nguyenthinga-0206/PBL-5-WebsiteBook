@@ -51,6 +51,7 @@ import GioHangItemUI from "../../components/GioHang/Item/UI";
 import RoomItem from "../../components/Room/Item";
 import RoomItemUI from "../../components/Room/Item/UI";
 import { ChatProvider } from "../../Chat";
+import DonHangMuaHangUI from "../../components/DonHang/Create/UIMuaHang";
 export default function GioHang({ id, tenSach }) {
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -132,7 +133,7 @@ export default function GioHang({ id, tenSach }) {
                 </Center>
               </GridItem>
               <GridItem colSpan={1}>
-                <Button
+                {/* <Button
                   onClick={(e) => {
                     router.push("/thanh-toan");
                   }}
@@ -146,7 +147,8 @@ export default function GioHang({ id, tenSach }) {
                   }}
                 >
                   Mua hàng
-                </Button>
+                </Button> */}
+                <DonHangMuaHangUI />
               </GridItem>
             </Grid>
           </Container>

@@ -110,10 +110,6 @@ export default function UI({ handleChange, onSignUp, notification }) {
         </Stack>
         <p
           style={{
-<<<<<<< HEAD
-=======
-
->>>>>>> c8b250215df0136ce0dac60389c7a35f9c380413
             padding: 5,
             backgroundColor: notification.color,
             textAlign: "center",

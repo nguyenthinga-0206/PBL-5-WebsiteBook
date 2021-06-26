@@ -38,10 +38,15 @@ import ChanTrangUI from "../../components/ChanTrang/UI";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
+<<<<<<< HEAD
 import RoomItem from "../../components/Room/Item";
 import RoomItemUI from "../../components/Room/Item/UI";
 import { ChatProvider } from "../../Chat";
 export default function ThanhToan() {
+=======
+
+export default function ThanhToan({ chiTietDH, id }) {
+>>>>>>> 2ceccb5c6f32753eb46dd9bd22d87d4713115995
 
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -95,7 +100,7 @@ export default function ThanhToan() {
 
             <br />
             <br />
-            <DonHangCreate UI={DonHangCreateUI} />
+            <DonHangCreate chiTietDH={chiTietDH} id={id} />
           </Container>
         </Box>
       </Box>
