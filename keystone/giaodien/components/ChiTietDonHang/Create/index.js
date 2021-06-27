@@ -36,7 +36,8 @@ export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
       });
   }
 
-  if (resultCreateChitietdonhang.loading) return "Loading..."
+  if (resultCreateChitietdonhang.loading) return "Loading...";
+  
     return (
       check ? <UIThemNhanh clickMuaHang={clickMuaHang} /> : <UI clickMuaHang={clickMuaHang} />
     );

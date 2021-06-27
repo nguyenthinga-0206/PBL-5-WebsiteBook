@@ -93,23 +93,27 @@ module.exports = {
         `,
         variables: { where: { OR: id } },
       });
-      const { allChitietdonhangs: [chiTiet] } = data;
-      if (!chiTiet)
-        throw new Error("Don hang khong co chi tiet don hang");
+      resolvedData.tinhTrangGiao = 'choxacnhan';
+      const { allChitietdonhangs: chiTiet } = data;
+      var dataUpdate = chiTiet.map(chiTietDH => { return { id: chiTietDH.sach.id, data: { soLuong: chiTietDH.sach.soLuong - chiTietDH.soLuong } } });
+      console.log(dataUpdate);
+      if (!chiTiet) throw new Error("Don hang khong co chi tiet don hang");
 
-      const { datas, error } = await context.executeGraphQL({
+      //  Cap nhat so luong sach
+      const { loading, error } = await context.executeGraphQL({
         query: gql`
           mutation($data: [SachesUpdateInput]) {
             updateSaches(data: $data) { 
               tenSach
               soLuong
             }
-          }    
+          }   
         `,
-        variables: { data: {id: chiTiet.sach.id, data: {soLuong: chiTiet.sach.soLuong-chiTiet.soLuong}} },
+        variables: { data: dataUpdate },
       });
-      console.log(error)
-      console.log(datas);
+
+      if (loading || error) throw new Error("So luong sach chua duoc cap nhat");
+
       return resolvedData;
     },
   },
