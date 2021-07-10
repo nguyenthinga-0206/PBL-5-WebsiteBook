@@ -42,10 +42,10 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
-import { gioHang } from "../../components/GioHang/Create/CreateGioHang";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import DonHangMuaHangUI from "../../components/DonHang/Create/UIMuaHang";
@@ -55,7 +55,7 @@ export default function GioHang({ id, tenSach }) {
   const router = useRouter();
   return (
     <Fragment>
-      <ThanhTieuDeDangXuatUI />
+      <ThanhTieuDe UI={ThanhTieuDeUI} />
       <Box bg={"gray.500"}>
         <Box bg={"gray.50"} color={"black"}>
           <Container maxW={"container.xl"} bg="white" py={10}>

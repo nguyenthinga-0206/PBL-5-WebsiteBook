@@ -24,24 +24,26 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useState } from "react";
 import { useRouter } from "next/router";
+import DangXuat from "../User/SignOut";
+import DangXuatUI from "../User/SignOut/UI";
+import DangNhapUI from "../User/SignIn/ButtonSignIn";
 
-export default function UI({ change }) {
+export default function UI({ change, value }) {
+  console.log(value);
   const router = useRouter();
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
   return (
     <Box  >
       <Flex
-         bg={useColorModeValue("#b8ddd1", "white")}
-         color={useColorModeValue("gray.800", "white")}
-         minH={"60px"}
-         px={{ base: 4 }}
+        bg={useColorModeValue("#b8ddd1", "white")}
+        color={useColorModeValue("gray.800", "white")}
+        minH={"60px"}
+        px={{ base: 4 }}
         // borderBottom={1}
-         borderStyle={"solid"}
+        borderStyle={"solid"}
         // borderColor={useColorModeValue("gray.200", "gray.900")}
-         align={"center"}
+        align={"center"}
       >
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Link
@@ -64,22 +66,18 @@ export default function UI({ change }) {
           </Link>
         </Flex>
         <Input
-          //  ml={100}
-          //  mg={200}
-            // md={200}
-           mr="80px"
-           w={"50%"}
-           bg="white"
-           mr="30px"
+          mr="80px"
+          w={"50%"}
+          bg="white"
+          mr="30px"
           onChange={change}
           placeholder="Tìm kiếm"
         />
 
         <Stack
           flex={{ base: 1, md: 0 }}
-          // justify={"flex-end"}
-           direction={"row"}
-           spacing={35}
+          direction={"row"}
+          spacing={35}
           mr="30px"
         >
           <Link
@@ -94,50 +92,15 @@ export default function UI({ change }) {
             >
               <Image
                 w={"440px"}
-                //  h={'20px'}
                 src="img/gio1.png"
                 alt="Segun Adebayo"
               />
             </Text>
           </Link>
-          <Button
-            onClick={(e) => {
-              router.push("/dang-nhap");
-            }}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"x-small"}
-            w={"100%"}
-            fontWeight={600}
-            color={"white"}
-            bg={"#48D1CC"}
-            href={"#"}
-            _hover={{
-              bg: "#276749",
-            }}
-          >
-            Đăng Nhập
-          </Button>
-
-          <Button
-            onClick={(e) => {
-              router.push("/dang-ky");
-            }}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"x-small"}
-            w={"100%"}
-            fontWeight={600}
-            color={"white"}
-            bg={"green.300"}
-            href={"#"}
-            _hover={{
-              bg: "#1C4532",
-            }}
-          >
-            Đăng Ký
-          </Button>
+          {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
         </Stack>
       </Flex>
     </Box>
- 
- );
+
+  );
 }
