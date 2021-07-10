@@ -30,7 +30,6 @@ import DangXuatUI from "../User/SignOut/UI";
 import DangNhapUI from "../User/SignIn/ButtonSignIn";
 
 export default function UI({ change, value }) {
-  console.log(value);
   const router = useRouter();
 
   return (

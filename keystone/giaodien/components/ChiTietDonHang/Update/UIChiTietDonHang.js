@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import ChiTietDonHangDelete from "../Delete";
 import ChiTietDonHangUpdate from ".";
 import ChiTietDonHangUpdateUI from "./UI";
-import DonHangCreate from "../../DonHang/Create";
 
 export default function UIChiTietDonHang({ chiTietDonHang, handleChange, onUpdate, check }) {
   const router = useRouter();

@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
+import { refetchGioHangItem } from "../../GioHang/Item";
 import UI from "./UI";
 
 export default function ChiTietDonHangDelete({ ChiTietID }) {
@@ -17,7 +18,7 @@ export default function ChiTietDonHangDelete({ ChiTietID }) {
       },
     })
       .then((data) => {
-
+        refetchGioHangItem()();
       })
       .catch((e) => {
         console.log(e);
