@@ -9,20 +9,14 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import DonHangCreate from "../../components/DonHang/Create";
-import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
-<<<<<<< HEAD
-import RoomItem from "../../components/Room/Item";
-import RoomItemUI from "../../components/Room/Item/UI";
-import { ChatProvider } from "../../Chat";
-export default function ThanhToan() {
-=======
 
 export default function ThanhToan({ chiTietDH, id }) {
->>>>>>> 2ceccb5c6f32753eb46dd9bd22d87d4713115995
 
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
@@ -30,10 +24,9 @@ export default function ThanhToan({ chiTietDH, id }) {
 
   return (
     <Fragment>
-      <ThanhTieuDeDangXuatUI />
-      <ChatProvider>
-      <Box bg={"#F0F0F0"}>
-        <Box bg={"#F0F0F0"} color={"black"}>
+      <ThanhTieuDe UI={ThanhTieuDeUI} />
+      <Box bg={"gray.50"}>
+        <Box bg={"gray.50"} color={"black"}>
           <Container maxW={"container.xl"} bg="white" py={10}>
             <Heading size="lg" ml={14}>
               <i>Thanh Toán</i>
@@ -80,8 +73,8 @@ export default function ThanhToan({ chiTietDH, id }) {
           </Container>
         </Box>
       </Box>
-      <RoomItem UI={RoomItemUI} />
-      </ChatProvider>
+      {/* <RoomItem UI={RoomItemUI} />
+      </ChatProvider> */}
       <ChanTrangUI />
     </Fragment>
   );

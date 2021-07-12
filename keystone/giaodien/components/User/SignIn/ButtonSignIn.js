@@ -1,8 +1,7 @@
 import { Button } from "@chakra-ui/button";
-import { route, useRouter } from "next/router";
-import { Router } from "next/router";
+import { useRouter } from "next/router";
 
-export default function UI({ onSignOut }) {
+export default function ButtonSignIn() {
     const router = useRouter();
     return (
         <Button
@@ -13,12 +12,14 @@ export default function UI({ onSignOut }) {
             color={"white"}
             bg={"#48D1CC"}
             href={"#"}
-            onClick={onSignOut}
+            onClick={(e) => {
+                router.push("/dang-nhap");
+            }}
             _hover={{
                 bg: "#276749",
             }}
         >
-            Đăng Xuất
+            Đăng Nhập
         </Button>
     );
 }

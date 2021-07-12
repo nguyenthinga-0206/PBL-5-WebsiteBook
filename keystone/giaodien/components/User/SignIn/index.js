@@ -10,6 +10,7 @@ export default function UserSignIn({ UI }) {
         token
         item {
           id
+          name
           email
           isAdmin
         }
@@ -33,8 +34,6 @@ export default function UserSignIn({ UI }) {
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
-  // console.log(values.email);
-  // console.log(values.password);
   const onSignIn = async (event) => {
     event.preventDefault();
     try {
@@ -53,11 +52,9 @@ export default function UserSignIn({ UI }) {
           },
         } = data;
         localStorage.setItem("token", token);
-        console.log(token);
+        // console.log(token);
         await client.resetStore();
-        console.log("reset");
         await router.push({ pathname: redirect ? redirect : "/" });
-        console.log("tai-khoan");
       }
     } catch (error) {
       console.log(error.toString());

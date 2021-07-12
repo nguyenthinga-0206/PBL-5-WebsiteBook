@@ -27,7 +27,8 @@ import { useRouter } from "next/router";
 import { Fragment } from "react";
 import SachItem from "../../components/Sach/Item";
 import SachItemThemGioHangUI from "../../components/Sach/Item/UIThemGioHang";
-import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import ImgList from "../../components/Img/List" ;
 import RoomItem from "../../components/Room/Item";
@@ -39,9 +40,8 @@ export default function ChiTietSach({ sach }) {
   var ngayXuatBan = new Date(sach.ngayXuatBan);
   return (
     <Fragment>
-      <ThanhTieuDeDangXuatUI />
-      <ChatProvider>
-      <Box bg={"#F0F0F0"}>
+      <ThanhTieuDe UI={ThanhTieuDeUI} />
+      <Box bg={"gray.50"}>
         <Container maxW={"container.xl"} py={8}>
           <Grid
             h="800px"
@@ -192,8 +192,8 @@ export default function ChiTietSach({ sach }) {
         </Container>
         <RoomItem UI={RoomItemUI} />
       </Box>
-      <RoomItem UI={RoomItemUI} />
-          </ChatProvider>
+      {/* <RoomItem UI={RoomItemUI} />
+          </ChatProvider> */}
       <ChanTrangUI />
     </Fragment>
   );

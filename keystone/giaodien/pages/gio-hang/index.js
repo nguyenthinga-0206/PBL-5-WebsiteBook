@@ -42,10 +42,10 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
-import { gioHang } from "../../components/GioHang/Create/CreateGioHang";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
 import RoomItem from "../../components/Room/Item";
@@ -57,10 +57,9 @@ export default function GioHang({ id, tenSach }) {
   const router = useRouter();
   return (
     <Fragment>
-      <ThanhTieuDeDangXuatUI />
-      <ChatProvider>
-      <Box bg={"#F0F0F0"}>
-        <Box bg={"#F0F0F0"} color={"black"}>
+      <ThanhTieuDe UI={ThanhTieuDeUI} />
+      <Box bg={"gray.500"}>
+        <Box bg={"gray.50"} color={"black"}>
           <Container maxW={"container.xl"} bg="white" py={10}>
             <Heading size="lg" ml={14}>
               <i>Giỏ Hàng</i>
@@ -141,8 +140,8 @@ export default function GioHang({ id, tenSach }) {
           </Container>
         </Box>
       </Box>
-      <RoomItem UI={RoomItemUI} />
-          </ChatProvider>
+      {/* <RoomItem UI={RoomItemUI} />
+          </ChatProvider> */}
        <ChanTrangUI />
     </Fragment>
   );

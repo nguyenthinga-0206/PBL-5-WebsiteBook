@@ -15,22 +15,20 @@ export default function UserSignOut({ UI }) {
 
   const router = useRouter();
   const client = useApolloClient();
-  const [notification, setNoti] = useState({ content: "", color: "" });
   const onSignOut = () => {
-    localStorage.removeItem(token);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     onSignOutUser()
-      .then(() => {
-      //   router.push({ pathname: "/Signin" }).then(() => {
-          reloadApolloState();
-      //   });
+    .then(() => {
+      router.push({ pathname: "/" });
+      client
+      .resetStore()
+      .then(() => { })
+      .catch(() => { });
       })
       .catch(() => {
         router.push("/");
       });
-    client
-      .resetStore()
-      .then(() => { })
-      .catch(() => { });
   };
 
   if (resultSignOutUser.loading) return "Loading...";
