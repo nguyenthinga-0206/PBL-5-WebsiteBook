@@ -1,4 +1,4 @@
-const { Text, Checkbox, Integer, Relationship, Float, DateTime, Select } = require('@keystonejs/fields');
+const { Text, Checkbox, Integer, Relationship, Float, DateTime, Select } = require('@itoa/fields');
 const { gql } = require("@apollo/client");
 
 module.exports = {

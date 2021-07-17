@@ -1,5 +1,5 @@
-const { Relationship, File } = require("@keystonejs/fields");
-const { LocalFileAdapter } = require("@keystonejs/file-adapters");
+const { Relationship, File } = require("@itoa/fields");
+const { LocalFileAdapter } = require("@itoa/file-adapters");
 
 const fileAdapter = new LocalFileAdapter({
   src: "./file/img",

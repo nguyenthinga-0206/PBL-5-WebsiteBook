@@ -1,10 +1,10 @@
-const { Keystone } = require("@keystonejs/keystone");
-const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
-const { NextApp } = require("@keystonejs/app-next");
-const { GraphQLApp } = require("@keystonejs/app-graphql");
-const { AdminUIApp } = require("@keystonejs/app-admin-ui");
+const { Keystone } = require("@itoa/keystone");
+const { PasswordAuthStrategy } = require("@itoa/auth-password");
+const { NextApp } = require("@itoa/app-next");
+const { GraphQLApp } = require("@itoa/app-graphql");
+const { AdminUIApp } = require("@itoa/app-admin-ui");
 const initialiseData = require("./initial-data");
-const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
+const { MongooseAdapter: Adapter } = require("@itoa/adapter-mongoose");
 const express = require("express");
 const path = require("path");
 const PROJECT_NAME = "first-app";
