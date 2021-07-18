@@ -100,7 +100,7 @@ export default function UI({ change, value, data }) {
               />
             </Text>
           </Link>
-          <b>HayakuBook xin chao {data?.name}!</b>
+          <b>HayakuBook xin chao {data?.name}</b>
           {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
         </Stack>
       </Flex>
