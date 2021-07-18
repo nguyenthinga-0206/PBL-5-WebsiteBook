@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-// import { refetchGioHangList } from "../List";
 
 export default function GioHangUpdate({ UI, id, onCreate }) {
   const [onUpdateGioHang, resultUpdateGioHang] = useMutation(gql`
@@ -25,14 +24,15 @@ export default function GioHangUpdate({ UI, id, onCreate }) {
       },
     })
       .then((data) => {
-        // refetchGioHangList()();
+        // console.log(data);
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
-  // if (resultUpdateGioHang.loading) return "Loading...";
+  if (resultUpdateGioHang.loading) return "Loading...";
+
   return (
     <UI
       onCreate={onCreate}

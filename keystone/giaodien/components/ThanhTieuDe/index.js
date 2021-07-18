@@ -11,7 +11,9 @@ export default function ThanhTieuDe({ UI, change }) {
             }
         }`
     );
+
     let value = true;
     if (data?.authenticatedUser === null) { value = false };
-    return <UI change={change} value={value} />
+
+    return <UI change={change} value={value} data={data?.authenticatedUser} />
 }

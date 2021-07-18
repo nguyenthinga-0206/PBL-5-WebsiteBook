@@ -27,13 +27,13 @@ export default function UserSignUp({ UI }) {
   /**
    * @param {String} name
    */
-
+  // console.log(values);
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
   const onSignUp = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     try {
       await client.clearStore();
       const { data, errors } = await onSignUpUser({
@@ -46,7 +46,7 @@ export default function UserSignUp({ UI }) {
         content: "Đăng kí thành công.",
       });
       await onSignIn({
-        preventDefault: () => { },
+        // preventDefault: () => { },
         currentTarget: {
           elements: { email: { value: values.email }, password: { value: values.password } },
         },
