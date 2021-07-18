@@ -1,11 +1,12 @@
-import { useApolloClient, useMutation, gql, useSubscription } from "@apollo/client";
+import { useApolloClient, useMutation, useSubscription } from "@apollo/client";
+import gql from "graphql-tag";
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
-import DangXuat from "../../ThanhTieuDe/UIDangXuat";
-export default function UserSignOut({UI}) {
+
+export default function UserSignOut({ UI }) {
   const [onSignOutUser, resultSignOutUser] = useMutation(gql`
-    mutation {
-      unauthenticateUser {
+    mutation{
+      unauthenticateUser{
         success
       }
     }
@@ -15,33 +16,27 @@ export default function UserSignOut({UI}) {
   const router = useRouter();
   const client = useApolloClient();
   const [notification, setNoti] = useState({ content: "", color: "" });
-  const redirect = router.query?.redirect;
-  
-  const onSignOut = async (event) => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+  const onSignOut = () => {
+    localStorage.removeItem(token);
     onSignOutUser()
-    .then(() => {
-      router.push({ pathname: "/dang-ky" }).then(() => {
-        reloadApolloState();
+      .then(() => {
+      //   router.push({ pathname: "/Signin" }).then(() => {
+          reloadApolloState();
+      //   });
+      })
+      .catch(() => {
+        router.push("/");
       });
-    })
-    .catch(() => {
-      router.push("/");
-    });
     client
       .resetStore()
-      .then(() => {})
-      .catch(() => {});
-
-    };
+      .then(() => { })
+      .catch(() => { });
+  };
 
   if (resultSignOutUser.loading) return "Loading...";
   return (
-    <Fragment>
-      <DangXuat
-        onSignOut={onSignOut}
-      />
-    </Fragment>
+    <UI
+      onSignOut={onSignOut}
+    />
   );
 }

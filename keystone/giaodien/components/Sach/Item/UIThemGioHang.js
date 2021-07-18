@@ -11,6 +11,7 @@ import {
   Stack,
   useNumberInput,
   useToast,
+  Center,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { useState, useRef } from "react";
@@ -20,6 +21,7 @@ import ChiTietDonHangCreate from "../../ChiTietDonHang/Create";
 
 export default function UIThemGioHang({ sach }) {
   const [value, setValue] = useState("1");
+
   const router = useRouter();
 
   // Thay đôi so luong mua hang
@@ -30,9 +32,8 @@ export default function UIThemGioHang({ sach }) {
   } = useNumberInput({
     step: 1,
     defaultValue: 1,
-    min: 1,
+    min: 0,
     max: sach.soLuong,
-    precision: 2,
   });
   const inc = getIncrementButtonProps();
   const dec = getDecrementButtonProps();
@@ -54,12 +55,12 @@ export default function UIThemGioHang({ sach }) {
                     <b name="gia">Giá:</b>{" "}
                     <Text fontSize="xl" ml={30} color={"green.600"}>
                       {" "}
-                      {new Intl.NumberFormat().format(sach.gia)}đ
+                      {new Intl.NumberFormat().format(sach.gia)}₫
                     </Text>{" "}
                   </p>
                   <br />
                   <p>
-                    <b>Số lượng có trong kho: </b> {sach.soLuong}
+                    <b>Số lượng có trong kho: </b> {!(parseInt(input.value) === sach.soLuong) ? sach.soLuong : <Text color={"red.600"}>Số lượng trong kho không đủ!</Text>}
                   </p>
                 </p>
                 <br />
@@ -75,7 +76,7 @@ export default function UIThemGioHang({ sach }) {
                   >
                     +
                   </Button>
-                  <Input {...input} name="soLuong" />
+                  <Input textAlign="center" {...input} name="soLuong" />
                   <Button
                     {...dec}
                     onClick={(e) => {
@@ -114,23 +115,7 @@ export default function UIThemGioHang({ sach }) {
           </Box>
         </GridItem>
       </GridItem>
-      <GridItem rowSpan={2} colSpan={5} bg="white">
-        <Box ml={14}>
-          <br></br>
-          <b>Dịch vụ + Khuyến mãi</b>
-          <br />
-          <br />
-          <p>
-            {" "}
-            <Icon as={CheckCircleIcon} /> Tặng móc khoá cho đơn hàng 200k
-          </p>
-          <p>
-            {" "}
-            <Icon as={CheckCircleIcon} />
-            Tăng sổ tay + Freeship cho đơn hàng 300K.
-          </p>
-        </Box>
-      </GridItem>
+
     </GridItem>
   );
 }

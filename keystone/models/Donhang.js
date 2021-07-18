@@ -1,5 +1,6 @@
+
 const { Text, Checkbox, Integer, Relationship, Float, DateTime, Select } = require('@itoa/fields');
-const { gql } = require("@apollo/client");
+const { useQuery, gql } = require("@apollo/client");
 
 module.exports = {
   fields: {
@@ -71,59 +72,50 @@ module.exports = {
       label: 'Chi tiết đơn hàng'
     },
   },
-// hooks: {
-//   resolveInput: async ({
-//     operation,
-//     existingItem,
-//     resolvedData,
-//     context,
-//   }) => {
-    // console.log(operation, existingItem, resolvedData);
-    // if (operation === "update") {
-    //   const { data } = await context.executeGraphQL({
-    //     query: gql`
-    //       query($id: ID!) {
-    //         Donhang(where: { id: $id }) {
-    //           chiTietDonHang {
-    //             id
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     variables: { id: existingItem.id },
-    //   });
-    //   if (!data || !data.Donhang || !data.Donhang.chiTietDonHang)
-    //     throw new Error("Don hang khong co chi tiet don hang");
-    //   resolvedData.chiTietDonHang = data.Donhang.chiTietDonHang.id;
-    // console.log(resolvedData);
-    // }
-  //   const { data } = await context.executeGraphQL({
-  //     query: gql`
-  //       query ($id: ID!) {
-  //         Chitietdonhang(id: $id) {
-  //           id
-  //           tien
-  //         }
-  //       }     
-  //       `,
-  //     variables: {id: resolvedData.chiTietDonHang },
-  //   });
+  hooks: {
+    resolveInput: async ({
+      resolvedData,
+      context,
+    }) => {
+      var id = resolvedData.chiTietDonHang.map(chiTietDH => { return { id: chiTietDH } });
+      const { data, errors } = await context.executeGraphQL({
+        query: gql`
+          query($where: DonhangWhereInput) {
+            allChitietdonhangs(where: $where) {
+              id
+              soLuong
+              sach {
+                id
+                tenSach
+                soLuong
+              }
+            }
+          }
+        `,
+        variables: { where: { OR: id } },
+      });
+      resolvedData.tinhTrangGiao = 'choxacnhan';
+      const { allChitietdonhangs: chiTiet } = data;
+      var dataUpdate = chiTiet.map(chiTietDH => { return { id: chiTietDH.sach.id, data: { soLuong: chiTietDH.sach.soLuong - chiTietDH.soLuong } } });
+      console.log(dataUpdate);
+      if (!chiTiet) throw new Error("Don hang khong co chi tiet don hang");
 
-  //   // if (!data || !data.Chitietdonhang)
-  //   //   throw new Error("Don hang khong co chi tiet don hang");
-  //   console.log(resolvedData.chiTietDonHang);
-  //   console.log(data.Chitietdonhang);
+      //  Cap nhat so luong sach
+      const { loading, error } = await context.executeGraphQL({
+        query: gql`
+          mutation($data: [SachesUpdateInput]) {
+            updateSaches(data: $data) { 
+              tenSach
+              soLuong
+            }
+          }   
+        `,
+        variables: { data: dataUpdate },
+      });
 
-  //   // resolvedData.tongtien = data.Chitietdonhang?.tien;
-  //   if (resolvedData.tongtien > 300000) {
-  //     resolvedData.phiShip = 0;
-  //   }
-  //   else {
-  //     resolvedData.phiShip = 30000;
-  //   }
-  //   resolvedData.tongthanhtoan = resolvedData.tongtien + resolvedData.phiShip;
-  //   // console.log(resolvedData);
-  //   return resolvedData;
-  // },
-  // },
+      if (loading || error) throw new Error("So luong sach chua duoc cap nhat");
+
+      return resolvedData;
+    },
+  },
 };

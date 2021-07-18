@@ -55,7 +55,6 @@ module.exports = {
       resolvedData,
       context,
     }) => {
-      console.log(operation, existingItem, resolvedData);
       if (operation === "update") {
         const { data } = await context.executeGraphQL({
           query: gql`
@@ -72,7 +71,6 @@ module.exports = {
         if (!data || !data.Chitietdonhang || !data.Chitietdonhang.sach)
           throw new Error("Chi tiet don hang khong co sach");
         resolvedData.sach = data.Chitietdonhang.sach.id;
-        console.log(resolvedData);
       }
       const { data } = await context.executeGraphQL({
         query: gql`

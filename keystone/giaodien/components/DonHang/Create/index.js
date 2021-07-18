@@ -2,10 +2,32 @@ import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import UI from "./UI";
 
-// import { refetchDonHangList } from "../List";
+export default function DonHangCreate({ chiTietDH, id }) {
+  console.log(chiTietDH);
+  var arrayID = (
+    chiTietDH.map(chiTiet => {
+      return { id: chiTiet.id }
+    })
+  )
 
-export default function DonHangCreate({ chiTietDonHang}) {
-  // console.log(chiTietDonHang);
+  var tien = (
+    chiTietDH.map(chiTiet => {
+      return chiTiet.tien
+    })
+  )
+  var tongtien = 0;
+  for (let index = 0; index < tien.length; index++) {
+    tongtien += tien[index];
+  }
+
+  var phiShip = 0;
+  if (tongtien < 300000) {
+    phiShip = 30000;
+  }
+
+  var ngayDat = new Date();
+  var ngayGiao = new Date(ngayDat.getFullYear(), ngayDat.getMonth(), ngayDat.getDate() + 3);
+
   const [onCreateDonHang, resultCreateDonHang] = useMutation(gql`
    mutation($data: DonhangCreateInput) {
       createDonhang(data: $data) {
@@ -25,22 +47,24 @@ export default function DonHangCreate({ chiTietDonHang}) {
       }
     }
   `);
+
   const [values, setValues] = useState({
     hoten: null,
     sdt: null,
     diachi: null,
-    tongtien:0,
-    phiShip: 0,
-    tongthanhtoan: 0,
+    tongtien: tongtien,
+    phiShip: phiShip,
+    tongthanhtoan: tongtien + phiShip,
     tinhTrangThanhToan: 'tienmat',
-    tinhtrangGiao: 'choxacnhan',
     duyetBoiTaiKhoan: null,
     cachThucGiaoHang: 'giohanhchinh',
-    ngayDat: null,
-    ngayGiao: null,
-    chiTietDonHang: {connect: {id: null}}
+    ngayDat: ngayDat,
+    ngayGiao: ngayGiao,
+    chiTietDonHang: {
+      connect: arrayID
+    }
   });
-  console.log(values);
+  
   /**
    * @param {String} name
    */
@@ -53,20 +77,24 @@ export default function DonHangCreate({ chiTietDonHang}) {
         data: values,
       },
     })
-      // .then((data) => {
-      //   // refetchDonHangList()();
-      // })
-      // .catch((e) => {
-      //   console.log(e);
-      // });
+      .then((data) => {
+        // console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   if (resultCreateDonHang.loading) return "Loading...";
 
   return (
     <UI
+      id={id}
       handleChange={handleChange}
       onCreate={onCreate}
+      tongtien={tongtien}
+      phiShip={phiShip}
+      tongthanhtoan={values.tongthanhtoan}
       resultCreateDonHang={resultCreateDonHang}
     />
   );

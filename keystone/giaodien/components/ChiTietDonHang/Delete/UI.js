@@ -25,7 +25,8 @@ export default function UI({ onDelete }) {
                     <PopoverTrigger>
                         <Button color="white" colorScheme="red" bg={"red.300"} >
                             <Icon as={SmallCloseIcon}></Icon>
-                            {isOpen ? "close" : "open"}</Button>
+                            {isOpen ? "close" : "Xóa"}
+                        </Button>
                     </PopoverTrigger>
                     <Portal>
                         <PopoverContent>

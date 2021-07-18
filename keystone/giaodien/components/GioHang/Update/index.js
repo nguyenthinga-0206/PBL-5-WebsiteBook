@@ -1,55 +1,42 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { refetchGioHangList } from "../List";
-export default function GioHangUpdate({ UI }) {
-    const [onUpdateGioHang, resultUpdateGioHang] = useMutation(gql`
-    mutation($id: ID!, $data: GiohangUpdateInput) {
-        updateGiohangs(data: { id: $id, data: $data }) {
+// import { refetchGioHangList } from "../List";
+
+export default function GioHangUpdate({ UI, id, onCreate }) {
+  const [onUpdateGioHang, resultUpdateGioHang] = useMutation(gql`
+    mutation($id: ID!) {
+        updateGiohang (
+         id: $id
+          data: { chiTietDonHang: {disconnectAll: true} }
+        ) {
+          id
+          chiTietDonHang {
             id
-            chiTietDonHang {
-              id
-              soLuong
-              tien
-              sach {
-                tenSach
-                soLuong
-                gia
-              }
-            }
+          }
         }
-    }
+      }
   `);
 
-    const [values, setValues] = useState({
-        chiTietDonHang: {connect: {id}}
-    });
-    /**
-     * @param {String} name
-     */
 
-    const handleChange = (name) => (event) => {
-        setValues({ ...values, [name]: event.target.value });
-    };
-    const onUpdate = (e) => {
-        onUpdateGioHang({
-            variables: {
-                data: values,
-            },
-        })
-            .then((data) => {
-                refetchGioHangList()();
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    };
+  const onUpdate = (e) => {
+    onUpdateGioHang({
+      variables: {
+        id: id,
+      },
+    })
+      .then((data) => {
+        // refetchGioHangList()();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
-    if (resultUpdateGioHang.loading) return "Loading...";
-    return (
-        <UI
-            handleChange={handleChange}
-            onUpdate={onUpdate}
-            resultUpdateGioHang={resultUpdateGioHang}
-        />
-    );
+  // if (resultUpdateGioHang.loading) return "Loading...";
+  return (
+    <UI
+      onCreate={onCreate}
+      onUpdate={onUpdate}
+    />
+  );
 }

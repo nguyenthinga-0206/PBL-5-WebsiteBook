@@ -25,6 +25,7 @@ export default function ChiTietDonHangDelete({ ChiTietID }) {
   };
 
   if (resultDeleteChiTietDonHang.loading) return "Loading...";
+  
   return (
     <UI
       onDelete={onDelete}

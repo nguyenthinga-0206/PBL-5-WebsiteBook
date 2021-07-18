@@ -5,9 +5,9 @@ import { Fragment } from "react";
 import ChiTietSach from "./index";
 
 const Sach = () => {
-    const router = useRouter()
-    const { query: { id } } = router;
-    const { loading, error, data } = useQuery(gql`query {
+  const router = useRouter()
+  const { query: { id } } = router;
+  const { loading, error, data } = useQuery(gql`query {
         allSaches(where: {id: "${id}"}) {
           id
           tenSach
@@ -18,6 +18,7 @@ const Sach = () => {
           soTrang
           ngayXuatBan
           IMG {
+            id
             anh {
               publicUrl
             }
@@ -32,10 +33,10 @@ const Sach = () => {
         }
       }
       `);
-    if (loading || error) return 'Loading...';
-    const { allSaches: [sach] } = data;
-    return (
-       <ChiTietSach sach={sach} />
-    );
+  if (loading || error) return 'Loading...';
+  const { allSaches: [sach] } = data;
+  return (
+      <ChiTietSach sach={sach} />
+  );
 };
 export default Sach;
