@@ -10,7 +10,7 @@ const {
   DateTime,
   CloudinaryImage,
   File,
-} = require("@keystonejs/fields");
+} = require("@itoa/fields");
 
 module.exports = {
   fields: {

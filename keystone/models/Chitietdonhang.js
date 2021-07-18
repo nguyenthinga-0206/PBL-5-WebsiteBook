@@ -10,7 +10,7 @@ const {
   DateTime,
   CloudinaryImage,
   File,
-} = require("@keystonejs/fields");
+} = require("@itoa/fields");
 const { gql } = require("@apollo/client");
 
 module.exports = {

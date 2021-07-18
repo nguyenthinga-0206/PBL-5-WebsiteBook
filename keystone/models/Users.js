@@ -1,4 +1,4 @@
-const { Text, Checkbox, Password } = require('@keystonejs/fields');
+const { Text, Checkbox, Password } = require('@itoa/fields');
 module.exports = {
     fields: {
       name: {
