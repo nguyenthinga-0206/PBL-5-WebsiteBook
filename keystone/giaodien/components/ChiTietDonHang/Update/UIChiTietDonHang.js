@@ -15,7 +15,7 @@ import ChiTietDonHangDelete from "../Delete";
 import ChiTietDonHangUpdate from ".";
 import ChiTietDonHangUpdateUI from "./UI";
 
-export default function UIChiTietDonHang({ chiTietDonHang, handleChange, onUpdate, check }) {
+export default function UIChiTietDonHang({ chiTietDonHang, check }) {
   const router = useRouter();
 
   // Thay đôi so luong mua hang
