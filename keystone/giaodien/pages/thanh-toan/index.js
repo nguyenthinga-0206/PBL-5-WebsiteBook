@@ -9,7 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import DonHangCreate from "../../components/DonHang/Create";
-import ThanhTieuDeDangXuatUI from "../../components/ThanhTieuDe/UIDangXuat";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
 import ChanTrangUI from "../../components/ChanTrang/UI";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
@@ -23,7 +24,7 @@ export default function ThanhToan({ chiTietDH, id }) {
 
   return (
     <Fragment>
-      <ThanhTieuDeDangXuatUI />
+      <ThanhTieuDe UI={ThanhTieuDeUI} />
       <Box bg={"gray.50"}>
         <Box bg={"gray.50"} color={"black"}>
           <Container maxW={"container.xl"} bg="white" py={10}>

@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
-import { ListItem } from "@chakra-ui/layout";
-import { Fragment } from "react";
+import { refetchChiTietDHList } from "../List";
+import { refetchGioHangItem } from "../../GioHang/Item";
 import { gioHang } from "../../GioHang/Create/CreateGioHang";
 import UI from "./UI";
 import UIThemNhanh from "./UIThemNhanh";
@@ -29,7 +29,7 @@ export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
       },
     })
       .then((data) => {
-        console.log(data);
+        refetchGioHangItem()();
       })
       .catch((e) => {
         console.log(e);

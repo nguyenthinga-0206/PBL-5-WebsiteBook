@@ -24,15 +24,14 @@ export default function UI({ onDelete }) {
                 <>
                     <PopoverTrigger>
                         <Button color="white" colorScheme="red" bg={"red.300"} >
-                            <Icon as={SmallCloseIcon}></Icon>
-                            {isOpen ? "close" : "Xóa"}
+                            Xóa
                         </Button>
                     </PopoverTrigger>
                     <Portal>
                         <PopoverContent>
                             <PopoverHeader> Bạn có chắc chắn muốn xóa Sản Phẩm không? </PopoverHeader>
                             <PopoverCloseButton />
-                            <PopoverFooter>
+                            {/* <PopoverBody>
                                 <Button
                                     bg="gray.500"
                                     color="black"
@@ -41,8 +40,8 @@ export default function UI({ onDelete }) {
                                 >
                                     No
                                 </Button>
-                            </PopoverFooter>
-                            <PopoverBody>
+                            </PopoverBody> */}
+                            <PopoverFooter>
                                 <Button
                                     bg="gray.500"
                                     color="black"
@@ -50,7 +49,7 @@ export default function UI({ onDelete }) {
                                 >
                                     Yes
                                 </Button>
-                            </PopoverBody>
+                            </PopoverFooter>
                         </PopoverContent>
                     </Portal>
                 </>

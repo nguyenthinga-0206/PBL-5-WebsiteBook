@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, makeVar } from "@apollo/client";
 
 export default function GioHangList({ UI, first, skip = 0, sortBy, where }) {
   console.log(where);

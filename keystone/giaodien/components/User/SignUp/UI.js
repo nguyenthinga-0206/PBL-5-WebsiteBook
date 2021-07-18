@@ -50,7 +50,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
           <b>Email:</b>
           <InputGroup>
             <Input
-              placeholder="Email"
+              placeholder="abc1234@gmail.com"
               name={'email'}
               onChange={handleChange("email")}
               bg={'gray.100'}
@@ -85,7 +85,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
           </Center> */}
           <b>Tên Đăng Nhập:</b>
           <Input
-            placeholder="Tên Đăng Nhập"
+            placeholder="abc1234"
             name={'name'}
             onChange={handleChange('name')}
             bg={'gray.100'}
@@ -97,7 +97,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
           />
           <b>Nhập mật Khẩu:</b>
           <Input
-            placeholder="Mật Khẩu"
+            placeholder="********"
             name={'password'}
             onChange={handleChange("password")}
             bg={'gray.100'}
@@ -120,7 +120,10 @@ export default function UI({ handleChange, onSignUp, notification }) {
         </p>
         <Button
           fontFamily={'heading'}
-          onClick={onSignUp}
+          onClick={(e) => {
+            onSignUp;
+            router.push("/dang-nhap");
+          }}
           mt={8}
           w={'full'}
           bgGradient="linear(to-r, blue.500,blue.200)"
