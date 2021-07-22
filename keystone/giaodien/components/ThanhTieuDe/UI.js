@@ -32,6 +32,7 @@ import DangNhapUI from "../User/SignIn/ButtonSignIn";
 
 export default function UI({ change, value, data }) {
   const router = useRouter();
+  // console.log(value);
 
   return (
     <Box>
