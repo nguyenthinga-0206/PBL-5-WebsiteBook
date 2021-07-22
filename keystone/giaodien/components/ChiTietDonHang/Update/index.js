@@ -22,7 +22,7 @@ export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
             },
         })
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 refetchGioHangItem()();
             })
             .catch((e) => {
