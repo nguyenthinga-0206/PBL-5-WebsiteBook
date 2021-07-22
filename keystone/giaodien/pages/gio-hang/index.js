@@ -48,13 +48,13 @@ import ChanTrangUI from "../../components/ChanTrang/UI";
 import { Fragment } from "react";
 import GioHangItem from "../../components/GioHang/Item";
 import GioHangItemUI from "../../components/GioHang/Item/UI";
-import RoomItem from "../../components/Room/Item";
-import RoomItemUI from "../../components/Room/Item/UI";
-import { ChatProvider } from "../../Chat";
 import DonHangMuaHangUI from "../../components/DonHang/Create/UIMuaHang";
-export default function GioHang({ id, tenSach }) {
-  const { isOpen, onToggle } = useDisclosure();
+
+export default function GioHang() {
+  // const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
+  const { query: value } = router;
+
   return (
     <Fragment>
       <ThanhTieuDe UI={ThanhTieuDeUI} />
@@ -128,20 +128,19 @@ export default function GioHang({ id, tenSach }) {
                     }}
                   >
                     Tiếp tục mua hàng
-                </Button>
+                  </Button>
                 </Center>
               </GridItem>
               <GridItem colSpan={1}>
-                
-                <DonHangMuaHangUI />
-                
+
+                <DonHangMuaHangUI value={value} />
+
               </GridItem>
             </Grid>
           </Container>
         </Box>
       </Box>
-     {/* <RoomItem UI={RoomItemUI} />  */}
-       <ChanTrangUI />
+      <ChanTrangUI />
     </Fragment>
   );
 }

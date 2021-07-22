@@ -1,42 +1,44 @@
 {
-  "name": "@itoa/example-projects-starter",
-  "description": "An example KeystoneJS project with a User list and Authentication.",
-  "private": true,
-  "version": "6.0.3",
-  "author": "The KeystoneJS Development Team",
-  "repository": "https://github.com/keystonejs/keystone-5/tree/main/packages/create-keystone-5-app/example-projects/starter",
-  "homepage": "https://github.com/keystonejs/keystone-5",
-  "license": "MIT",
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "scripts": {
-    "be": "cross-env NODE_ENV=development cross-env PORT=3000 cross-env UI=false DISABLE_LOGGING=true keystone dev",
-    "fe": "next dev -p 8080 giaodien"
-  },
-  "dependencies": {
-    "@chakra-ui/icons": "^1.0.13",
-    "@chakra-ui/react": "^1.6.1",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@itoa/adapter-mongoose": "^12.0.0",
-    "@itoa/app-admin-ui": "^10.0.5",
-    "@itoa/app-graphql": "^7.0.0",
-    "@itoa/app-next": "^7.0.0",
-    "@itoa/app-static": "^6.0.0",
-    "@itoa/auth-password": "^7.0.0",
-    "@itoa/fields": "^24.0.3",
-    "@itoa/file-adapters": "^8.0.0",
-    "@itoa/keystone": "^21.0.0",
-    "axios": "^0.21.1",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "deepmerge": "^4.2.2",
-    "framer-motion": "^4.1.13",
-    "nodemailer": "^6.6.1",
-    "react-icons": "^4.2.0",
-    "socket.io": "^4.1.2",
-    "socket.io-client": "^4.1.2",
-    "swr": "^0.5.6"
-  }
+	"name": "@itoa/example-projects-starter",
+	"description": "An example KeystoneJS project with a User list and Authentication.",
+	"private": true,
+	"version": "6.0.3",
+	"author": "The KeystoneJS Development Team",
+	"repository": "https://github.com/keystonejs/keystone-5/tree/main/packages/create-keystone-5-app/example-projects/starter",
+	"homepage": "https://github.com/keystonejs/keystone-5",
+	"license": "MIT",
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"scripts": {
+		"be": "cross-env NODE_ENV=development cross-env PORT=3000 cross-env UI=false DISABLE_LOGGING=true keystone dev",
+		"build": "cross-env NODE_ENV=production cross-env PORT=3000 cross-env UI=true keystone build",
+		"start": "cross-env NODE_ENV=production cross-env PORT=3000 cross-env UI=true keystone start",
+		"fe": "next dev -p 8080 giaodien"
+	},
+	"dependencies": {
+		"@chakra-ui/icons": "^1.0.13",
+		"@chakra-ui/react": "^1.6.1",
+		"@emotion/react": "^11.4.0",
+		"@emotion/styled": "^11.3.0",
+		"@itoa/adapter-mongoose": "^12.0.0",
+		"@itoa/app-admin-ui": "^10.0.5",
+		"@itoa/app-graphql": "^7.0.0",
+		"@itoa/app-next": "^7.0.0",
+		"@itoa/app-static": "^6.0.0",
+		"@itoa/auth-password": "^7.0.0",
+		"@itoa/fields": "^24.0.3",
+		"@itoa/file-adapters": "^8.0.0",
+		"@itoa/keystone": "^21.0.0",
+		"axios": "^0.21.1",
+		"cors": "^2.8.5",
+		"cross-env": "^7.0.3",
+		"deepmerge": "^4.2.2",
+		"framer-motion": "^4.1.13",
+		"nodemailer": "^6.6.1",
+		"react-icons": "^4.2.0",
+		"socket.io": "^4.1.2",
+		"socket.io-client": "^4.1.2",
+		"swr": "^0.5.6"
+	}
 }

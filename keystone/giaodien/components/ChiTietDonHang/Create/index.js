@@ -7,13 +7,13 @@ import UIThemNhanh from "./UIThemNhanh";
 
 export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
   const gioHangId = gioHang();
-  const [onCreateChitietdonhang, resultCreateChitietdonhang] = useMutation(gql`
+  const [onCreateChitietdonhang, {data, loading, error }] = useMutation(gql`
     mutation($data: ChitietdonhangCreateInput) {
       createChitietdonhang(data: $data) {
         id
       }
     }
-  `);
+  `,);
   /**
    *
    * @param {Event} e
@@ -29,6 +29,7 @@ export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
       },
     })
       .then((data) => {
+        refetchChiTietDHList()();
         refetchGioHangItem()();
       })
       .catch((e) => {
@@ -36,7 +37,7 @@ export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
       });
   }
 
-  if (resultCreateChitietdonhang.loading) return "Loading...";
+  if (loading) return "Loading...";
   
     return (
       check ? <UIThemNhanh clickMuaHang={clickMuaHang} /> : <UI clickMuaHang={clickMuaHang} />

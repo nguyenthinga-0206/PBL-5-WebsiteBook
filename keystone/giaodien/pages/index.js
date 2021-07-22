@@ -1,14 +1,3 @@
-// import Head from "next/head";
-// import styles from "../styles/Home.module.css";
-// import { useRouter } from "next/router";
-// import BaiVietList from "../components/BaiViet/List";
-// import ChiTietDonHangList from "../components/ChiTietDonHang/List";
-// import DonHangList from "../components/DonHang/List";
-// import ImgList from "../components/Img/List";
-// import NhapSachList from "../components/PhieuNhapSach/List";
-// import NhaCungCapList from "../components/NhaCungCap/List";
-// import UserList from "../components/User/List";
-// import NextLink from "next/link";
 import { Fragment, useState } from "react";
 import PhanLoaiList from "../components/Phanloaisach/List";
 import PhanLoaiListUI from "../components/Phanloaisach/List/UI";
@@ -59,7 +48,7 @@ export default function Home({singout}) {
             />
           </GridItem>
           <GridItem colSpan={6} bg="white">
-            <SimpleGrid columns={3} spacingX="2px">
+            <SimpleGrid columns={3}  rowGap={3} spacingX="2px">
               <SachList
                 first={30}
                 UI={SachListUI}

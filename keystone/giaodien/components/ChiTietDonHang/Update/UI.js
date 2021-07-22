@@ -12,7 +12,7 @@ import {
 import { Fragment, useState } from "react";
 import { useRouter } from "next/router";
 
-export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
+export default function UI({ chiTietDonHang, onUpdate }) {
     const router = useRouter();
     // Thay đôi so luong mua hang
     const {
@@ -22,7 +22,7 @@ export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
     } = useNumberInput({
         step: 1,
         defaultValue: chiTietDonHang.soLuong,
-        min: 1,
+        min: 0,
         max: chiTietDonHang.sach?.soLuong,
     });
     const inc = getIncrementButtonProps();
@@ -34,8 +34,7 @@ export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
             <Button
                 {...inc}
                 onClick={ (e) => {
-                    handleChange(parseInt(input.value));
-                    onUpdate();
+                    onUpdate(parseInt(input.value));
                 }}
             >
                 +
@@ -44,8 +43,7 @@ export default function UI({ chiTietDonHang, handleChange, onUpdate }) {
             <Button
                 {...dec}
                 onClick={ (e) => {
-                    handleChange(parseInt(input.value));
-                    onUpdate();
+                    onUpdate(parseInt(input.value));
                 }}
             >
                 -

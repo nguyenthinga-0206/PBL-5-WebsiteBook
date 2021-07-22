@@ -1,44 +1,39 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
+import { refetchGioHangItem } from "../../GioHang/Item";
 
 export default function ChiTietDonHangUpdate({ UI, chiTietDonHang }) {
-    const [onUpdateChiTietDonHang, resultUpdateChiTietDonHang] = useMutation(gql`
-    mutation($id: ID!, $soLuong: Int) {
-        updateChitietdonhang ( 
-            id: $id
-            data: {
-                soLuong: $soLuong
-            }
-        ) {
-            id
-            soLuong
+    const [onUpdateChiTietDonHang, { loading, error, data }] = useMutation(gql`
+    mutation($id: ID!, $data: ChitietdonhangUpdateInput) {
+        updateChitietdonhangs(data: { id: $id, data: $data }) {
+          id
+          soLuong
         }
-    }
-  `);
-    const [value, setValue] = useState(chiTietDonHang.soLuong);
-    /**
-     * @param {String} name
-     */
-    const onUpdate = (e) => {
+      }
+  `,
+    );
+
+    const onUpdate = (value) => {
+        console.log(value)
         onUpdateChiTietDonHang({
             variables: {
                 id: chiTietDonHang.id,
-                soLuong: value,
+                data: { soLuong: value },
             },
         })
             .then((data) => {
                 // console.log(data);
+                refetchGioHangItem()();
             })
             .catch((e) => {
                 console.log(e);
             });
     };
 
-    if (resultUpdateChiTietDonHang.loading) return "Loading...";
-    
+    if (loading) return "Loading...";
+
     return (
         <UI
-            handleChange={setValue}
             onUpdate={onUpdate}
             chiTietDonHang={chiTietDonHang}
         />

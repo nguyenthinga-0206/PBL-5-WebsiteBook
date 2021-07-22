@@ -120,7 +120,7 @@ export default function UI({ handleChange, onSignUp, notification }) {
         <Button
           fontFamily={'heading'}
           onClick={(e) => {
-            onSignUp;
+            onSignUp();
             router.push("/dang-nhap");
           }}
           mt={8}
