@@ -34,7 +34,7 @@ export default function UI({ change, value, data }) {
   const router = useRouter();
 
   return (
-    <Box  >
+    <Box>
       <Flex
         bg={useColorModeValue("#b8ddd1", "white")}
         color={useColorModeValue("gray.800", "white")}
