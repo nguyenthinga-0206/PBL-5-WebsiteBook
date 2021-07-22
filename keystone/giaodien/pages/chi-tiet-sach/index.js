@@ -192,8 +192,7 @@ export default function ChiTietSach({ sach }) {
         </Container>
         <RoomItem UI={RoomItemUI} />
       </Box>
-      {/* <RoomItem UI={RoomItemUI} />
-          </ChatProvider> */}
+      {/* <RoomItem UI={RoomItemUI} /> */}
       <ChanTrangUI />
     </Fragment>
   );

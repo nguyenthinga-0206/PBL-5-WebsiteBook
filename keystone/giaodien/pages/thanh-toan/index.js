@@ -73,8 +73,7 @@ export default function ThanhToan({ chiTietDH, id }) {
           </Container>
         </Box>
       </Box>
-      {/* <RoomItem UI={RoomItemUI} />
-      </ChatProvider> */}
+      {/* <RoomItem UI={RoomItemUI} /> */}
       <ChanTrangUI />
     </Fragment>
   );

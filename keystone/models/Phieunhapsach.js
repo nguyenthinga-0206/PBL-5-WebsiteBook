@@ -1,4 +1,4 @@
-const { Text, CalendarDay, Integer, Relationship, Float } = require('@keystonejs/fields');
+const { Text, CalendarDay, Integer, Relationship, Float } = require('@itoa/fields');
 
 module.exports = {
   fields: {

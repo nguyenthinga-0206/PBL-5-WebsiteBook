@@ -59,7 +59,7 @@ export default function UI({ change, value }) {
                 w={"50%"}
                 h={"50%"}
                 src="img/logo.png"
-                alt="Segun Adebayo"
+                alt="quay lại trang chủ"
               />
             </Text>
           </Link>
@@ -92,7 +92,7 @@ export default function UI({ change, value }) {
               <Image
                 w={"440px"}
                 src="img/gio1.png"
-                alt="Segun Adebayo"
+                alt="Giỏ hàng"
               />
             </Text>
           </Link>
