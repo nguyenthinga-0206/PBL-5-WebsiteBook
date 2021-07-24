@@ -90,8 +90,8 @@ export default function UI() {
                <Image 
                w={'150'}
                h={'150'}
-                src="img/logo.png"     
-                           alt="Segun Adebayo"
+              src="img/logo.png"     
+               alt="Logo"
               />
           </Link>
         </Flex>

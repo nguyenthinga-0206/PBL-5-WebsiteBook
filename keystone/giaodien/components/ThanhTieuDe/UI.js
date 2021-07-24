@@ -41,46 +41,42 @@ export default function UI({ change, value, data }) {
         color={useColorModeValue("gray.800", "white")}
         minH={"60px"}
         px={{ base: 4 }}
-        // borderBottom={1}
         borderStyle={"solid"}
-        // borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Link
             onClick={(e) => {
               router.push("/");
             }}
           >
             <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
+              // textAlign={useBreakpointValue({ base: "center" })}
+              // fontFamily={"heading"}
               color={useColorModeValue("gray.50", "white")}
             >
               <Image
                 w={"50%"}
                 h={"50%"}
                 src="img/logo.png"
-                alt="Segun Adebayo"
+                alt="Trang Chủ"
               />
             </Text>
           </Link>
-        </Flex>
         <Input
-          mr="80px"
-          w={"50%"}
+          // mr="80px"
+          w={"70%"}
           bg="white"
-          mr="30px"
+          mr="50px"
           onChange={change}
           placeholder="Tìm kiếm"
         />
 
-        <Stack
+        {/* <Stack
           flex={{ base: 1, md: 0 }}
           direction={"row"}
           spacing={35}
           mr="30px"
-        >
+        > */}
           <Link
             onClick={(e) => {
               router.push({
@@ -90,20 +86,36 @@ export default function UI({ change, value, data }) {
             }}
           >
             <Text
+              mr="40px"
               textAlign={useBreakpointValue({ base: "center", md: "left" })}
               fontFamily={"heading"}
               color={useColorModeValue("gray.50", "white")}
             >
               <Image
-                w={"440px"}
+                w={"100px"}
+                // h={"60px"}
                 src="img/gio1.png"
-                alt="Segun Adebayo"
+                alt="Giỏ Hàng"
               />
             </Text>
           </Link>
-          <b>HayakuBook Xin Chào {data?.name}</b>
+          <Text 
+              mr="30px"
+              color="blackAlpha.700"
+              pointerEvents="stroke"
+     >
+       <b><i>Xin Chào</i>   </b>  <i>{data?.name}</i>
+          </Text>
+          <Text 
+
+              textAlign={useBreakpointValue({ base: "center" , })}
+            //   fontFamily={"heading"}
+            //   color={useColorModeValue("gray.50", "white")}
+            >
           {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
-        </Stack>
+          </Text>
+          
+        {/* </Stack> */}
       </Flex>
     </Box >
 
