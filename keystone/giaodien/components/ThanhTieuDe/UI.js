@@ -17,7 +17,6 @@ import {
   useDisclosure,
   Input,
   Drawer,
-  color,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -30,12 +29,11 @@ import DangXuat from "../User/SignOut";
 import DangXuatUI from "../User/SignOut/UI";
 import DangNhapUI from "../User/SignIn/ButtonSignIn";
 
-export default function UI({ change, value, data }) {
+export default function UI({ change, value }) {
   const router = useRouter();
-  // console.log(value);
 
   return (
-    <Box>
+    <Box  >
       <Flex
         bg={useColorModeValue("#b8ddd1", "white")}
         color={useColorModeValue("gray.800", "white")}
@@ -61,7 +59,7 @@ export default function UI({ change, value, data }) {
                 w={"50%"}
                 h={"50%"}
                 src="img/logo.png"
-                alt="quay lại trang chủ"
+                alt="Quay lại danh sách "
               />
             </Text>
           </Link>
@@ -83,10 +81,7 @@ export default function UI({ change, value, data }) {
         >
           <Link
             onClick={(e) => {
-              router.push({
-                pathname: "/gio-hang",
-                query: { value: value }
-              });
+              router.push("/gio-hang");
             }}
           >
             <Text
@@ -97,15 +92,14 @@ export default function UI({ change, value, data }) {
               <Image
                 w={"440px"}
                 src="img/gio1.png"
-                alt="Giỏ hàng"
+                alt="Segun Adebayo"
               />
             </Text>
           </Link>
-          <b>HayakuBook xin chao {data?.name}</b>
           {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
         </Stack>
       </Flex>
-    </Box >
+    </Box>
 
   );
 }
