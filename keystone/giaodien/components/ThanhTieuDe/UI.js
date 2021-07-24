@@ -32,6 +32,7 @@ import DangNhapUI from "../User/SignIn/ButtonSignIn";
 
 export default function UI({ change, value, data }) {
   const router = useRouter();
+  // console.log(value);
 
   return (
     <Box>
@@ -100,7 +101,7 @@ export default function UI({ change, value, data }) {
               />
             </Text>
           </Link>
-          <b>HayakuBook xin chao {data?.name}</b>
+          <b>HayakuBook Xin Chào {data?.name}</b>
           {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
         </Stack>
       </Flex>

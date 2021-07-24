@@ -14,14 +14,14 @@ export default function UI({ clickMuaHang }) {
 
   return (
     <Button
-      colorScheme="teal"
-      variant="solid"
-      ml={300}
-      bg={"orange.500"}
       onClick={(e) => {
         clickMuaHang();
         addToast();
       }}
+      colorScheme="teal"
+      variant="solid"
+      ml={300}
+      bg={"orange.500"}
     >
       THÊM VÀO GIỎ HÀNG
     </Button>

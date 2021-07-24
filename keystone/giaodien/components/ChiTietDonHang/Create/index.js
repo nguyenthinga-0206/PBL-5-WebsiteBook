@@ -29,7 +29,7 @@ export default function ChiTietDonHangCreate({ sachId, soLuong, check }) {
       },
     })
       .then((data) => {
-        refetchChiTietDHList()();
+        // refetchChiTietDHList()();
         refetchGioHangItem()();
       })
       .catch((e) => {
