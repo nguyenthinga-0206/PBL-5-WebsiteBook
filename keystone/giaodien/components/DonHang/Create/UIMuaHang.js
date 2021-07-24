@@ -7,6 +7,7 @@ export default function UIMuaHang({ value }) {
 
     const router = useRouter();
 
+    console.log(value);
     return (
         <Button
             onClick={(e) => {
