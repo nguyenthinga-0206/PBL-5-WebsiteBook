@@ -5,22 +5,20 @@ import {
   Grid,
   GridItem,
   Center,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import DonHangCreate from "./DonHang/Create";
-import ThanhTieuDe from "./ThanhTieuDe";
-import ThanhTieuDeUI from "./ThanhTieuDe/UI";
-import ChanTrangUI from "./ChanTrang/UI";
-import GioHangItem from "./GioHang/Item";
-import GioHangItemUI from "./GioHang/Item/UI";
+import DonHangCreate from "../../components/DonHang/Create";
+import ThanhTieuDe from "../../components/ThanhTieuDe";
+import ThanhTieuDeUI from "../../components/ThanhTieuDe/UI";
+import ChanTrangUI from "../../components/ChanTrang/UI";
+import GioHangItem from "../../components/GioHang/Item";
+import GioHangItemUI from "../../components/GioHang/Item/UI";
 import { Fragment } from "react";
 
 export default function ThanhToan({ chiTietDH, id }) {
-
   const { isOpen, onToggle } = useDisclosure();
   const router = useRouter();
-
 
   return (
     <Fragment>
@@ -77,4 +75,3 @@ export default function ThanhToan({ chiTietDH, id }) {
     </Fragment>
   );
 }
-
