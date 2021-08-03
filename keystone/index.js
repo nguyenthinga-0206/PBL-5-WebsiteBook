@@ -62,6 +62,8 @@ module.exports = {
   apps: [
     new GraphQLApp(),
     new AdminUIApp({
+      appId: process.env.NODE_ENV === "production" ? "145518257438217" : false,
+      pageId: process.env.NODE_ENV === "production" ? "108163084748223" : false,
       name: PROJECT_NAME,
       enableDefaultRoute: false,
       authStrategy,
