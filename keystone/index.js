@@ -69,6 +69,7 @@ module.exports = {
     ...(process.env.UI === "true" ? [new NextApp({ dir: "giaodien" })] : []),
   ],
   configureExpress: (app) => {
+    app.set("trust proxy", true);
     app.use(express.static(path.join(path.resolve(), "file")));
     app.use(cors());
     app.get("/rooms", (req, res) => {
