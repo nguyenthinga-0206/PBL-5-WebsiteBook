@@ -2,7 +2,7 @@ import { useState } from "react";
 import { io } from "socket.io-client";
 
 export default function chat() {
-  const socket = io("http://192.168.43.146:8080");
+  const socket = io("https://192.168.43.146:8080");
 
   return (
     <div>

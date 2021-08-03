@@ -16,7 +16,7 @@ export const useRoom = (id, key) => {
   //  */
 
   // useEffect(() => {
-  //   const url = `http://hayaku.itoa.vn/rooms/${room}`;
+  //   const url = `https://hayaku.itoa.vn/rooms/${room}`;
   //   if (room)
   //     axios
   //       .get(url)
@@ -46,7 +46,7 @@ export const useRoom = (id, key) => {
   });
   useEffect(() => {
     if (room) {
-      const url = `http://hayaku.itoa.vn/rooms/${room}`;
+      const url = `https://hayaku.itoa.vn/rooms/${room}`;
       axios
         .get(url)
         .then((res) => setMessages(res?.data?.room || []))

@@ -144,7 +144,7 @@ export const Blur = (props ) => {
       height="560px"
       viewBox="0 0 528 560"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       {...props}>
    
     </Icon>
