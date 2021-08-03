@@ -51,7 +51,7 @@ export const useRoom = (id, key) => {
         .get(url)
         .then((res) => setMessages(res?.data?.room || []))
         .finally(() => {});
-      const _socket = io("ws://103.130.212.228:3030", {
+      const _socket = io("ws://socket.itoa.vn", {
         query: { room: room },
       });
       _socket?.on(room, (message) =>
