@@ -51,12 +51,13 @@ export const useRoom = (id, key) => {
         .get(url)
         .then((res) => setMessages(res?.data?.room || []))
         .finally(() => {});
-      const _socket = io("ws://socket.itoa.vn", {
+      const _socket = io("https://socket.itoa.vn", {
         query: { room: room },
       });
-      _socket?.on(room, (message) =>
-        setMessages((messages) => [...messages, message]),
-      );
+      _socket?.on(room, (message) => {
+        console.log("on", room);
+        return setMessages((messages) => [...messages, message]);
+      });
       setSocket(_socket);
       return () => {
         _socket?.off(room);

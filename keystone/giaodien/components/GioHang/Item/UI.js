@@ -5,9 +5,10 @@ import ChiTietDonHangUpdateUI from "../../ChiTietDonHang/Update/UIChiTietDonHang
 export default function UI({ gioHang, check }) {
   return (
     <Fragment>
-      {gioHang?.chiTietDonHang.map((chiTietDonHang) => {
+      {gioHang?.chiTietDonHang.map((chiTietDonHang, index) => {
         return (
           <ChiTietDonHangUpdateUI
+            key={index}
             chiTietDonHang={chiTietDonHang}
             check={check}
           />
