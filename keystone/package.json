@@ -13,7 +13,7 @@
 	"scripts": {
 		"be": "cross-env NODE_ENV=development cross-env PORT=3000 cross-env UI=false DISABLE_LOGGING=true keystone dev",
 		"build": "cross-env NODE_ENV=production cross-env PORT=3000 cross-env UI=true keystone build",
-		"start": "cross-env NODE_ENV=production cross-env PORT=3000 cross-env UI=true keystone start",
+		"start": "cross-env NODE_ENV=production cross-env PORT=25102 cross-env UI=true keystone start",
 		"fe": "next dev -p 8080 giaodien"
 	},
 	"dependencies": {
