@@ -51,22 +51,20 @@ function Rating({ rating, numReviews }) {
 }
 
 function UI({ sach }) {
-
   const router = useRouter();
 
   return (
-    <Flex p={50} w="full" alignItems="center" justifyContent="center">
+    <Flex w="full" alignItems="center" justifyContent="center">
       <Box
         bg={useColorModeValue("white", "#F687B3")}
-        maxW="250px"
+        maxW="full"
         borderColor="white"
         borderWidth="1px"
         rounded="lg"
         shadow="lg"
         position="relative"
         _hover={{
-          borderColor: "#22543D",
-          borderWidth: "1px",
+          bg: "green.50",
         }}
       >
         {data.isNew && (
@@ -81,16 +79,16 @@ function UI({ sach }) {
         <Link
           onClick={(e) => {
             router.push({
-              pathname: '/chi-tiet-sach/[id]',
+              pathname: "/chi-tiet-sach/[id]",
               query: {
                 id: sach.id,
               },
-            })
+            });
           }}
         >
           <Image
-            w={'250px'}
-            h={'250px'}
+            w={"250px"}
+            h={"250px"}
             src={sach?.IMG[0]?.anh?.publicUrl}
             alt={`Picture of ${data.name}`}
             roundedTop="lg"
@@ -104,7 +102,8 @@ function UI({ sach }) {
               px="2"
               text-overflow="ellipsis"
               fontSize="xx-small"
-              colorScheme="green">
+              colorScheme="green"
+            >
               {sach.tenTacGia}
             </Badge>
           </Box>
@@ -112,11 +111,11 @@ function UI({ sach }) {
             <Link
               onClick={(e) => {
                 router.push({
-                  pathname: '/chi-tiet-sach/[id]',
+                  pathname: "/chi-tiet-sach/[id]",
                   query: {
                     id: sach.id,
                   },
-                })
+                });
               }}
             >
               <Box
@@ -131,11 +130,7 @@ function UI({ sach }) {
                 {sach.tenSach}
               </Box>
             </Link>
-            <ChiTietDonHangCreate
-              sachId={sach.id} 
-              soLuong={1} 
-              check={true} 
-            />
+            <ChiTietDonHangCreate sachId={sach.id} soLuong={1} check={true} />
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">

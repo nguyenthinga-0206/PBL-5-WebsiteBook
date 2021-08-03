@@ -2,110 +2,75 @@ import {
   Box,
   Flex,
   Text,
-  IconButton,
-  Button,
-  Stack,
   Image,
-  Collapse,
-  Icon,
   Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
   Input,
-  Drawer,
-  color,
+  Container,
+  Spacer,
+  Center,
+  IconButton,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import DangXuat from "../User/SignOut";
 import DangXuatUI from "../User/SignOut/UI";
 import DangNhapUI from "../User/SignIn/ButtonSignIn";
-
+import PhanloaisachList from "../Phanloaisach/List";
+import PhanloaisachListMenu from "../Phanloaisach/List/Menu";
 export default function UI({ change, value, data }) {
   const router = useRouter();
-  // console.log(value);
 
   return (
-    <Box>
-      <Flex
-        bg={useColorModeValue("#b8ddd1", "white")}
-        color={useColorModeValue("gray.800", "white")}
-        minH={"60px"}
-        px={{ base: 4 }}
-        // borderBottom={1}
-        borderStyle={"solid"}
-        // borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link
-            onClick={(e) => {
-              router.push("/");
-            }}
-          >
-            <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
-              color={useColorModeValue("gray.50", "white")}
+    <Box shadow="lg" bg="green.500" pos="sticky" top={0} zIndex={10}>
+      <Container maxW="container.lg" py={2}>
+        <Flex gridGap={4}>
+          <Center>
+            <NextLink href="/" passHref>
+              <Link>
+                <Image h={50} src="/img/logo.png" alt="Segun Adebayo" />
+              </Link>
+            </NextLink>
+          </Center>
+          {/* <Center>
+            <PhanloaisachList UI={PhanloaisachListMenu} />
+          </Center> */}
+          <Spacer />
+
+          <Center>
+            <Input
+              size="sm"
+              rounded="md"
+              w={300}
+              onChange={change}
+              placeholder="Tìm kiếm"
+              colorScheme="white"
+              bg="white"
+            />
+          </Center>
+
+          <Center>
+            <Link
+              onClick={(e) => {
+                router.push({
+                  pathname: "/gio-hang",
+                  query: { value: value },
+                });
+              }}
             >
-              <Image
-                w={"50%"}
-                h={"50%"}
-                src="img/logo.png"
-                alt="Segun Adebayo"
-              />
-            </Text>
-          </Link>
+              <IconButton isRound size="sm" icon={<AiOutlineShoppingCart />} />
+            </Link>
+          </Center>
+          {value && (
+            <Center>
+              <Text>Xin Chào {data?.name}</Text>
+            </Center>
+          )}
+          <Center>
+            {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
+          </Center>
         </Flex>
-        <Input
-          mr="80px"
-          w={"50%"}
-          bg="white"
-          mr="30px"
-          onChange={change}
-          placeholder="Tìm kiếm"
-        />
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          direction={"row"}
-          spacing={35}
-          mr="30px"
-        >
-          <Link
-            onClick={(e) => {
-              router.push({
-                pathname: "/gio-hang",
-                query: { value: value }
-              });
-            }}
-          >
-            <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
-              color={useColorModeValue("gray.50", "white")}
-            >
-              <Image
-                w={"440px"}
-                src="img/gio1.png"
-                alt="Segun Adebayo"
-              />
-            </Text>
-          </Link>
-          <b>HayakuBook Xin Chào {data?.name}</b>
-          {value ? <DangXuat UI={DangXuatUI} /> : <DangNhapUI />}
-        </Stack>
-      </Flex>
-    </Box >
-
+      </Container>
+    </Box>
   );
 }

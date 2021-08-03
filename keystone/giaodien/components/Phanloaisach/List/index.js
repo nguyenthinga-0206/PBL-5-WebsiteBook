@@ -1,6 +1,14 @@
 import { useQuery, gql } from "@apollo/client";
+import { Skeleton } from "@chakra-ui/react";
 
-export default function PhanloaiList({UI, first, skip = 0, sortBy, where, clickPhanLoai }) {
+export default function PhanloaiList({
+  UI,
+  first,
+  skip = 0,
+  sortBy,
+  where,
+  clickPhanLoai,
+}) {
   const { loading, error, data } = useQuery(
     gql`
       query(
@@ -21,11 +29,11 @@ export default function PhanloaiList({UI, first, skip = 0, sortBy, where, clickP
         }
       }
     `,
-    { variables: { first, skip, sortBy, where } }
+    { variables: { first, skip, sortBy, where } },
   );
-  
+
   if (loading || error) {
-    return "Loading...";
+    return <Skeleton w="full" h="full" />;
   }
 
   return <UI data={data} clickPhanLoai={clickPhanLoai} />;

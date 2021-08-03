@@ -27,7 +27,7 @@ import {
 } from "@chakra-ui/layout";
 import { Button, Container, position } from "@chakra-ui/react";
 
-export default function Home({singout}) {
+export default function Home({ singout }) {
   // console.log(singout);
   // Tim kiem
   const [keyword, setKeyword] = useState();
@@ -46,26 +46,26 @@ export default function Home({singout}) {
   return (
     <Fragment>
       <ThanhTieuDe UI={ThanhTieuDeUI} change={change} />
-      <Container maxW="container.xl" >
-        <Grid templateColumns="repeat(8, 1fr)" gap={4} margin={10}>
-          <GridItem colSpan={2} bg="white">
-            <Button bg="#66CDAA" w={280}>
-              <Center>DANH MỤC SÁCH</Center>
-            </Button>
-            <PhanLoaiList
-              UI={PhanLoaiListUI}
-              clickPhanLoai={clickPhanLoai}
-              margin={20}
-            />
-          </GridItem>
-          <GridItem colSpan={6} bg="white">
-            <SimpleGrid columns={3} spacingX="2px">
-              <SachList
-                first={30}
-                UI={SachListUI}
-                where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+      <Container maxW="container.lg">
+        <Grid templateColumns="repeat(8, 1fr)" gap={2} py={4} mb={8}>
+          <GridItem colSpan={2} bg="white" p={2} rounded="md">
+            <Box pos="sticky" top={90} zIndex={9}>
+              <Button colorScheme="green" w="full" mb={2}>
+                <Center>DANH MỤC SÁCH</Center>
+              </Button>
+              <PhanLoaiList
+                UI={PhanLoaiListUI}
+                clickPhanLoai={clickPhanLoai}
+                margin={20}
               />
-            </SimpleGrid>
+            </Box>
+          </GridItem>
+          <GridItem colSpan={6}>
+            <SachList
+              first={30}
+              UI={SachListUI}
+              where={{ AND: [{ tenSach_contains_i: keyword }, where] }}
+            />
           </GridItem>
         </Grid>
       </Container>

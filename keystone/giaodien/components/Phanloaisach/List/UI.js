@@ -9,14 +9,14 @@ export default function UI({ data, clickPhanLoai, value }) {
     <List spacing={3}>
       {allPhanloaisaches.map((phanloai, index) => {
         return (
-          <ListItem onClick={(e) => clickPhanLoai(phanloai)} key={index}>
+          <Box onClick={(e) => clickPhanLoai(phanloai)} key={index}>
             <PhanloaiItem
               UI={PhanloaiItemUI}
               key={phanloai.id}
               phanloai={phanloai}
             />
             <Text> {value}</Text>
-          </ListItem>
+          </Box>
         );
       })}
     </List>

@@ -2,12 +2,14 @@ import { route } from "next/dist/next-server/server/router";
 import { useRouter } from "next/router";
 import { useQuery, gql } from "@apollo/client";
 import { Fragment } from "react";
-import ThanhToan from "./index";
+import ThanhToan from "../../components/thanhtoan";
 
 const donhang = () => {
-    const router = useRouter()
-    const { query: { id } } = router;
-    const { loading, error, data } = useQuery(gql`query {
+  const router = useRouter();
+  const {
+    query: { id },
+  } = router;
+  const { loading, error, data } = useQuery(gql`query {
         allChitietdonhangs(
             where: {
                 gioHang: { id: "${id}"}
@@ -22,10 +24,8 @@ const donhang = () => {
         }
     }
     `);
-    if (loading || error) return 'Loading...';
-    const { allChitietdonhangs } = data;
-    return (
-        <ThanhToan chiTietDH={allChitietdonhangs} id={id} />
-    );
+  if (loading || error) return "Loading...";
+  const { allChitietdonhangs } = data;
+  return <ThanhToan chiTietDH={allChitietdonhangs} id={id} />;
 };
 export default donhang;

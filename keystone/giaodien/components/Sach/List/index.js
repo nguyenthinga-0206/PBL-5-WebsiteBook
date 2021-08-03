@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
+import { Skeleton } from "@chakra-ui/react";
 
-export default function SachList({ UI,  first = 3, skip = 0, sortBy, where }) {
+export default function SachList({ UI, first = 3, skip = 0, sortBy, where }) {
   const { loading, error, data } = useQuery(
     gql`
       query(
@@ -27,18 +28,18 @@ export default function SachList({ UI,  first = 3, skip = 0, sortBy, where }) {
           phanLoaiSach {
             loai
           }
-          baiViet{
+          baiViet {
             tieude
             baiViet
           }
         }
-      } 
+      }
     `,
-    { variables: { first, skip, sortBy, where } }
+    { variables: { first, skip, sortBy, where } },
   );
   if (loading || error) {
-    return "Loading...";
+    return <Skeleton w="full" h="100vh" />;
   }
 
-  return <UI data={data}/>;
+  return <UI data={data} />;
 }

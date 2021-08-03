@@ -36,7 +36,7 @@ export default function QuenMatKhau() {
           spacing={8}
           align={"center"}
         >
-          <Image w={"50%"} h={"50%"} src="img/mail1.png" alt="Segun Adebayo" />
+          <Image w={"50%"} h={"50%"} src="/img/mail1.png" alt="Segun Adebayo" />
           <Stack align={"center"} spacing={2}>
             <Heading
               textTransform={"uppercase"}
@@ -98,7 +98,7 @@ export default function QuenMatKhau() {
           spacing={8}
           align={"center"}
         >
-          <Image w={"30%"} h={"30%"} src="img/mail2.png" alt="Segun Adebayo" />
+          <Image w={"30%"} h={"30%"} src="/img/mail2.png" alt="Segun Adebayo" />
           <Stack align={"center"} spacing={2}>
             <Heading
               textTransform={"uppercase"}
@@ -160,7 +160,7 @@ export default function QuenMatKhau() {
           spacing={8}
           align={"center"}
         >
-          <Image w={"20%"} h={"30%"} src="img/khoa1.png" alt="Segun Adebayo" />
+          <Image w={"20%"} h={"30%"} src="/img/khoa1.png" alt="Segun Adebayo" />
           <Stack align={"center"} spacing={2}>
             <Heading
               textTransform={"uppercase"}
