@@ -16,7 +16,7 @@ export const useRoom = (id, key) => {
   //  */
 
   // useEffect(() => {
-  //   const url = `http://localhost:3000/rooms/${room}`;
+  //   const url = `http://hayaku.itoa.vn/rooms/${room}`;
   //   if (room)
   //     axios
   //       .get(url)
@@ -46,12 +46,12 @@ export const useRoom = (id, key) => {
   });
   useEffect(() => {
     if (room) {
-      const url = `http://localhost:3000/rooms/${room}`;
+      const url = `http://hayaku.itoa.vn/rooms/${room}`;
       axios
         .get(url)
         .then((res) => setMessages(res?.data?.room || []))
         .finally(() => {});
-      const _socket = io("ws://localhost:3030", { query: { room: room } });
+      const _socket = io("ws://103.130.212.228:3030", { query: { room: room } });
       _socket?.on(room, (message) =>
         setMessages((messages) => [...messages, message])
       );
@@ -138,4 +138,4 @@ function uuid() {
   // return Math.floor(Math.random() * 100000).toString();
 }
 const fetcher = (url) => axios.get(url).then((res) => res.data);
-export const useRooms = () => useSWR("http://localhost:3030/rooms", fetcher);
+export const useRooms = () => useSWR("http://103.130.212.228:3030/rooms", fetcher);

@@ -18,7 +18,7 @@ const authLink = setContext((_, { headers }) => {
     };
   }
 });
-const uri =  "http://localhost:3000/admin/api";
+const uri =  "http://hayaku.itoa.vn/admin/api";
 console.log(uri);
 const httpLink = new HttpLink({
   uri,

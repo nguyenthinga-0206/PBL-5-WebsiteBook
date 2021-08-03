@@ -40,8 +40,8 @@ export default function UI() {
           <Stack align={'flex-start'}>
             <ListHeader>Hỗ Trợ Khách Hàng</ListHeader>
             <Link href={'#'}>----------------</Link>
-            <Link href={'http://localhost:3000/dieu-khoan-su-dung'}>Điều khoản sử dùng</Link>
-            <Link href={'http://localhost:3000/huong-dan-mua-hang'}>Hướng dẫn mua hàng</Link>
+            <Link href={'http://hayaku.itoa.vn/dieu-khoan-su-dung'}>Điều khoản sử dùng</Link>
+            <Link href={'http://hayaku.itoa.vn/huong-dan-mua-hang'}>Hướng dẫn mua hàng</Link>
             <Link href={'#'}>Phương thức thanh toán</Link>
             <Link href={'#'}>Phương thức giao hàng </Link>
             <Link href={'#'}>Chính sách đổi trả</Link>
